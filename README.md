@@ -21,6 +21,9 @@ Classic Car Classifieds is a  CraigsList clone specifically for automobile enthu
 * [DB schema][schema]
 * [View Wireframes][views]
 
+[views]: ./docs/views.md
+[schema]: ./docs/schema.md
+
 ## Implementation Timeline
 
 
