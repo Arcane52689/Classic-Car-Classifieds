@@ -1,10 +1,10 @@
 # View Wireframes
 
 ## Search Results
-![seach-results]
+![search-results]
 
 ## Post Request
-![post-request]
+![post-request-form]
 
 
 
