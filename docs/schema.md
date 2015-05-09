@@ -27,7 +27,8 @@ column name   | data type | details
 id            | integer   | not null, primary key
 author_id     | integer   | not null, foreign key (references users)
 title         | string    | not null
-vehicle_id    | integer   |
+vehicle_id    | integer   | not null
+part_number   | integer   | 
 body          | text      |
 
 ## users
