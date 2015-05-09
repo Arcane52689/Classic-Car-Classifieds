@@ -1,39 +1,38 @@
 # Schema Information
 
-## blogs
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
-title       | string    | not null
+## part_sales
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+owner_id         | integer   | not null, foreign key (references users)
+part_number      | integer   | not null
+part_description | text      | not null
+part_for_make    | text      |
+part_for_model   | text      |
+part_for_year    | text      |
 
-## followings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-follower_id | integer   | not null, foreign key (references users)
 
-## posts
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
-title       | string    | not null
-body        | string    |
+## vehicle_sales
+column name         | data type | details
+--------------------|-----------|-----------------------
+id                  | integer   | not null, primary key
+owner_id            | integer   | not null, foreign key (references users)
+VIN                 | integer   | not null
+vehicle_description | text      | not null
+part_for_make       | text      |
+part_for_model      | text      |
+part_for_year       | text      |
 
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-label       | string    | not null, unique
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-tag_id      | integer   | not null, foreign key (references tags)
+## looking_for_requests
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+author_id     | integer   | not null, foreign key (references users)
+title         | string    | not null
+vehicle_make  | string    |
+vehicle_model | string    |
+vehicle_year  | integer   |
+body          | text      |
 
 ## users
 column name     | data type | details
@@ -42,3 +41,8 @@ id              | integer   | not null, primary key
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
+
+
+
+## Possible Changes:
+Give Vehicles their own table
