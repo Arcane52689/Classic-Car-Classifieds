@@ -16,7 +16,7 @@
 ![sign-up-view]
 
 ## Purchase Request subview
-![purchase-request-show]
+![purchase-request-view]
 
 
 [post-request-form]: ./wireframes/post_request_form.png
@@ -24,4 +24,4 @@
 [sign-in-view]: ./wireframes/sign-in-view.png
 [sign-up-view]: ./wireframes/sign-up-view.png
 [sales-request-view]: ./wireframes/sales-request-view.png
-[purchase-request-show]: ./wireframes/purchase-request-show.png
+[purchase-request-view]: ./wireframes/purchase-request-view.png
