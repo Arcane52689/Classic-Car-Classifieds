@@ -4,8 +4,11 @@
 ### Models
 
 ### Controllers
-
+* VehicleSalesController (search)
+* PartSalesController (search)
+* LookingForsController (search)
 ### Views
+* search-results
 
 ## Backbone
 ### Models
@@ -13,9 +16,5 @@
 ### Collections
 
 ### Views
-* PostForm
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown

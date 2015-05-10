@@ -2,28 +2,26 @@
 
 ## Rails
 ### Models
+* Part Sale
+* Looking-for Request
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+* PartSalesController (create, new, show)
+* LookingForsController (create, new, show)
 
 ### Views
-* blogs/show.json.jbuilder
+* part_sales/new.html.erb
+* looking_for/new.html.erb
+* all requests
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+
 
 ### Collections
-* Blogs
-* Posts
+
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+
 
 ## Gems/Libraries

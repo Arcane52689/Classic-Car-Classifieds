@@ -3,20 +3,22 @@
 ## Rails
 ### Models
 * User
-* Blog
-* Post
+* Vehicle
+* Vehicle Sale
+t
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+* VehiclesController (create)
+* VehicleSalesController (create, new, show)
+
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* vehicle_sales/new.html.erb
+
 
 ## Backbone
 ### Models

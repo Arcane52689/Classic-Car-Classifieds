@@ -42,11 +42,11 @@ I will use the skills I learned from App Academy to switch from a server side ap
 Allow users to upload images with their sales requests.
 
 ### Bonus Features (TBD)
-- [ ] Add capability to search by VIN(Vehicle Identification Number)
+
 - [ ] Limit search results by location
 - [ ] Limit/Order search results by distance, price, and quality
-- [ ] Let users request to be notified when a car matching a set of qualities is posted
-- [ ] Let users request to be notified when a part matching a requested part # has been posted
+- [ ] Let users request notification when a car matching a set of qualities is posted
+- [ ] Let users request notification when a part matching a requested part # has been posted
 - [ ] Pagination/Infinite scroll
 - [ ] Let users save a list of cars as their "garage"
 - [ ] Let users log in from multiple devices

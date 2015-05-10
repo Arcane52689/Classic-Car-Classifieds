@@ -2,21 +2,21 @@
 
 ## Rails
 ### Models
+Image
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
 
 ### Views
+\_image.json.jbuilder
 
 ## Backbone
 ### Models
+* Image
 
 ### Collections
-
+* Images
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+* Image Subview
+* Image Carousel Subview
 
 ## Gems/Libraries
-
