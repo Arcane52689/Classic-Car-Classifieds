@@ -24,4 +24,4 @@
 [sign-in-view]: ./wireframes/sign-in-view.png
 [sign-up-view]: ./wireframes/sign-up-view.png
 [sales-request-view]: ./wireframes/sales-request-view.png
-[purchase-request-view]: ./wireframes/purchase-request-view.png
+[purchase-request-show]: ./wireframes/purchase-request-show.png
