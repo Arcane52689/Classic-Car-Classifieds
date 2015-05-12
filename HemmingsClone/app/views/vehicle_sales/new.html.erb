@@ -2,17 +2,7 @@
 
 <form class="new-vehicle-sale" action="<%=vehicle_sales_url%>" method="post">
   <%= authentic_form %>
-  <label for="">Year</label>
-  <select class="" name="vehicle[year]">
-    <% (1900..2015).each do |year| %>
-      <option value="<%=year%>"> <%=year%> </option>
-    <% end %>
-  </select>
-  <label for="">Make</label>
-  <input type="text" name="vehicle[make]" value="">
-  <label for="">Model</label>
-  <input type="text" name="vehicle[model]" value="">
-  <br>
+  <%= render partial: "shared/vehicle" %>
   <label for="">Chasis Number/VIN</label>
   <input type="text" name="vehicle_sale[chasis_number]" value="">
   <label for="">Title Status</label>

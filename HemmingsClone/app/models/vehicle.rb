@@ -21,12 +21,12 @@ class Vehicle < ActiveRecord::Base
 
 
 
-  def is_unique?
-    vehicle = Vehicle.where(make: make).where(year: year).where(model: model).all
-    if vehicle
-      self.errors[:base] << "Vehicle already exists in database"
-    end
-  end
+  # def is_unique?
+  #   vehicle = Vehicle.where(make: make).where(year: year).where(model: model).all
+  #   if vehicle
+  #     self.errors[:base] << "Vehicle already exists in database"
+  #   end
+  # end
 
   def description
     "#{self.year} #{self.make} #{self.model}"
