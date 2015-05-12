@@ -8,7 +8,7 @@ class LookingForsController < ApplicationController
     @request = current_user.new(looking_for_params)
     @request.vehicle_id = find_vehicle.id
     if @request.save
-      redirect to looking_for
+      redirect to looking_fors_url
   end
 
   def show
