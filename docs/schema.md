@@ -36,11 +36,12 @@ location(zip code)  | integer   | not null (eventually)
 column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
-author_id     | integer   | not null, foreign key (references users)
+user_id       | integer   | not null, foreign key (references users)
 title         | string    | not null
 vehicle_id    | integer   | not null
 part_number   | integer   |
 body          | text      |
+location      | integer   |
 
 ## users
 column name     | data type | details
@@ -48,8 +49,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 email           | string    | not null, unique
 password_digest | string    | not null
-session_token   | string    | not null, unique
-contact number  | string    |
+
 
 
 ## sessions

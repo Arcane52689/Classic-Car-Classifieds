@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512182627) do
+ActiveRecord::Schema.define(version: 20150512193140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "looking_fors", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "vehicle_id"
+    t.string   "title"
+    t.string   "part_type"
+    t.string   "part_number"
+    t.text     "body",        null: false
+    t.integer  "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "looking_fors", ["user_id"], name: "index_looking_fors_on_user_id", using: :btree
+  add_index "looking_fors", ["vehicle_id"], name: "index_looking_fors_on_vehicle_id", using: :btree
 
   create_table "part_sales", force: :cascade do |t|
     t.integer  "user_id"
@@ -87,6 +102,8 @@ ActiveRecord::Schema.define(version: 20150512182627) do
   add_index "vehicles", ["model"], name: "index_vehicles_on_model", using: :btree
   add_index "vehicles", ["year"], name: "index_vehicles_on_year", using: :btree
 
+  add_foreign_key "looking_fors", "users"
+  add_foreign_key "looking_fors", "vehicles"
   add_foreign_key "part_sales", "users"
   add_foreign_key "part_taggings", "vehicles"
   add_foreign_key "sessions", "users"

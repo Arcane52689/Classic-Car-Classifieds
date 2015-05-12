@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
 
   has_many :vehicle_sales
 
+
   has_many :part_sales
+
+  has_many :looking_fors
 
   validates :email, presence: true
 
