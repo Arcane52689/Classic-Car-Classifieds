@@ -1,13 +1,14 @@
 # Schema Information
 
 ## part_sales
-column name      | data type | details
------------------|-----------|-----------------------
-id               | integer   | not null, primary key
-owner_id         | integer   | not null, foreign key (references users)
-part_number      | string   | not null
-part_type        | string    | not null
-part_description | text      | not null
+column name        | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+user_id           | integer   | not null, foreign key (references users)
+part_number        | string    | not null, indexed
+part_type          | string    | not null
+part_description   | text      | not null
+location(zip code) | integer   | not null (eventually)
 
 
 ## part_tagging
@@ -15,7 +16,7 @@ A join table for parts and vehicles
 column name      | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
-part_id          | integer   | not null, foreign key (references part_sales)
+part_#number     | integer   | not null, foreign key (references part_sales#part_number)
 vehicle_id       | integer   | not null, foreign key (references vehicles)
 
 
@@ -23,12 +24,13 @@ vehicle_id       | integer   | not null, foreign key (references vehicles)
 column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
-owner_id            | integer   | not null, foreign key (references users)
+user_id            | integer   | not null, foreign key (references users)
 Chasis Number/VIN   | string    | not null
 vehicle_description | text      | not null
 vehicle condition   | string    | not null
 title_status        | string    | not null
 vehicle_id          | integer   | not null, foreign key (references vehicles)
+location(zip code)  | integer   | not null (eventually)
 
 ## looking_for_requests
 column name   | data type | details

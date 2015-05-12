@@ -18,6 +18,15 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
-  
+
+  def vehicle_params
+    params.require(:vehicle).permit(:year, :make, :model)
+  end
+
+
+  def find_vehicle
+    Vehicle.find_or_create(vehicle_params)
+  end
+
 
 end

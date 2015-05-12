@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512153223) do
+ActiveRecord::Schema.define(version: 20150512182627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "part_sales", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "part_number",      null: false
+    t.string   "part_type",        null: false
+    t.text     "part_description", null: false
+    t.integer  "location",         null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "part_sales", ["part_number"], name: "index_part_sales_on_part_number", using: :btree
+  add_index "part_sales", ["part_type"], name: "index_part_sales_on_part_type", using: :btree
+  add_index "part_sales", ["user_id"], name: "index_part_sales_on_user_id", using: :btree
+
+  create_table "part_taggings", force: :cascade do |t|
+    t.string   "part_number", null: false
+    t.integer  "vehicle_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "part_taggings", ["part_number"], name: "index_part_taggings_on_part_number", using: :btree
+  add_index "part_taggings", ["vehicle_id"], name: "index_part_taggings_on_vehicle_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150512153223) do
     t.integer  "vehicle_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "location"
   end
 
   add_index "vehicle_sales", ["user_id"], name: "index_vehicle_sales_on_user_id", using: :btree
@@ -62,6 +87,8 @@ ActiveRecord::Schema.define(version: 20150512153223) do
   add_index "vehicles", ["model"], name: "index_vehicles_on_model", using: :btree
   add_index "vehicles", ["year"], name: "index_vehicles_on_year", using: :btree
 
+  add_foreign_key "part_sales", "users"
+  add_foreign_key "part_taggings", "vehicles"
   add_foreign_key "sessions", "users"
   add_foreign_key "vehicle_sales", "users"
   add_foreign_key "vehicle_sales", "vehicles"
