@@ -17,11 +17,11 @@ class PartSalesController < ApplicationController
   end
 
   def show
-    @request = PartSale.includes(:vehicle).find(params[:id])
+    @request = PartSale.includes(:vehicles).find(params[:id])
   end
 
   def index
-    @requests = PartSale.includes(:vehicle).all
+    @requests = PartSale.includes(:vehicles).all
   end
 
 
