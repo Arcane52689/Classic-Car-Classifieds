@@ -5,12 +5,12 @@ class PartSalesController < ApplicationController
   end
 
   def create
-    @request = current_user.partsales.new(part_sale_params)
+    @request = current_user.part_sales.new(part_sale_params)
     @request.part_taggings.new({ vehicle_id: find_vehicle.id })
     if @request.save
       redirect_to part_sales_url
     else
-      flash[:errors] = @request.errors.full_messages
+      # flash[:errors] = @request.errors.full_messages
       render :new
     end
 
@@ -26,7 +26,7 @@ class PartSalesController < ApplicationController
 
 
   def part_sale_params
-    params.require(:part_sale).permit(:description, :location, :part_type, :part_number)
+    params.require(:part_sale).permit(:part_description, :location, :part_type, :part_number)
   end
 
 
