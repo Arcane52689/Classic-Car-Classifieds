@@ -9,6 +9,10 @@
 <body>
 <% if logged_in? %>
   <h1> <%= current_user.email %> </h1>
+  <br>
+  <%= my_button_to(session_url, "Log Out", "delete") %>
+<% else %>
+  <%= my_button_to(new_session_url, "Log in", "get") %>
 <% end %>
 <%= yield %>
 
