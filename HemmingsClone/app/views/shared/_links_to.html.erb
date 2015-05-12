@@ -1,0 +1,13 @@
+
+<ul>
+  <% [new_part_sale_url, new_vehicle_sale_url] %>
+  <li>
+    <%= my_button_to(session_url, "Log Out", "delete") %>
+  </li>
+  <li>
+    <%= my_link_to(new_part_sale_url, "Sell my part") %>
+  </li>
+  <li>
+    <%= my_link_to(new_vehicle_sale_url, "Sell my car") %>
+  </li>
+</ul>

@@ -7,15 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <ul>
-    <li><%= flash[:errors] %> </li>
-  </ul>
-
+  <% if flash[:errors] %>
+    <ul>
+      <li><%= flash[:errors] %> </li>
+    </ul>
+  <% end %>
 
 <% if logged_in? %>
   <h1> <%= current_user.email %> </h1>
   <br>
-  <%= my_button_to(session_url, "Log Out", "delete") %>
+  <%= render partial: "shared/links_to" %>
 <% else %>
   <%= my_button_to(new_session_url, "Log in", "get") %>
 <% end %>
