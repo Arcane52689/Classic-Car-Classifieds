@@ -5,12 +5,18 @@ column name      | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
 owner_id         | integer   | not null, foreign key (references users)
-part_number      | integer   | not null
+part_number      | string   | not null
 part_type        | string    | not null
 part_description | text      | not null
-part_for_makes   | text      |
-part_for_models  | text      |
-part_for_years   | text      |
+
+
+## part_tagging
+A join table for parts and vehicles
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+part_id          | integer   | not null, foreign key (references part_sales)
+vehicle_id       | integer   | not null, foreign key (references vehicles)
 
 
 ## vehicle_sales
@@ -18,7 +24,7 @@ column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
 owner_id            | integer   | not null, foreign key (references users)
-Chasis Number/VIN   | integer   | not null
+Chasis Number/VIN   | string    | not null
 vehicle_description | text      | not null
 vehicle condition   | string    | not null
 title_status        | string    | not null
@@ -44,6 +50,13 @@ session_token   | string    | not null, unique
 contact number  | string    |
 
 
+## sessions
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+token           | string    | not null, unique
+user_id         | integer   | not null, foreign key (references user)
+
 
 ## Vehicles:
 column name     | data type | details
@@ -60,3 +73,4 @@ id                | integer   | not null, primary key
 file_location     | string    | not null
 requestable_id    | string    | not null
 requestable_type  | string    | not null
+(maybe have a user_id?)
