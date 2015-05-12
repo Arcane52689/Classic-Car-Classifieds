@@ -7,6 +7,13 @@ class Vehicle < ActiveRecord::Base
   validate :is_unique?
 
 
+  def self.find_or_create(params)
+    vehicle = Vehicle.find_by(params)
+    return vehicle if vehicle
+    return vehicle.create(params)
+  end
+
+
 
 
   def is_unique?
