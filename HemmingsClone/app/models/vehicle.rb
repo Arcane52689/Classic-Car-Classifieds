@@ -1,16 +1,16 @@
 class Vehicle < ActiveRecord::Base
 
-
+  has_many :vehicle_sales
 
   validates :make, :year, :model, presence: true
 
-  validate :is_unique?
+  # validate :is_unique?
 
 
   def self.find_or_create(params)
     vehicle = Vehicle.find_by(params)
     return vehicle if vehicle
-    return vehicle.create(params)
+    return Vehicle.create!(params)
   end
 
 
@@ -19,8 +19,12 @@ class Vehicle < ActiveRecord::Base
   def is_unique?
     vehicle = Vehicle.where(make: make).where(year: year).where(model: model).all
     if vehicle
-      self.errors << "Vehicle already exists in database"
+      self.errors[:base] << "Vehicle already exists in database"
     end
+  end
+
+  def description
+    "#{self.year} #{self.make} #{self.model}"
   end
 
 end
