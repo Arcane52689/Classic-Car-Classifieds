@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     return user if user.is_password?(password)
   end
 
+  def password
+    @password
+  end
+
 
   def password=(password)
     @password =password

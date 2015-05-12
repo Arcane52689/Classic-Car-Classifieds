@@ -18,7 +18,7 @@ class Session < ActiveRecord::Base
   def ensure_unique_token
     token = SecureRandom.urlsafe_base64(16)
 
-    until !Session.exists(token: token)
+    until !Session.exists?(token: token)
       token = SecureRandom.urlsafe_base64(16)
     end
     self.token = token
