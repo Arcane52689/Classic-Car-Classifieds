@@ -1,7 +1,7 @@
 # Classic Car Classifieds
 
 ## Link to website:
-Coming Soon
+https://classic-car-classifieds.herokuapp.com
 
 ## Minimum Viable Product
 Classic Car Classifieds is a  CraigsList clone specifically for automobile enthusiasts, built using Rails for backend and Backbone for front end.  Users will be able to:
