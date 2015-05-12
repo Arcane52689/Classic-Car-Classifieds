@@ -9,6 +9,10 @@ class LookingForsController < ApplicationController
     @request.vehicle_id = find_vehicle.id
     if @request.save
       redirect to looking_fors_url
+    else
+      render :new
+    end
+    
   end
 
   def show
@@ -22,4 +26,5 @@ class LookingForsController < ApplicationController
   def looking_for_params
     params.require(:looking_for).permit(:title, :part_number, :part_type, :location, :body)
   end
+
 end
