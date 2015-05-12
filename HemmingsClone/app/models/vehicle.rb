@@ -1,11 +1,16 @@
 class Vehicle < ActiveRecord::Base
 
+  CONDITIONS = %w(Excellent Fair Good Mint Project)
+
   has_many :vehicle_sales
 
   validates :make, :year, :model, presence: true
 
   # validate :is_unique?
 
+  def self.conditions
+    return CONDITIONS
+  end
 
   def self.find_or_create(params)
     vehicle = Vehicle.find_by(params)

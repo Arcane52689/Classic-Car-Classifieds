@@ -16,11 +16,11 @@
   <label for="">Chasis Number/VIN</label>
   <input type="text" name="vehicle_sale[chasis_number]" value="">
   <label for="">Title Status</label>
-  <input type="text" name="vehicle_sale[title_status]" value="">
+  <input type="text" name="vehicle_sale[title_status]" value="Clean">
   <br>
   <label for="">Condition</label>
   <select  name="vehicle_sale[vehicle_condition]">
-    <% ["Excellent", "Great", "Good", "Average", "Poor", "Junker"].each do |condition| %>
+    <% Vehicle.conditions.each do |condition| %>
     <option value="<%=condition%>"><%=condition%> </option>
     <% end %>
   </select>
