@@ -12,13 +12,13 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
-    return user if user.is_password(password)
+    return user if user.is_password?(password)
   end
 
 
   def password=(password)
     @password =password
-    self.password_digest = BCrypt::Password(password)
+    self.password_digest = BCrypt::Password.create(password)
   end
 
   def is_password?(password)
