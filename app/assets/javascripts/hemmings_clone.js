@@ -6,12 +6,12 @@ window.HemmingsClone = {
   initialize: function() {
     // alert('Hello from Backbone!');
     this.router = new HemmingsClone.Routers.Router({
-      $rootEl = "#main"
+      $rootEl: $("#main")
     });
     Backbone.history.start();
   }
 };
 
-$(document).ready(function(){
-  HemmingsClone.initialize();
-});
+// $(document).ready(function(){
+//   HemmingsClone.initialize();
+// });

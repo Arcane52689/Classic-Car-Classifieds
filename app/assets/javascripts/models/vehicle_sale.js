@@ -1,4 +1,4 @@
-HemmingsClone.Models.VehicleSale = Backbone.Model.extend$({
+HemmingsClone.Models.VehicleSale = Backbone.Model.extend({
   urlRoot: "api/vehicle_sales",
   vehicle: function() {
     if (!this._vehicle) {

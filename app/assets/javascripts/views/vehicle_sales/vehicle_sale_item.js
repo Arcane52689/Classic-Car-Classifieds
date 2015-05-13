@@ -1,4 +1,4 @@
-HemmingsClone.Views.VehicleSaleItem = Backbone.View.extend$({
+HemmingsClone.Views.VehicleSaleItem = Backbone.View.extend({
   tagName: "li",
 
   template: JST["vehicle_sales/item"],

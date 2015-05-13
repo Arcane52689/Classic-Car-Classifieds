@@ -1,4 +1,4 @@
-HemmingsClone.Models.Vehicle = Backbone.Model.extend$({
+HemmingsClone.Models.Vehicle = Backbone.Model.extend({
 
   description: function() {
     var year = this.escape("year");

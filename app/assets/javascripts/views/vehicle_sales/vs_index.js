@@ -1,10 +1,10 @@
-HemmingsClone.Views.VehicleSalesIndex = Backbone.CompositeView.extend$({
+HemmingsClone.Views.VehicleSalesIndex = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render )
   },
 
-  template: JST["vehicle_sales/index"],
+  template: JST["vehicle_sales"],
 
   render: function() {
     this.$el.html(this.template());

@@ -1,4 +1,4 @@
-HemmingsClone.Models.PartSale = Backbone.Model.extend$({
+HemmingsClone.Models.PartSale = Backbone.Model.extend({
   urlRoot: "api/part_sales",
 
   vehicles: function() {

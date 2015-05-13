@@ -1,4 +1,4 @@
-HemmingsClone.Routers.Router = Backbone.Router.extend$({
+HemmingsClone.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
   },
@@ -8,7 +8,7 @@ HemmingsClone.Routers.Router = Backbone.Router.extend$({
   },
 
   index: function() {
-    var results = HemmingsClone.Collections.VehicleSales();
+    var results = new HemmingsClone.Collections.VehicleSales();
     results.fetch();
     var view = new HemmingsClone.Views.VehicleSalesIndex({
       collection: results
