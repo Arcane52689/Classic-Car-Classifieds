@@ -1,6 +1,7 @@
-<>
+
 <article class="sale-item">
-  <h1 class="result-title"> <%= part_sale.escape("part_type") %> </h1>
+
+  <a class="result-title"  href="#part_sales/<%=part_sale.id%>"> <%= part_sale.escape("part_type") %> </a>
   <br>
   <label for="">Part Number: #<%= part_sale.escape("part_number") %></label>
   Fits:
