@@ -23,7 +23,7 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
     var $form = $(event.currentTarget)
 
     var successCallback = function() {
-      HemmingsClone.currentUser = $form.find("#email").val()
+      HemmingsClone.currentUser.set("email",$form.find("#email").val())
       this.close()
     }.bind(this);
 

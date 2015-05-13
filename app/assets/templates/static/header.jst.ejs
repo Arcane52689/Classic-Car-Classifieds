@@ -1,0 +1,15 @@
+<a class="logo" href="#"> Classic Car Classifieds </a>
+
+<% if (user.loggedIn()) { %>
+  <label class="hello"> Hello, <%= user.escape("email") %> </label>
+<% } %>
+
+<ul class="links group">
+  <% if (!user.loggedIn()) { %>
+    <li><a href="#login" class="nav-link"> Login </a></li>
+    <li><a href="#sign_up" class="nav-link"> Sign Up </a> </li>
+  <% } else { %>
+    <li>  <button class="logout nav-link">Logout</button> </li>
+  <% } %>
+
+</ul>

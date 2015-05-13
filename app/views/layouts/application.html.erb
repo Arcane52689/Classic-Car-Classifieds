@@ -8,25 +8,7 @@
 </head>
 <body>
 
-  <header class="header group">
-    <nav class="links">
-      <a class="logo" href="#"> Classic Car Classifieds </a>
 
-      <% if logged_in? %>
-        <label class="hello"> Hello, <%= current_user.email %> </label>
-      <% end %>
-
-      <ul class="links group">
-        <% if !logged_in? %>
-          <li><a href="#login" class="nav-link"> Login </a></li>
-          <li><a href="#sign_up" class="nav-link"> Sign Up </a> </li>
-        <% else %>
-          <li>  <%= my_button_to(session_url, "Log out", "delete") %> </li>
-        <% end %>
-
-      </ul>
-    </nav>
-  </header>
 
 
 <%= yield %>

@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :vehicle_sales, only: [ :create,:index, :show]
     resources :part_sales, only: [:create, :index, :show]
-    resource :session, only: [:create, :destroy]
+    resource :session, only: [:create, :destroy] do
+      member do
+        get :active_user
+      end
+    end
 
 
   end
