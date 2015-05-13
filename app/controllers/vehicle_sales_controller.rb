@@ -7,6 +7,7 @@ class VehicleSalesController < ApplicationController
   def create
     @request = current_user.vehicle_sales.new(vehicle_sale_params)
     @request.vehicle_id = find_vehicle.id
+
     if @request.save
       flash[:success] = "sale has been posted"
       redirect_to vehicle_sales_url
@@ -35,6 +36,6 @@ class VehicleSalesController < ApplicationController
   end
 
   def vehicle_sale_params
-    params.require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status)
+    params.require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location)
   end
 end
