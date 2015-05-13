@@ -6,7 +6,7 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "base",
+    "": "root",
     "vehicle_sales": "vs_index",
     "vehicle_sales/new": "vs_new",
     "vehicle_sales/:id":"vs_show",
@@ -14,8 +14,9 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
     "part_sales/:id": "ps_show"
   },
 
-  base: function() {
-
+  root: function() {
+    var view = new HemmingsClone.Views.RootView();
+    this._swapView(view);
   },
 
   vs_index: function() {
