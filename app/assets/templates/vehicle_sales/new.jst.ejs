@@ -1,0 +1,43 @@
+<h1> Sell Your Car! </h1>
+
+<form class="new-vehicle-sale">
+
+
+  <label for="">Year</label>
+  <select class="" name="vehicle[year]">
+    <% for (var year = 1900; year <= 2015; year++) { %>
+      <option value="<%=year%>"> <%=year%> </option>
+    <% } %>
+  </select>
+  <label for="">Make</label>
+  <input type="text" name="vehicle[make]" value="">
+  <label for="">Model</label>
+  <input type="text" name="vehicle[model]" value="">
+  <br>
+
+
+
+
+  <label for="">Chasis Number/VIN</label>
+  <input type="text" name="vehicle_sale[chasis_number]" value="<%= sale.escape("chasis_number") %>">
+  <label for="">Title Status</label>
+  <input type="text" name="vehicle_sale[title_status]" value="Clean">
+  <br>
+  <label for="">Condition</label>
+  <select  name="vehicle_sale[vehicle_condition]">
+    <% _.each(["Excellent", "Fair", "Good", "Mint", "Project"], function(condition){  %>
+    <option
+    value="<%=condition%>"
+    <% if (sale.escape("condition") == condition) { %>
+      selected
+    <% } %>  >
+      <%=condition%> </option>
+    <% }); %>
+  </select>
+  <label for="">Zip Code</label><input type="text" name="vehicle_sale[location]" value="<%= sale.escape("location") %>">
+  <br>
+  <label for="">Description</label>
+  <textarea name="vehicle_sale[vehicle_description]" rows="8" cols="40"></textarea>
+  <br>
+  <input type="submit" name="name" value="BAM!">
+</form>

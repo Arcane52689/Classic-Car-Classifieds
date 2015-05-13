@@ -1,6 +1,7 @@
 HemmingsClone.Views.SignUpForm = Backbone.View.extend({
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "click .close": "close"
   },
 
   template: JST["auth/sign_up"],
@@ -33,6 +34,11 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
     else {
       this.render();
     }
+  },
+
+  close: function(event) {
+    event.preventDefault();
+    this.remove()
   }
 
 })

@@ -6,10 +6,16 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    "": "base",
     "vehicle_sales": "vs_index",
+    "vehicle_sales/new": "vs_new",
     "vehicle_sales/:id":"vs_show",
     "part_sales": "ps_index",
     "part_sales/:id": "ps_show"
+  },
+
+  base: function() {
+
   },
 
   vs_index: function() {
@@ -26,6 +32,16 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
       model: result
     })
     this._swapView(view);
+  },
+
+  vs_new: function() {
+
+    var view = new HemmingsClone.Views.VehicleSaleForm({
+      model: new HemmingsClone.Models.VehicleSale(),
+      collection: this.vehicle_sales
+    });
+    this._swapView(view);
+
   },
 
 

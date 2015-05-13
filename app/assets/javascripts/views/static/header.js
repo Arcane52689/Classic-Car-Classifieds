@@ -19,7 +19,6 @@ HemmingsClone.Views.Header = Backbone.View.extend({
 
   logout: function(event) {
     event.preventDefault();
-    debugger
     $.ajax({
       url: "/api/session/",
       type: "DELETE",

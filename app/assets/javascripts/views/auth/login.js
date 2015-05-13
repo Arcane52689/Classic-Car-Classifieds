@@ -18,7 +18,6 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
   },
 
   submit: function(event) {
-    // debugger
     event.preventDefault();
     var $form = $(event.currentTarget)
 
