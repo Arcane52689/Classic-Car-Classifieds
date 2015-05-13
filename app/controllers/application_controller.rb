@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
 
   def login!(user)
     @current_user = user
-    session[:session_token] = user.sessions.create().token
+    @session = user.sessions.create()
+    session[:session_token] = @session.token
   end
 
   def current_user
