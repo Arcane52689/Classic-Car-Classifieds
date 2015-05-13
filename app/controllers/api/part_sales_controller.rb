@@ -6,10 +6,10 @@ class Api::PartSalesController < ApplicationController
     @part_sale = current_user.part_sales.new(part_sale_params)
     @part_sale.part_taggings.new({ vehicle_id: find_vehicle.id })
     if @part_sale.save
-      redirect_to part_sales_url
+      render json: @part_sale
     else
       # flash[:errors] = @part_sale.errors.full_messages
-      render :new
+      render json: @part_sale.errors.full_messages
     end
 
   end
