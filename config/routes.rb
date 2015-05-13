@@ -17,8 +17,8 @@ Rails.application.routes.draw do
         get :active_user
       end
     end
-
-
+    resources :users, only: [:new, :create]
+    
   end
 
 end

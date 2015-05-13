@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
 
 
@@ -6,11 +6,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
-
+      head(:no_content)
     else
-      flash[:errors] = "whoops"
+      render json: "nope", status: 422;
     end
-    render :new
+
   end
 
 

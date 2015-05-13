@@ -9,8 +9,10 @@ HemmingsClone.Routers.PopUps = Backbone.Router.extend({
   },
 
   signUp: function() {
-
-
+    var view = new HemmingsClone.Views.SignUpForm({
+      model: new HemmingsClone.Models.User()
+    })
+    this._swapView(view);
   },
 
   login: function() {
