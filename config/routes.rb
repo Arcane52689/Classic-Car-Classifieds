@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :vehicle_sales, only: [:new, :create,:index, :show]
+    resources :part_sales, only: [:new, :create, :index, :show]
 
 
   end
