@@ -1,18 +1,27 @@
 HemmingsClone.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
+    this.results = new HemmingsClone.Collections.VehicleSales();
   },
 
   routes: {
-    "": "index"
+    "": "index",
+    "vehicle_sales/:id":"show"
   },
 
   index: function() {
-    var results = new HemmingsClone.Collections.VehicleSales();
-    results.fetch();
+    this.results.fetch();
     var view = new HemmingsClone.Views.VehicleSalesIndex({
-      collection: results
+      collection: this.results
     });
+    this._swapView(view);
+  },
+
+  show: function(id) {
+    var result = this.results.getOrFetch(id)
+    var view = new HemmingsClone.Views.VehicleSaleShow({
+      model: result
+    })
     this._swapView(view);
   },
 
