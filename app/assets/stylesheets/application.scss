@@ -15,6 +15,50 @@
  */
 
 
+html, body, h1, h2, h3, h4, h5, h6, a, section, article, button, nav, header, ul, li {
+  margin: 0;
+  border: 0;
+  outline: 0;
+  padding: 0;
+
+  font: inherit;
+  text-decoration: inherit;
+  text-alignment: inherit;
+  color: inherit;
+
+  background: transparent;
+}
+
 .inactive {
   display: none;
+}
+
+.group:after {
+  content:"";
+  clear: both;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+
+button {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+a {
+  cursor: pointer;
+  display: block;
+  color: blue;
+
 }
