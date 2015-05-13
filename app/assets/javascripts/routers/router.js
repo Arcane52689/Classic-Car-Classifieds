@@ -5,11 +5,11 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "index",
-    "vehicle_sales/:id":"show"
+    "vehicle_sales": "vs_index",
+    "vehicle_sales/:id":"vs_show"
   },
 
-  index: function() {
+  vs_index: function() {
     this.results.fetch();
     var view = new HemmingsClone.Views.VehicleSalesIndex({
       collection: this.results
@@ -17,7 +17,7 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  show: function(id) {
+  vs_show: function(id) {
     var result = this.results.getOrFetch(id)
     var view = new HemmingsClone.Views.VehicleSaleShow({
       model: result
