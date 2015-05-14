@@ -19,6 +19,10 @@ window.HemmingsClone = {
       $rootEl: $("#main")
     });
 
+    var VehicleSalesRouter = new HemmingsClone.Routers.VehicleSalesRouter({
+      $rootEl: $("#main")
+    })
+
     HemmingsClone.renderBase();
     HemmingsClone.checkForUser();
     Backbone.history.start();
@@ -36,12 +40,7 @@ window.HemmingsClone = {
       type: "GET",
       dataType: "json",
       success: function(response) {
-        console.log("hi");
-        console.log(response);
         HemmingsClone.currentUser.set("email", response.email)
-      },
-      error: function(response) {
-        console.log(response);
       }
     })
 
