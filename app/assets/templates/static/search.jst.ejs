@@ -1,0 +1,21 @@
+
+<h1> Search <h1>
+<ul class="errors">
+
+</ul>
+
+<form class="search-form">
+  <label for="">Year</label>
+  <select class="" name="vehicle[year]">
+    <% for (var year = 1900; year <= 2015; year++) { %>
+      <option value="<%=year%>"> <%=year%> </option>
+    <% } %>
+  </select>
+  <label for="">Make</label>
+  <input type="text" name="vehicle[make]" value="">
+  <label for="">Model</label>
+  <input type="text" name="vehicle[model]" value="">
+  <br>
+
+  <input type="submit" value="Search">
+</form>

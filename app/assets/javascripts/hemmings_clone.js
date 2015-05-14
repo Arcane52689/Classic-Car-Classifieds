@@ -31,7 +31,10 @@ window.HemmingsClone = {
 
   renderBase: function() {
     this.header = new HemmingsClone.Views.Header();
-    $(".header").html(this.header.render().$el)
+    $(".header").html(this.header.render().$el);
+
+    this.searchBox = new HemmingsClone.Views.SearchBox();
+    $("#search").html(this.searchBox.render().$el);
   },
 
   checkForUser: function() {
