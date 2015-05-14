@@ -14,6 +14,12 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template({}));
+    var view = new HemmingsClone.Views.MakeModelForm({
+      collection: new HemmingsClone.Collections.Vehicles({
+        make: "Toyota"
+      })
+    });
+    this.addSubview("#make-and-model", view)
     return this;
   },
 

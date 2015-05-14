@@ -12,12 +12,18 @@ Vehicle.makes.each do |make|
   File.foreach(make_file_path) do |line|
     model = line.chomp
 
-    # (1930..1985).each do |year|
+    (1930..1985).each do |year|
+      Vehicle.find_or_create({
+        make: make,
+        year: year,
+        model: model,
+        })
+    end
+
     Vehicle.find_or_create({
       make: make,
       year: 0,
       model: model,
-      })
-    # end
+    })
   end
 end

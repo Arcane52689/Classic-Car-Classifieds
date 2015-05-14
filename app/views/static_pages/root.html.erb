@@ -13,13 +13,14 @@ $(HemmingsClone.initialize);
 </script>
 
 <script type = "text/template" id="make-select">
-  
 
-  <select class="select-make" name="vehicle[make]">
+
+  <select class="select-make" name="vehicle[make]" id="make">
     <% Vehicle.makes.each do |make| %>
       <option value="<%= make %>"> <%=make%> </option>
     <% end %>
   </select>
+  <select class="select-model" name="vehicle[model]" id="model">
     <option>Must select make first </option>
   <select>
 
