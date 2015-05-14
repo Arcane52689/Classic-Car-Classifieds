@@ -1,0 +1,34 @@
+
+<form class="new-part-sale">
+  <label for="">What kind of car is this part for?</label>
+  <br>
+
+  <label for="">Year</label>
+  <select class="" name="vehicle[year]">
+    <% for (var year = 1900; year <= 2015; year++) { %>
+      <option value="<%=year%>"> <%=year%> </option>
+    <% } %>
+  </select>
+  <label for="">Make</label>
+  <input type="text" name="vehicle[make]" value="">
+  <label for="">Model</label>
+  <input type="text" name="vehicle[model]" value="">
+  <br>
+
+
+
+  <br>
+  <label for="">Part Number</label>
+  <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape("part_number")%>">
+  <br>
+  <label for="">Part Type</label>
+  <input type="text" name="part_sale[part_type]" value="<%= part_sale.escape("part_type")%>">
+  <br>
+  <label for="">Please enter your ZIP code</label>
+  <input type="text" name="part_sale[location]" value="<%= part_sale.escape("part_type")%>">
+  <br>
+  <label>Part Description</label>
+  <textarea name="part_sale[part_description]" rows="8" cols="40"><%= part_sale.escape("part_description") %></textarea>
+  <br>
+  <input type="submit" value="Whoops">
+</form>
