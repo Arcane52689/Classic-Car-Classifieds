@@ -1,0 +1,23 @@
+Beetle
+Cabriolet
+Campmobile
+Corrado
+Dune Buggy
+EuroVan
+Golf
+III
+Jetta
+Karmann Ghia
+Microbus
+New Beetle
+Phaeton
+R32
+Rabbit
+Super Beetle
+Thing
+Tiguan
+Touareg
+Transporter
+Type 2
+Vanagon
+Westfalia

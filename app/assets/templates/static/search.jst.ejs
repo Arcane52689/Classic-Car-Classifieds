@@ -11,21 +11,21 @@
 
 
 <form class="search-form">
-  <label for="">Year</label>
-  <select class="" name="vehicle[year]">
-    <% for (var year = 1900; year <= 2015; year++) { %>
-      <option value="<%=year%>"> <%=year%> </option>
-    <% } %>
-  </select>
-  <label for="">Make</label>
+  <label class="year">Year Start:
+  <input type="text" name="vehicle[year_start]" value="">
+  </label>
+  <label class="year">Year End:
+  <input type="text" name="vehicle[year_end]" value="">
+  </label>
+  <label for="">Make:</label>
   <input type="text" name="vehicle[make]" value="">
-  <label for="">Model</label>
+  <label for="">Model:</label>
   <input type="text" name="vehicle[model]" value="">
   <br>
   <div class="inactive" id="part-search">
-    <label for="">Part #</label>
+    <label for="">Part # :</label>
     <input type="text" name="part_sale[part_number]" value="">
-    <label>Part Type </label>
+    <label>Part Type:</label>
     <input type="text" name="part_sale[part_number]" value="">
   </div>
 

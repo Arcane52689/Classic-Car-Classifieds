@@ -1,0 +1,107 @@
+01A
+2N
+68
+8N
+9N
+A400
+Anglia
+Bronco
+Bronco II
+C600
+Cobra
+Cortina
+Country Sedan
+Country Squire
+Courier
+Crestline
+Crestliner
+Crown Victoria
+Custom
+Customline
+Deluxe
+E250
+E350
+Econoline
+Edge
+Elite
+Escort
+Excursion
+F-7
+F1
+F100
+F150
+F2
+F250
+F350
+F450
+F500
+F550
+F6
+F600
+F750
+Fairlane
+Fairlane 500
+Fairlane 500XL
+Fairmont
+Falcon
+Falcon Ranchero
+Falcon Sprint
+Festiva
+Focus
+GPW
+GT
+GT40
+GTB
+Galaxie
+Galaxie 500
+Galaxie 500XL
+Galaxie XL
+Gran Torino
+Granada
+LTD
+Lightning
+Mainline
+Maverick
+McLaren
+Model 18
+Model 40
+Model 48
+Model A
+Model AA
+Model AR
+Model B
+Model T
+Model TT
+Mustang
+Mustang Bullitt
+Mustang California Special
+Mustang Cobra
+Mustang II
+Mustang SVT
+Parklane
+Pinto
+Popular
+Prefect
+Ranch Wagon
+Ranchero
+Ranger
+Raptor
+Roush Mustang
+Shelby Mustang
+Skyliner
+Special
+Sportsman
+Standard
+Starliner
+Sunliner
+Super
+Super Deluxe
+Taunus
+Taurus
+Thunderbird
+Thunderbolt
+Torino
+Torino Cobra
+Tudor
+Victoria
+XL

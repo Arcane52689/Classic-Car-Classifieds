@@ -1,31 +1,54 @@
 class Vehicle < ActiveRecord::Base
 
   CONDITIONS = %w(Excellent Fair Good Mint Project)
-  MAKE_MODELS = {
-    Jaguar: [
-      "E-type",
-      "Mark-4",
-      "XK6",
-      "s-type"
-    ],
-    MG: [
-      "MGB",
-      "MGA"
-    ],
-    Triumph: [
-      "TR6",
-      "TR3",
-      "spitfire"
-    ],
-    AlphaRomeo:[
-      "spider"
-    ],
-    Chevy: [
-      "Belair",
-      "pickup",
-      "camero"
-    ]
-  }
+  MAKES = [
+    "Mercedes Benz",
+    "Alfa Romeo",
+    "Aston Martin",
+    "Audi",
+    "Austin",
+    "Austin-Healey",
+    "Bentley",
+    "BMW",
+    "Cadillac",
+    "Cheverolet",
+    "Chrystler",
+    "Citroen",
+    "Datsun",
+    "Dodge",
+    "Ferrari",
+    "Fiat",
+    "Ford",
+    "Harley-Davidson",
+    "Honda",
+    "Hummer",
+    "Jaguar",
+    "Lamborghini",
+    "Lincoln",
+    "Lotus",
+    "Maserati",
+    "Mazda",
+    "Mercury",
+    "MG",
+    "Mini",
+    "Morgan",
+    "Nissan",
+    "Oldsmobie",
+    "Packard",
+    "Pierce-Arrow",
+    "Plymouth",
+    "Pontiac",
+    "Porsche",
+    "Renault",
+    "Rolls-Royce",
+    "Saab",
+    "Shelby",
+    "Studebaker",
+    "Triumph",
+    "Toyota",
+    "Volkeswagen",
+    "Volvo"
+  ]
 
   has_many :vehicle_sales
 
@@ -35,6 +58,10 @@ class Vehicle < ActiveRecord::Base
 
   def self.conditions
     return CONDITIONS
+  end
+
+  def self.makes
+    return MAKES
   end
 
   def self.find_or_create(params)

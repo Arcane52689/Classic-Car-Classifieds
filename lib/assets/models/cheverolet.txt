@@ -1,0 +1,98 @@
+10
+150
+1500
+210
+2500
+30
+3100
+3200
+3500
+3600
+3800
+409
+4400
+Aerosedan
+Apache
+Avalanche
+Beauville
+Bel Air
+Biscayne
+Blazer
+C10
+C20
+C30
+C3100
+CK1500
+CST10
+Camaro
+Cameo
+Capitol
+Caprice
+Caprice Classic
+Chevelle
+Chevette
+Chevy II
+Cheyenne
+Citation
+Colorado
+Confederate
+Corvair
+Corvair Corsa
+Corvair Corvan
+Corvair Greenbrier
+Corvette
+Cosworth Vega
+Cruze
+Custom
+Custom 10
+Delray
+Deluxe
+Eagle
+El Camino
+El Morocco
+Equinox
+Fleetline
+Fleetmaster
+G10
+G20
+HHR
+Impala
+Independence
+International
+K10
+K20
+K3500
+K5
+Kingswood
+Laguna
+Lumina
+Malibu
+Master
+Master Deluxe
+Monte Carlo
+Monza
+National
+Nomad
+Nova
+S10
+SS
+SSR
+Scottsdale
+Series K
+Silverado
+Silverado SS
+Special Deluxe
+Sportvan
+Standard
+Stepside
+Styleline
+Stylemaster
+Suburban
+Super Cheyenne
+Super Deluxe
+Super Sport
+Superior V
+Tahoe
+Thriftmaster
+Vega
+Yeoman

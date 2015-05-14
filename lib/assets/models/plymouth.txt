@@ -1,0 +1,38 @@
+AAR
+Barracuda
+Belvedere
+Belvedere 2
+Cambridge
+Concord
+Cranbrook
+Cuda
+Custom
+Deluxe
+Duster
+Fury
+Fury 3
+GTX
+Hemi Cuda
+P10
+P12
+P15
+P2
+P20
+P8
+PB
+PE
+Prowler
+Road King
+Road Runner
+Satellite
+Savoy
+Scamp
+Signet
+Special Deluxe
+Sport Fury
+Sport Fury 3
+Sport Suburban
+Suburban
+Superbird
+Valiant
+Volare

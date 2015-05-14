@@ -1,0 +1,64 @@
+330
+3500 Series
+400
+440
+880
+A990
+Adventurer
+Aries
+Avenger
+B
+B4B
+Caliber
+Challenger
+Charger
+Charger R/T
+Coronet
+Coronet R/T
+Custom
+Custom Royal
+Custom Royal Lancer
+D100
+D150
+D2
+D200
+D250
+D300
+D5
+DH
+Dart
+Dart Swinger
+Daytona
+Demon
+Dodge Brothers
+Durango
+Grand Caravan
+KC
+Lancer
+Lil Red Express
+Luxury Liner
+M37
+Magnum
+Mirada
+Monaco
+Neon
+Omni
+Phoenix
+Polara
+Power Wagon
+RT10
+Ram
+Ram 2500
+SRT10
+Seneca
+Special
+Sprinter
+Stealth
+Super Bee
+Swinger
+Viper
+W150
+W300
+WC
+WD20
+Wayfarer
