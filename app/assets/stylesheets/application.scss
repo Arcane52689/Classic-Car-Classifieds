@@ -58,7 +58,96 @@ button {
 
 a {
   cursor: pointer;
-  display: block;
-  color: blue;
 
+}
+
+
+.root {
+  background: #8f8;
+  border: 5px solid black;
+  border-radius: 15px;
+  width: 500px;
+  margin: auto;
+  text-alignment: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.root h1 {
+  display: block;
+  color: green;
+  width: 400px;
+  margin: auto;
+}
+
+
+.root ul {
+  width: 400px;
+  height: 600px;
+  margin: auto;
+
+}
+
+.root ul > li {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+
+}
+
+
+.header {
+  display: block;
+  background: #390;
+
+}
+
+.header .logo {
+  font-size: 36px;
+  color: white;
+  display: block;
+  float: left;
+  padding-top: 10px;
+  height: 100%;
+}
+
+.header .logo:hover{
+  background: white;
+  color: blue;
+}
+
+.header .links ul {
+  float: right;
+  padding-right: 20px;
+}
+.header .links ul li {
+  float: left;
+  border-left: 1px solid white;
+  color: white;
+}
+.header .links ul li:hover {
+  background: white;
+  color: blue;
+}
+
+.header .links ul li:last-child {
+  border-right: 1px solid white;
+}
+
+.header .links ul li a {
+  display: block;
+  padding: 20px;
+
+}
+
+
+.header .hello {
+  color: white;
+  font-size: 24px;
+  text-alignment: center;
+  float: left;
+  margin-left: 50px;
+  margin-top: 15px;
+  display: block;
+  // margin: auto;
 }

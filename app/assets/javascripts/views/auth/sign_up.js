@@ -27,6 +27,7 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
         data: $form.serialize(),
         success: function() {
           HemmingsClone.currentUser.set("email", email);
+          this.close();
           Backbone.history.navigate("", {trigger: true});
         }
       })
@@ -37,7 +38,6 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
   },
 
   close: function(event) {
-    event.preventDefault();
     this.remove()
   }
 

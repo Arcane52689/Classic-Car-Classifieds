@@ -1,6 +1,31 @@
 class Vehicle < ActiveRecord::Base
 
   CONDITIONS = %w(Excellent Fair Good Mint Project)
+  MAKE_MODELS = {
+    Jaguar: [
+      "E-type",
+      "Mark-4",
+      "XK6",
+      "s-type"
+    ],
+    MG: [
+      "MGB",
+      "MGA"
+    ],
+    Triumph: [
+      "TR6",
+      "TR3",
+      "spitfire"
+    ],
+    AlphaRomeo:[
+      "spider"
+    ],
+    Chevy: [
+      "Belair",
+      "pickup",
+      "camero"
+    ]
+  }
 
   has_many :vehicle_sales
 
@@ -17,6 +42,15 @@ class Vehicle < ActiveRecord::Base
     return vehicle if vehicle
     return Vehicle.create!(params)
   end
+
+  def self.random_make_model
+    params = {}
+    params[:make] = MAKE_MODELS.keys.shuffle.first
+    params[:model] = MAKE_MODELS[params[:make]].shuffle.first
+    params[:year] = (1950..1980).shuffle.first
+    return Vehicle.find_or_create(params)
+  end
+
 
 
 
