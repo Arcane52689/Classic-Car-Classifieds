@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       end
     end
     resources :users, only: [:new, :create]
-    
+    get "vehicle_models/:make", to: "vehicle_models#show"
   end
 
 end

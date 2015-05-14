@@ -8,9 +8,16 @@
 
 Vehicle.makes.each do |make|
   make_file_txt = make.split.join('_').downcase+".txt"
-  Rails.root.join("lib","assets", "models", )
-  (1930..1985).each do |year|
+  make_file_path = Rails.root.join("lib","assets", "models", make_file_txt)
+  File.foreach(make_file_path) do |line|
+    model = line.chomp
 
-
-
+    # (1930..1985).each do |year|
+    Vehicle.find_or_create({
+      make: make,
+      year: 0,
+      model: model,
+      })
+    # end
+  end
 end

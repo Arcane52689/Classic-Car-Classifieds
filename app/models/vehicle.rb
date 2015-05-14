@@ -33,7 +33,7 @@ class Vehicle < ActiveRecord::Base
     "Mini",
     "Morgan",
     "Nissan",
-    "Oldsmobie",
+    "Oldsmobile",
     "Packard",
     "Pierce-Arrow",
     "Plymouth",
