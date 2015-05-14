@@ -8,15 +8,19 @@ window.HemmingsClone = {
 
     HemmingsClone.currentUser = new HemmingsClone.Models.User({})
 
-    this.router = new HemmingsClone.Routers.Router({
+    var baseRouter = new HemmingsClone.Routers.Router({
       $rootEl: $("#main")
     });
-    this.router = new HemmingsClone.Routers.PopUps({
+    var popUprouter = new HemmingsClone.Routers.PopUps({
       $rootEl: $("#pop-up")
-    })
+    });
 
-    HemmingsClone.renderBase()
-    HemmingsClone.checkForUser()
+    var PartSalesRouter = new HemmingsClone.Routers.PartSalesRouter({
+      $rootEl: $("#main")
+    });
+
+    HemmingsClone.renderBase();
+    HemmingsClone.checkForUser();
     Backbone.history.start();
   },
 

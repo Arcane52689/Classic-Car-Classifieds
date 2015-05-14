@@ -2,7 +2,6 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
     this.vehicle_sales = new HemmingsClone.Collections.VehicleSales();
-    this.part_sales = new HemmingsClone.Collections.PartSales();
   },
 
   routes: {
@@ -10,9 +9,7 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
     "vehicle_sales": "vs_index",
     "vehicle_sales/new": "vs_new",
     "vehicle_sales/:id":"vs_show",
-    "part_sales": "ps_index",
-    "part_sales/new": "ps_new",
-    "part_sales/:id": "ps_show"
+
   },
 
   root: function() {
