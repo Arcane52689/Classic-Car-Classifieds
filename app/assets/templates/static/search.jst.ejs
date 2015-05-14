@@ -4,6 +4,10 @@
 
 </ul>
 
+<label class="seach-option" id="part_sales">Parts</label>
+<label class="seach-option selected" id="vehicle_sales">Vehicles</label>
+
+
 <form class="search-form">
   <label for="">Year</label>
   <select class="" name="vehicle[year]">
@@ -16,6 +20,13 @@
   <label for="">Model</label>
   <input type="text" name="vehicle[model]" value="">
   <br>
+  <div class="inactive" id="part-search">
+    <label for="">Part #</label>
+    <input type="text" name="part_sale[part_number]" value="">
+    <label>Part Type </label>
+    <input type="text" name="part_sale[part_number]" value="">
+  </div>
+
 
   <input type="submit" value="Search">
 </form>
