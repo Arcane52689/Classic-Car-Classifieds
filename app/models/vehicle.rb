@@ -81,22 +81,24 @@ class Vehicle < ActiveRecord::Base
   end
 
   def self.clean_year(year)
-    if year.to_i > 1890 || year.to_i < 2050
+    if year.to_i > 1890 && year.to_i < 2050
       return year.to_i
     else
       return nil
+      end
   end
 
   def self.clean_params(params)
     params[:year_start] = Vehicle.clean_year(params[:year_start]) || 1890
     params[:year_end] = Vehicle.clean_year(params[:year_end]) || 2050
-    params[:model] = nil if params[:model] == "NONE"
+    params[:model] = nil if params[:model] == "None"
+    return params
   end
 
-
-  def self.search_by(params, method)]
+  #
+  def self.search_by(params, method)
     params = Vehicle.clean_params(params)
-    results = Vehicle.includes(method => :vehicles).where("year BETWEEEN ? AND ?", params[:year_start], params[:year_end])
+    results = Vehicle.includes(method => :vehicle).where("year BETWEEN ? AND ?", params[:year_start], params[:year_end]).where(make: params[:make])
     if params[:model]
       results = results.where(model: params[:model])
     end
@@ -106,14 +108,6 @@ class Vehicle < ActiveRecord::Base
   end
 
 
-
-
-  # def is_unique?
-  #   vehicle = Vehicle.where(make: make).where(year: year).where(model: model).all
-  #   if vehicle
-  #     self.errors[:base] << "Vehicle already exists in database"
-  #   end
-  # end
 
   def description
     "#{self.year} #{self.make} #{self.model}"

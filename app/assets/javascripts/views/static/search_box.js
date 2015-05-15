@@ -32,6 +32,12 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
       dataType: 'json',
       success: function(resp) {
         console.log(resp)
+        var results = new HemmingsClone.Collections.VehicleSaleResults();
+        results.set(resp, {parse: true})
+        var view = new HemmingsClone.Views.Results({
+          collection: results
+        })
+        $("#main").html(view.render().$el);
       }
     })
   },
