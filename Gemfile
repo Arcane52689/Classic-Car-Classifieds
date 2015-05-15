@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'backbone-on-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
+gem 'faker'
 
 group :production do
   gem 'rails_12factor'
@@ -40,7 +41,6 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'faker'
   gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
