@@ -12,3 +12,10 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
     return model;
   }
 })
+
+
+HemmingsClone.Collections.VehicleSaleResults = Backbone.Collection.extend({
+  model: HemmingsClone.Models.VehicleSale,
+  view: HemmingsClone.Views.VehicleSaleItem 
+
+})

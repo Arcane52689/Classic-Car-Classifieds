@@ -1,7 +1,7 @@
 
 <article class="sale-item">
-  <a href="#vehicle_sales/<%= vehicle_sale.id%>" class="title"><%= vehicle_sale.vehicle().description()%> </a>
+  <a href="#vehicle_sales/<%= sale.id%>" class="title"><%= sale.vehicle().description()%> </a>
   <section class="description">
-    <%= vehicle_sale.escape("vehicle_description") %>
+    <%= sale.escape("vehicle_description") %>
   </section>
 </article>

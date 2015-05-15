@@ -11,3 +11,10 @@ HemmingsClone.Collections.PartSales = Backbone.Collection.extend({
     return model;
   }
 })
+
+
+HemmingsClone.Collections.PartSaleResults = Backbone.Collection.extend({
+  model: HemmingsClone.Models.PartSale,
+  view: HemmingsClone.Views.PartSaleItem
+
+})
