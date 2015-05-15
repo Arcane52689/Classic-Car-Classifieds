@@ -1,0 +1,51 @@
+.results-page {
+  width: 1000px;
+  border :1px solid black;
+  background: #aaa;
+  margin: auto;
+}
+
+
+.order-by {
+  height: 500px;
+  width: 200px;
+  float: left;
+  display: block;
+  border-right: 1px solid black;
+}
+
+
+
+.results-content {
+  background: #050;
+  float: left;
+  display: block;
+  width: 798px;
+  color: white;
+}
+
+.results-content > h1 {
+  font-size: 36px;
+  text-align: center;
+  padding: 20px;
+}
+
+.results {
+  margin: auto;
+}
+
+.item {
+  border: 1px solid black;
+  width: 400px;
+  min-height: 100px;
+  margin:auto;
+}
+
+.item a {
+  text-decoration: underline;
+}
+
+.item a:hover {
+  color: blue;
+  background: white
+}

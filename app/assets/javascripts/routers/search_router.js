@@ -45,6 +45,5 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
     }
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
-    debugger
   }
 })

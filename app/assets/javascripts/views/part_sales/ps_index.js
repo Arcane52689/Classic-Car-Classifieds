@@ -2,8 +2,8 @@ HemmingsClone.Views.PartSalesIndex = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render);
   },
-
-  template: JST["part_sales"],
+  className: "results-page group",
+  template: JST["static/results"],
 
   render: function() {
     this.$el.html(this.template());
