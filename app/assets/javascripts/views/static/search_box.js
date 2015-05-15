@@ -25,8 +25,15 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
 
   search: function(event) {
     event.preventDefault();
-    var data = $(event.currentTarget).serializeJSON();
-    console.log(data);
+    var data = $(event.currentTarget).serialize();
+    $.ajax({
+      url: "/api/vehicle_sales/search",
+      data: data,
+      dataType: 'json',
+      success: function(resp) {
+        console.log(resp)
+      }
+    })
   },
 
   select: function(event) {

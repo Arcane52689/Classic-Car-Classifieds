@@ -1,7 +1,7 @@
 HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.collection, "sync add sort", this.render);
-  }
+  },
 
   className: "results-page",
   template: JST["static/results"],

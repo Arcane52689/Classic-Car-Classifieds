@@ -21,7 +21,8 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def search
-    @vehicle_sales = Vehicle.search_by(search_params)
+    # fail
+    @vehicle_sales = Vehicle.search_by(search_params, :vehicle_sales)
     render :index
   end
 
@@ -40,7 +41,7 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def search_params
-    params.require(:vehice).permit(:year_start,:year_end, :make, :model)
+    params.require(:vehicle).permit(:year_start,:year_end, :make, :model)
   end
 
 end

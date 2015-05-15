@@ -80,10 +80,22 @@ class Vehicle < ActiveRecord::Base
     return Vehicle.random_vehicle
   end
 
+  def self.clean_year(year)
+    if year.to_i > 1890 || year.to_i < 2050
+      return year.to_i
+    else
+      return nil
+  end
 
-  def self.search_by(params, method)
-    params[:year_start] = 1930 unless params[:year_start]
-    params[:year_end] = 1980 unless params[:year_end]
+  def self.clean_params(params)
+    params[:year_start] = Vehicle.clean_year(params[:year_start]) || 1890
+    params[:year_end] = Vehicle.clean_year(params[:year_end]) || 2050
+    params[:model] = nil if params[:model] == "NONE"
+  end
+
+
+  def self.search_by(params, method)]
+    params = Vehicle.clean_params(params)
     results = Vehicle.includes(method => :vehicles).where("year BETWEEEN ? AND ?", params[:year_start], params[:year_end])
     if params[:model]
       results = results.where(model: params[:model])

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 
   namespace :api, defaults: { format: :json } do
+    get "vehicle_sales/search", to: "vehicle_sales#search"
     resources :vehicle_sales, only: [ :create,:index, :show]
     resources :part_sales, only: [:create, :index, :show]
     resource :session, only: [:create, :destroy] do
