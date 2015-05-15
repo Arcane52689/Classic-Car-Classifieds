@@ -52,6 +52,10 @@ class Vehicle < ActiveRecord::Base
 
   has_many :vehicle_sales
 
+  has_many :part_taggings
+
+  has_many :part_sales, through: :part_taggins, source: :part_sale
+
   validates :make, :year, :model, presence: true
 
   # validate :is_unique?
@@ -78,6 +82,18 @@ class Vehicle < ActiveRecord::Base
     return Vehicle.find_or_create(params)
   end
 
+
+  def self.search_by(params, method)
+    params[:year_start] = 1930 unless params[:year_start]
+    params[:year_end] = 1980 unless params[:year_end]
+    results = Vehicle.includes(method => :vehicles).where("year BETWEEEN ? AND ?", params[:year_start], params[:year_end])
+    if params[:model]
+      results = results.where(model: params[:model])
+    end
+
+    return results.map(&method).flatten
+
+  end
 
 
 

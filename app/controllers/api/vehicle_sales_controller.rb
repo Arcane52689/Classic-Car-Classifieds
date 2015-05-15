@@ -20,6 +20,10 @@ class Api::VehicleSalesController < ApplicationController
     @vehicle_sales = VehicleSale.all.includes(:vehicle)
   end
 
+  def search
+    @vehicle_sales = Vehicle.search_by(search_params)
+    render :index
+  end
 
 
   def vehicle_params
@@ -34,4 +38,9 @@ class Api::VehicleSalesController < ApplicationController
   def vehicle_sale_params
     params.require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location)
   end
+
+  def search_params
+    params.require(:vehice).permit(:year_start,:year_end, :make, :model)
+  end
+
 end
