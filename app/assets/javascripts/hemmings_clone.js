@@ -21,7 +21,9 @@ window.HemmingsClone = {
 
     var VehicleSalesRouter = new HemmingsClone.Routers.VehicleSalesRouter({
       $rootEl: $("#main")
-    })
+    });
+
+    var SearchRouter = new HemmingsClone.Routers.SearchRouter();
 
     HemmingsClone.renderBase();
     HemmingsClone.checkForUser();
