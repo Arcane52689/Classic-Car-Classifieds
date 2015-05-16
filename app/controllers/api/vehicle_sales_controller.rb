@@ -22,7 +22,7 @@ class Api::VehicleSalesController < ApplicationController
 
   def search
     # fail
-    @vehicle_sales = Vehicle.search_by(search_params, :vehicle_sales)
+    @vehicle_sales = Search.new(search_params).search_vehicle_sales
     render :index
   end
 

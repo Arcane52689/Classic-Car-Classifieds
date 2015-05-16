@@ -1,4 +1,10 @@
-class VehicleSaleSearch
+class Search
+  attr_accessor :params
+
+
+  def initialize(params)
+    @params = params
+  end
 
 
   def clean_year(year)
@@ -9,43 +15,26 @@ class VehicleSaleSearch
     end
   end
 
-  def clean_params(params)
-    params[:year_start] = clean_year(params[:year_start]) || 1890
-    params[:year_end] = clean_year(params[:year_end]) || 2050
-    params[:model] = nil if params[:model] == "None"
-    return params
+  def clean_params
+    self.params[:year_start] = clean_year(self.params[:year_start]) || 1890
+    self.params[:year_end] = clean_year(self.params[:year_end]) || 2050
+    self.params[:model] = nil if self.params[:model] == "None"
   end
 
 
-  #
-  # def SQL_search(params)
-  #
-  #   VehicleSale.find_by_sql ["  SELECT
-  #       vehicle_sales.*, vehicles.*
-  #     FROM
-  #       vehicle_sales
-  #     JOIN
-  #       vehicles
-  #     ON
-  #       vehicles.id = vehicle_sales.vehicle_id
-  #     WHERE
-  #       vehicles.year >= :year_start AND vehicles.year <= :year_end AND make = :make #{"AND model = :model" if params[:model]}",
-  #       params]
-  # end
 
-  def search(params)
-    params = clean_params(params)
-    results = VehicleSale.includes(:vehicle).join(:vehicles).where("year BETWEEN ? AND ?",params[:year_start], params[:year_end]).where("make =", make)
+  def search_vehicle_sales
+    self.clean_params
+    results = VehicleSale.joins(:vehicle).where("vehicles.year BETWEEN ? AND ?", self.params[:year_start], self.params[:year_end]).where("vehicles.make = ?", self.params[:make]).includes(:vehicle)
 
+    if self.params[:model]
+      results.where("vehicles.model=?",self.params[:model])
+    end
 
-
+    return results
   end
 
-  def resultify(result)
-    # result.define_metho
 
-
-  end
 
 
 

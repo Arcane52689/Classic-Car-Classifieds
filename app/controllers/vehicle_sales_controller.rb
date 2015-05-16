@@ -25,6 +25,7 @@ class VehicleSalesController < ApplicationController
   end
 
 
+  
 
   def vehicle_params
     params.require(:vehicle).permit(:year, :make, :model)
