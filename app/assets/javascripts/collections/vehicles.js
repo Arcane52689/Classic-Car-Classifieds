@@ -1,6 +1,8 @@
 HemmingsClone.Collections.Vehicles = Backbone.Collection.extend({
   initialize: function(options) {
-    this.make = options.make
+    if (options) {
+      this.make = options.make
+    }
   },
 
   model: HemmingsClone.Models.Vehicle,

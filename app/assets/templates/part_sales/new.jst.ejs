@@ -16,7 +16,7 @@
   <br>
 
 
-
+  <%= $("#part_categories").html() %>
   <br>
   <label for="">Part Number</label>
   <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape("part_number")%>">
@@ -30,5 +30,8 @@
   <label>Part Description</label>
   <textarea name="part_sale[part_description]" rows="8" cols="40"><%= part_sale.escape("part_description") %></textarea>
   <br>
+  <label> Asking Price </label> <input type=number name=part_sale[price]>
+  <br>
   <input type="submit" value="Whoops">
+
 </form>

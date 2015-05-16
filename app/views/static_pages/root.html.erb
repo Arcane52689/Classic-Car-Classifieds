@@ -12,7 +12,7 @@ $(HemmingsClone.initialize);
 
 </script>
 
-<script type = "text/template" id="make-select">
+<script type="text/template" id="make-select">
 
 
   <select class="select-make" name="vehicle[make]" id="make">
@@ -23,5 +23,17 @@ $(HemmingsClone.initialize);
   <select class="select-model" name="vehicle[model]" id="model">
     <option>Must select make first </option>
   <select>
+
+</script>
+
+
+<script type="text/template"  id="part_categories">
+  <select class="select-part" name="part_sale[part_category]">
+      <% PartSale.categories.each do |category| %>
+        <option value="<%=category%>" id="<%=category%>">
+          <%=category%>
+        </option>
+      <% end %>
+  </select>
 
 </script>

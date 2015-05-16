@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512193140) do
+ActiveRecord::Schema.define(version: 20150516201901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150512193140) do
     t.integer  "location",         null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "price"
+    t.string   "part_category"
   end
 
   add_index "part_sales", ["part_number"], name: "index_part_sales_on_part_number", using: :btree
