@@ -26,21 +26,15 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
   search: function(event) {
     event.preventDefault();
     var data = $(event.currentTarget).serialize();
-    // $.ajax({
-    //   url: "/api/vehicle_sales/search",
-    //   data: data,
-    //   dataType: 'json',
-    //   success: function(resp) {
-    //     console.log(resp)
-    //     var results = new HemmingsClone.Collections.VehicleSaleResults();
-    //     results.set(resp, {parse: true})
-    //     var view = new HemmingsClone.Views.Results({
-    //       collection: results
-    //     })
-    //     $("#main").html(view.render().$el);
-    //   }
-    // })
-    Backbone.history.navigate("search/vehicle_sales/"+data, {trigger: true});
+
+    if (this.$(".selected").attr("id") ===("part_sales") ) {
+      Backbone.history.navigate("search/part_sales/"+data, {trigger: true})
+    }
+    else {
+      Backbone.history.navigate("search/vehicle_sales/"+data, {trigger: true});
+    }
+
+
   },
 
   select: function(event) {

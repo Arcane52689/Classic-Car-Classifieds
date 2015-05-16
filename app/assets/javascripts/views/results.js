@@ -7,6 +7,7 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   template: JST["static/results"],
 
   render: function() {
+    console.log("hi");
     this.$el.html(this.template());
     this.collection.each(function(result) {
       view = new this.collection.view({ model: result })

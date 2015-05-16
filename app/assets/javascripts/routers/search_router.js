@@ -36,6 +36,15 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
     this._swapView(view);
   },
 
+  searchParts: function(data) {
+    var results = new HemmingsClone.Collections.PartSaleResults();
+    var view = new HemmingsClone.Views.Results({
+      collection: results
+    });
+    this.fireQuery("/api/part_sales/search", results, data);
+    this._swapView(view);
+  },
+
 
 
 

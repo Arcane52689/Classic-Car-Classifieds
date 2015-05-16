@@ -1,3 +1,4 @@
+require 'byebug'
 class Search
   attr_accessor :params
 
@@ -19,6 +20,9 @@ class Search
     self.params[:year_start] = clean_year(self.params[:year_start]) || 1890
     self.params[:year_end] = clean_year(self.params[:year_end]) || 2050
     self.params[:model] = nil if self.params[:model] == "None"
+    self.params[:part_category] = nil if self.params[:part_category] == "None"
+    self.params[:part_type] = nil if self.params[:part_type] == ""
+    self.params[:part_number] = nil if self.params[:part_number] == ""
   end
 
 
@@ -32,6 +36,26 @@ class Search
     end
 
     return results
+  end
+
+  def search_part_sales
+    self.clean_params
+    results = PartSale.joins(:vehicles).where("vehicles.year BETWEEN ? AND ?", self.params[:year_start], self.params[:year_end]).where("vehicles.make = ?", self.params[:make]).includes(:vehicles)
+
+    if self.params[:model]
+      results.where("vehicles.model=?",self.params[:model])
+    end
+
+
+
+    [:part_number, :part_category, :part_type].each do |sym|
+
+      if self.params[sym]
+        results = results.where({ sym => self.params[sym] })
+      end
+    end
+    return results
+
   end
 
 

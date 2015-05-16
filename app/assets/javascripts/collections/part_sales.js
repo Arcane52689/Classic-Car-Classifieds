@@ -15,6 +15,8 @@ HemmingsClone.Collections.PartSales = Backbone.Collection.extend({
 
 HemmingsClone.Collections.PartSaleResults = Backbone.Collection.extend({
   model: HemmingsClone.Models.PartSale,
-  view: HemmingsClone.Views.PartSaleItem
+  initialize: function() {
+    this.view = HemmingsClone.Views.PartSalesItem
+  }
 
 })
