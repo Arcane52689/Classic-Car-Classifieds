@@ -11,5 +11,9 @@ HemmingsClone.Models.VehicleSale = Backbone.Model.extend({
     this.vehicle().set(response.vehicle);
     delete response.vehicle;
     return response;
+  },
+
+  listOf: function(attr) {
+    return [this.vehicle().get(attr)];
   }
 })

@@ -1,7 +1,9 @@
 HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
   url: "api/vehicle_sales",
   model: HemmingsClone.Models.VehicleSale,
-
+  initialize: function() {
+    this.view = HemmingsClone.Views.VehicleSaleItem
+  },
 
   getOrFetch: function(id) {
     var model = this.get(id);
@@ -11,6 +13,8 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
     model.fetch();
     return model;
   }
+
+  
 })
 
 

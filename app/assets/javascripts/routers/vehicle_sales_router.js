@@ -21,7 +21,7 @@ HemmingsClone.Routers.VehicleSalesRouter = Backbone.Router.extend({
 
   vs_index: function() {
     this.vehicle_sales.fetch();
-    var view = new HemmingsClone.Views.VehicleSalesIndex({
+    var view = new HemmingsClone.Views.Results({
       collection: this.vehicle_sales
     });
     this._swapView(view);

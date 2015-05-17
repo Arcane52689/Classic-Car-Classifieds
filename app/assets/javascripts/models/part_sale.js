@@ -12,5 +12,16 @@ HemmingsClone.Models.PartSale = Backbone.Model.extend({
     this.vehicles().set(response.vehicles, { parse: true });
     delete response.vehicles;
     return response;
-  }
+  },
+
+
+  listOf: function(attr) {
+    var result = [];
+    this.vehicles().each(function(car) {
+      if (!_.contains(result, car.get(attr))) {
+        result.push(car.get(attr))
+      }
+    })
+    return result;
+  },
 })

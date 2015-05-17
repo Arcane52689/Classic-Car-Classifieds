@@ -59,7 +59,4 @@ class Search
   end
 
 
-
-
-
 end

@@ -14,7 +14,7 @@ HemmingsClone.Routers.PartSalesRouter = Backbone.Router.extend({
 
   ps_index: function() {
     this.part_sales.fetch();
-    var view = new HemmingsClone.Views.PartSalesIndex({
+    var view = new HemmingsClone.Views.Results({
       collection: this.part_sales
     });
     this._swapView(view);

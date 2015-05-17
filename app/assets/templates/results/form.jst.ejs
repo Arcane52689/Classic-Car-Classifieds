@@ -1,0 +1,14 @@
+<% if (list.length > 1) {%>
+  <h1> <%=attr.toUpperCase() %>S </h1>
+  <button class="select" id="make">Select </button>
+  <button class="reset">Reset</button>
+  <ul class="<%=attr%> options">
+
+    <% _.each(list, function(attribute) { %>
+      <li>
+          <input type="checkbox" name="<%=attr%>[]" value="<%=attribute%>">
+        <strong class="option"> <%= attribute %> </strong>
+      </li>
+    <%  }) %>
+  </ul>
+<% } %>
