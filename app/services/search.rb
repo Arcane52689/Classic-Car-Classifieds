@@ -32,7 +32,7 @@ class Search
     results = VehicleSale.joins(:vehicle).where("vehicles.year BETWEEN ? AND ?", self.params[:year_start], self.params[:year_end]).where("vehicles.make = ?", self.params[:make]).includes(:vehicle)
 
     if self.params[:model]
-      results.where("vehicles.model=?",self.params[:model])
+      results = results.where("vehicles.model=?",self.params[:model])
     end
 
     return results
@@ -43,7 +43,7 @@ class Search
     results = PartSale.joins(:vehicles).where("vehicles.year BETWEEN ? AND ?", self.params[:year_start], self.params[:year_end]).where("vehicles.make = ?", self.params[:make]).includes(:vehicles)
 
     if self.params[:model]
-      results.where("vehicles.model=?",self.params[:model])
+      results = results.where("vehicles.model=?",self.params[:model])
     end
 
 
