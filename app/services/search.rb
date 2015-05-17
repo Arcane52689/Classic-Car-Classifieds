@@ -1,4 +1,4 @@
-require 'byebug'
+
 class Search
   attr_accessor :params
 
