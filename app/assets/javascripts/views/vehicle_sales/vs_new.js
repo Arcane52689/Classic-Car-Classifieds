@@ -1,4 +1,4 @@
-HemmingsClone.Views.VehicleSaleForm = Backbone.View.extend({
+HemmingsClone.Views.VehicleSaleForm = Backbone.CompositeView.extend({
 
   events: {
     "submit form": "submit"
@@ -8,6 +8,12 @@ HemmingsClone.Views.VehicleSaleForm = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({ sale: this.model }));
+    var view = new HemmingsClone.Views.MakeModelForm({
+      collection: new HemmingsClone.Collections.Vehicles({
+        make: "Toyota"
+      })
+    })
+    this.addSubview("#make-model",view)
     return this;
   },
 

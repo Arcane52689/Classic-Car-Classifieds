@@ -9,14 +9,10 @@
       <option value="<%=year%>"> <%=year%> </option>
     <% } %>
   </select>
-  <label for="">Make</label>
-  <input type="text" name="vehicle[make]" value="">
-  <label for="">Model</label>
-  <input type="text" name="vehicle[model]" value="">
-  <br>
+  <div id="make-model"></div>
 
 
-
+  <price>
 
   <label for="">Chasis Number/VIN</label>
   <input type="text" name="vehicle_sale[chasis_number]" value="<%= sale.escape("chasis_number") %>">
