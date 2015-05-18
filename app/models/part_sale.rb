@@ -53,6 +53,8 @@ class PartSale < ActiveRecord::Base
     through: :part_taggings,
     source: :vehicle
 
+  has_many :images, as: :imageable
+
 
   validates :part_number, :part_category, :part_type, :part_description, :location, :user_id, presence: true
 

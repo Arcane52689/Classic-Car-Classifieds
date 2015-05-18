@@ -28,6 +28,9 @@ gem 'backbone-on-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 gem 'faker'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'figaro'
 
 group :production do
   gem 'rails_12factor'
