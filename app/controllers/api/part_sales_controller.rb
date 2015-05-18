@@ -1,6 +1,6 @@
 class Api::PartSalesController < ApplicationController
 
-  wrap_params false
+  wrap_parameters false
 
   def create
     @part_sale = current_user.part_sales.new(part_sale_params)
