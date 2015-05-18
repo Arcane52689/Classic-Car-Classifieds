@@ -1,6 +1,10 @@
 
 <article class="vehicle-sale-result-show group">
   <h1> <%= vehicle_sale.vehicle().description() %> </h1>
+  <figure class="preview">
+
+    <img src="<%= vehicle_sale.thumb %>"
+  </figure>
   <section>
     <ul>
       <% _.each(["chasis_number", "vehicle_description","vehicle_condition", "title_status"], function(value) { %>

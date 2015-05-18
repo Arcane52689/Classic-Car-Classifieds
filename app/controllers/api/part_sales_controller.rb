@@ -1,10 +1,12 @@
 class Api::PartSalesController < ApplicationController
 
-
+  wrap_params false
 
   def create
     @part_sale = current_user.part_sales.new(part_sale_params)
     @part_sale.part_taggings.new({ vehicle_id: find_vehicle.id })
+    @part_sale.create_images(params[:part_sale][:images]) if params[:part_sale][:images]
+
     if @part_sale.save
       render json: @part_sale
     else
@@ -15,23 +17,22 @@ class Api::PartSalesController < ApplicationController
   end
 
   def show
-    @part_sale = PartSale.includes(:vehicles).find(params[:id])
+    @part_sale = PartSale.includes(:vehicles, :images).find(params[:id])
   end
 
   def index
-    @part_sales = PartSale.includes(:vehicles).all
+    @part_sales = PartSale.includes(:vehicles, :images).all
   end
 
   def search
     @part_sales = Search.new(search_params).search_part_sales
-    # puts(@part_sales)
-    # fail
+
     render :index
   end
 
 
   def part_sale_params
-    params.require(:part_sale).permit(:part_description, :location, :part_type, :part_number)
+    params.require(:part_sale).require(:part_sale).permit(:part_description, :location, :part_type, :part_number)
   end
 
   def search_params

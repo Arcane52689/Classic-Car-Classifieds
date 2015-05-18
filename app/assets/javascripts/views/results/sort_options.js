@@ -1,6 +1,7 @@
 HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.$results = options.$results
+    this.listenTo(this.collection, "sync", this.render);
   },
 
   events: {
@@ -56,8 +57,10 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
 
   listOf: function(attr) {
     var result = []
+
     this.collection.each(function(sale) {
       _.each(sale.listOf(attr), function(attribute) {
+
         if (!_.contains(result, attribute)) {
           result.push(attribute);
 
@@ -69,10 +72,7 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
   },
 
   reSort: function(event) {
-    // event.preventDefault();
-    // $(event.currentTarget).attr("selected","selected");
     console.log($(event.currentTarget).val());
-    debugger;
     this.collection.sortOption = $(event.currentTarget).val();
     this.collection.sort();
 

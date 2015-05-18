@@ -9,8 +9,8 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template());
+    console.log("hi")
     this.renderResults();
-
     this.optionsView = new HemmingsClone.Views.SortOptions({
       collection: this.collection,
       $results: this.$(".results").children()
@@ -21,7 +21,7 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   },
 
   renderResults: function() {
-    console.log(this.subviews(".results"))
+    console.log("sorting")
     this.subviews(".results").each(function(view) {
       view.remove();
     });

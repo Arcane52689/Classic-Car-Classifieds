@@ -19,7 +19,8 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
       dataType: 'json',
       success: function(resp) {
         console.log(resp);
-        collection.set(resp, {parse: true});
+        collection.set(resp, {parse: true });
+        collection.trigger("sync")
       }
     });
 

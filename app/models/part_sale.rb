@@ -58,7 +58,11 @@ class PartSale < ActiveRecord::Base
 
   validates :part_number, :part_category, :part_type, :part_description, :location, :user_id, presence: true
 
-
+  def create_images(image_list)
+    image_list.each do |img|
+      self.images.new({picture: img})
+    end
+  end
 
 
 

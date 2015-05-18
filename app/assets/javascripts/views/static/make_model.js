@@ -19,7 +19,6 @@ HemmingsClone.Views.MakeModelForm = Backbone.View.extend({
   },
 
   changeOptions: function() {
-    debugger
     this.$(".select-model").html("<option selected> None </option>")
     this.collection.each(function(vehicle) {
       var content = '<option value="' + vehicle.escape("model")+'">'+vehicle.escape("model")+"</option>";

@@ -1,7 +1,8 @@
 HemmingsClone.Views.VehicleSaleForm = Backbone.CompositeView.extend({
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "click .add-image":"addImage"
   },
 
   template: JST["vehicle_sales/new"],
@@ -28,5 +29,11 @@ HemmingsClone.Views.VehicleSaleForm = Backbone.CompositeView.extend({
         Backbone.history.navigate("", {trigger: true});
       }.bind(this)
     })
+  },
+
+  addImage: function(event) {
+    event.preventDefault();
+    var view = new HemmingsClone.Views.AddImage({model:this.model})
+    this.addSubview(".uploaded", view);
   }
 })

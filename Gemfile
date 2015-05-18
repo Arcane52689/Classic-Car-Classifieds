@@ -29,7 +29,7 @@ gem 'backbone-on-rails'
 gem 'bcrypt'
 gem 'faker'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk','< 2.0'
 gem 'figaro'
 
 group :production do

@@ -1,6 +1,11 @@
 
 <article class="sale-item">
   <a href="#vehicle_sales/<%= sale.id%>" class="title"><%= sale.vehicle().description()%> </a>
+  <figure class="preview">
+    <img src="<%=sale.thumb%>">
+
+  </figure>
+
   <section class="description">
     <label> Price is <%= sale.escape("price") %> </label>
     <br>

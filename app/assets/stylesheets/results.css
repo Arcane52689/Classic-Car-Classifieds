@@ -49,3 +49,15 @@
   color: blue;
   background: white
 }
+
+
+.preview {
+  width: 100px;
+  border: 1px solid #black;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
