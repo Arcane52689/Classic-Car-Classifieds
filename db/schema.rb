@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518153941) do
+ActiveRecord::Schema.define(version: 20150518161114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "imageable_id",         null: false
     t.string   "imageable_type",       null: false
     t.datetime "created_at",           null: false
@@ -29,7 +28,6 @@ ActiveRecord::Schema.define(version: 20150518153941) do
   end
 
   add_index "images", ["imageable_id"], name: "index_images_on_imageable_id", using: :btree
-  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "looking_fors", force: :cascade do |t|
     t.integer  "user_id"
@@ -120,7 +118,6 @@ ActiveRecord::Schema.define(version: 20150518153941) do
   add_index "vehicles", ["model"], name: "index_vehicles_on_model", using: :btree
   add_index "vehicles", ["year"], name: "index_vehicles_on_year", using: :btree
 
-  add_foreign_key "images", "users"
   add_foreign_key "looking_fors", "users"
   add_foreign_key "looking_fors", "vehicles"
   add_foreign_key "part_sales", "users"

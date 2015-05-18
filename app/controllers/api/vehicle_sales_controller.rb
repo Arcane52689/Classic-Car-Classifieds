@@ -1,11 +1,14 @@
 class Api::VehicleSalesController < ApplicationController
-
+  wrap_parameters false
 
 
   def create
     @vehicle_sale = current_user.vehicle_sales.new(vehicle_sale_params)
     @vehicle_sale.vehicle_id = find_vehicle.id
     if @vehicle_sale.save
+      if params[:images]
+        @vehicle_sale.create_images(params[:images])
+      end
       render json: @vehicle_sale
     else
       render json: @vehicle_sale.errors.messages, status: 422
@@ -37,7 +40,7 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def vehicle_sale_params
-    params.require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location)
+    params.require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location, :images)
   end
 
   def search_params

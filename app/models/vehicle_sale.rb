@@ -7,5 +7,10 @@ class VehicleSale < ActiveRecord::Base
   validates :title_status, :vehicle_description, :vehicle_condition, :location, presence: true
 
 
+  def create_images(image_list)
+    image_list.each do |img|
+      self.images.new({picture: img})
+    end
+  end
 
 end

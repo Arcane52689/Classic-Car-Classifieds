@@ -16,4 +16,12 @@ HemmingsClone.Models.VehicleSale = Backbone.Model.extend({
   listOf: function(attr) {
     return [this.vehicle().get(attr)];
   }
+
+  toJSON: function() {
+    var json = {vehicle_sale: _.clone(this.attribute)};
+    if (this._images.length > 0) {
+      json.vehicle_sale.images = this._images
+    }
+    return json;
+  }
 })
