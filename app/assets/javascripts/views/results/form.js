@@ -9,7 +9,7 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
     this.attr = options.attr;
     this.list = options.list;
     this.callback = options.callback
-
+    this.hidden = [];
     if (this.list.length == 1) {
       this.callback &&this.callback()
     }
@@ -31,13 +31,15 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
     var selected = this.$el.serializeJSON()
     this.$results.each(function(idx, li) {
       var $li = $(li);
-      $li.removeClass("inactive");
       var id = $li.data("id");
       var list = this.collection.get(id).listOf(this.attr)
       _.each(list, function(attribute) {
         // debugger
         if (!_.contains(selected[this.attr], attribute)) {
-          $li.addClass("inactive")
+          if (!$li.hasClass("inactive")) {
+            $li.addClass("inactive")
+            this.hidden.push($li)
+          }
         }
       }.bind(this))
     }.bind(this))
@@ -49,8 +51,8 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   reset: function(event) {
     event.preventDefault();
     this.render();
-    this.$results.each(function(index, li) {
-      $(li).removeClass("inactive");
+    _.each(this.hidden, function($li) {
+      $li.removeClass("inactive");
     });
   },
 

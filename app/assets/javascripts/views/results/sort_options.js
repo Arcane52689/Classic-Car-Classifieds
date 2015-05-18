@@ -3,6 +3,10 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
     this.$results = options.$results
   },
 
+  events: {
+    "click input": "reSort"
+  },
+
 
 
   template: JST["static/sort_options"],
@@ -63,6 +67,11 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
 
     return result
   },
+
+  reSort: function(event) {
+    // event.preventDefault();
+    console.log($(event.currentTarget).val())
+  }
 
 
 })
