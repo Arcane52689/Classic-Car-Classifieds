@@ -7,6 +7,10 @@ HemmingsClone.Views.VehicleSaleShow = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html( this.template({vehicle_sale: this.model }));
+    this.imagesView = new HemmingsClone.Views.ImageCarousel({
+      list: this.model.images()
+    })
+    this.addSubview(".images-section",this.imagesView)
     return this;
   },
 })

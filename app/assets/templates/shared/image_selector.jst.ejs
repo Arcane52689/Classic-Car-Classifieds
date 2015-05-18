@@ -1,0 +1,14 @@
+
+
+<figure class="show-big">
+  <img id="big-img" src="<%=list[0]%>">
+</figure>
+
+
+<ul class="images group">
+  <% _.each(list, function(img_url, index) { %>
+    <li class="preview" data-id="<%=index%>">
+      <img src="<%=img_url%>" alt="" />
+    </li>
+  <%  }) %>
+</ul>

@@ -11,8 +11,12 @@ HemmingsClone.Models.VehicleSale = Backbone.Model.extend({
     this.vehicle().set(response.vehicle);
 
     this.thumb = response.thumb_url
+    if (response.images) {
+      this._images = response.images;
+    }
     delete response.vehicle;
-    delete response.thumb_url
+    delete response.thumb_url;
+    delete response.images
     return response;
   },
 
