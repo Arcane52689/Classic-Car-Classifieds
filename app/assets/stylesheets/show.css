@@ -1,0 +1,27 @@
+
+
+
+
+.image-carousel {
+  float: left;
+  width: 400px;
+}
+
+.image-carousel .show_big {
+  margin: auto;
+}
+
+.image-carousel .images li {
+  float: left;
+  margin: 10px;
+}
+
+.image-carousel .images li:hover {
+  cursor: pointer;
+
+}
+
+
+.show-info {
+  float: left;
+}

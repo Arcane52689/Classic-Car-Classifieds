@@ -1,14 +1,12 @@
 
-<article class="vehicle-sale-result-show group">
+
   <section class="images-section">
 
   </section>
-  <h1> <%= vehicle_sale.vehicle().description() %> </h1>
-  <figure class="preview">
 
-    <img src="<%= vehicle_sale.thumb %>"
-  </figure>
-  <section>
+  <section class="show-info">
+  <h1> <%= vehicle_sale.vehicle().description() %> </h1>
+
     <ul>
       <% _.each(["chasis_number", "vehicle_description","vehicle_condition", "title_status"], function(value) { %>
         <li> <b> <%= value %>: </b> <%= vehicle_sale.escape(value) %>  </li>
@@ -17,4 +15,3 @@
 
 
   </section>
-</article>

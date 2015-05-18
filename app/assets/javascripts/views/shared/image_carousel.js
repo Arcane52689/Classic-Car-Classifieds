@@ -13,7 +13,6 @@ HemmingsClone.Views.ImageCarousel = Backbone.View.extend({
   template: JST["shared/image_selector"],
 
   render: function() {
-    debugger
     this.$el.html(this.template({list: this.list}));
     return this;
   },

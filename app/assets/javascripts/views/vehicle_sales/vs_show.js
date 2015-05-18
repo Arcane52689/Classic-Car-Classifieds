@@ -1,4 +1,6 @@
 HemmingsClone.Views.VehicleSaleShow = Backbone.CompositeView.extend({
+  className: "show group",
+  tagName: "article",
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
   },
