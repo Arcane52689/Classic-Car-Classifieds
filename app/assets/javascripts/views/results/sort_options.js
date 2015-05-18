@@ -4,7 +4,7 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click input": "reSort"
+    "click .sort-option": "reSort"
   },
 
 
@@ -70,7 +70,12 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
 
   reSort: function(event) {
     // event.preventDefault();
-    console.log($(event.currentTarget).val())
+    // $(event.currentTarget).attr("selected","selected");
+    console.log($(event.currentTarget).val());
+    debugger;
+    this.collection.sortOption = $(event.currentTarget).val();
+    this.collection.sort();
+
   }
 
 

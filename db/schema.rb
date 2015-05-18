@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516201901) do
+ActiveRecord::Schema.define(version: 20150518144742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 20150516201901) do
 
   create_table "part_sales", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "part_number",      null: false
-    t.string   "part_type",        null: false
-    t.text     "part_description", null: false
-    t.integer  "location",         null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "price"
+    t.string   "part_number",                  null: false
+    t.string   "part_type",                    null: false
+    t.text     "part_description",             null: false
+    t.integer  "location",                     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "price",            default: 0
     t.string   "part_category"
   end
 
@@ -77,15 +77,16 @@ ActiveRecord::Schema.define(version: 20150516201901) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "vehicle_sales", force: :cascade do |t|
-    t.string   "chasis_number",       null: false
-    t.string   "vehicle_description", null: false
-    t.string   "vehicle_condition",   null: false
-    t.string   "title_status",        null: false
+    t.string   "chasis_number",                   null: false
+    t.string   "vehicle_description",             null: false
+    t.string   "vehicle_condition",               null: false
+    t.string   "title_status",                    null: false
     t.integer  "user_id"
     t.integer  "vehicle_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "location"
+    t.integer  "price",               default: 0
   end
 
   add_index "vehicle_sales", ["user_id"], name: "index_vehicle_sales_on_user_id", using: :btree

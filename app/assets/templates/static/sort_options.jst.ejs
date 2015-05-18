@@ -1,8 +1,8 @@
   <ul class="sort-options">
-    <% _.each(["price", "year"], function(attr) { %>
+    <% _.each(["price", "year", "make", "model"], function(attr) { %>
       <li>
         <b> <%=attr%> </b>
-        <input type="radio" name="search_option" value="<%=attr%>">
+        <input class="sort-option" type="radio" name="search_option" value="<%=attr%>">
       </li>
     <% }) %>
   </ul>

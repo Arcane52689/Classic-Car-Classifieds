@@ -3,7 +3,7 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
   model: HemmingsClone.Models.VehicleSale,
   initialize: function() {
     this.view = HemmingsClone.Views.VehicleSaleItem;
-    this.sortBy = "price"
+    this.sortOption = "price"
   },
 
   getOrFetch: function(id) {
@@ -16,17 +16,17 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
   },
 
   comparator: function(sale) {
-    if (this.sortBy == "year") {
+    if (this.sortOption == "year") {
       return sale.listOf("year").sort()[0];
     }
-    else if (this.sortBy == "make"){
+    else if (this.sortOption == "make"){
       return sale.listOf("make").sort()[0];
     }
-    else if (this.sortBy == "model") {
+    else if (this.sortOption == "model") {
       return sale.listOf("model").sort()[0];
     }
     else {
-      return sale.get(this.sortBy)
+      return sale.get(this.sortOption)
     }
 
   }
