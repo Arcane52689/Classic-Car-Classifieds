@@ -8,6 +8,18 @@ class Search
   end
 
 
+  def self.filter(relation, params)
+    result = relation
+    if params[:makes]
+      result = relation.where("vehicles.make IN (?)", params[:makes])
+    end
+    if params[:models]
+      result = relation.where("vehicles.model IN (?)", params[:models] )
+    end
+    result
+  end
+
+
   def clean_year(year)
     if year.to_i > 1890 && year.to_i < 2050
       return year.to_i

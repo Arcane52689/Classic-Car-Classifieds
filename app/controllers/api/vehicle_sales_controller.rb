@@ -22,12 +22,14 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def index
-    @vehicle_sales = VehicleSale.all.includes(:vehicle, :images).order(params[:sortBy]).page(params[:page])
+    @vehicle_sales = Search.filter(VehicleSale.joins(:vehicle).all.includes(:vehicle, :images).order(params[:sortBy]), params).page(params[:page])
+
+
   end
 
   def search
     # fail
-    @vehicle_sales = Search.new(search_params).search_vehicle_sales
+    @vehicle_sales = Search.filter(Search.new(search_params).search_vehicle_sales, params)
     render :index
   end
 

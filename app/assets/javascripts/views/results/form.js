@@ -1,7 +1,7 @@
 HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   tagName: "form",
   events: {
-    "click .select": "hideResults",
+    "click .select": "reFetch",
     "click .reset": "reset"
   },
   initialize: function(options) {
@@ -11,7 +11,7 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
     this.callback = options.callback;
     this.hidden = [];
 
-    if (this.list.length <= 1) {
+    if (this.list.length <= 4) {
       this.callback && this.callback()
     }
   },
@@ -27,33 +27,21 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   },
 
 
-  hideResults: function(event) {
+  reFetch: function(event) {
     event.preventDefault();
-    var selected = this.$el.serializeJSON()
-    this.$results.each(function(idx, li) {
-      var $li = $(li);
-      var id = $li.data("id");
-      var list = this.collection.get(id).listOf(this.attr)
-      _.each(list, function(attribute) {
-        if (!_.contains(selected[this.attr], attribute)) {
-          if (!$li.hasClass("inactive")) {
-            $li.addClass("inactive")
-            this.hidden.push($li)
-          }
-        }
-      }.bind(this))
-    }.bind(this))
+    var selected = this.$el.serializeJSON();
+    // debugger
+    this.collection.searchData[this.attr+"s"] = selected[this.attr];
+    this.collection.grab();
     this.callback && this.callback();
-    this.hideOptions()
-
   },
 
   reset: function(event) {
     event.preventDefault();
+    delete this.collection.searchData[this.attr+"s"]
+    this.collection.grab()
     this.render();
-    _.each(this.hidden, function($li) {
-      $li.removeClass("inactive");
-    });
+
   },
 
   hideOptions: function() {
