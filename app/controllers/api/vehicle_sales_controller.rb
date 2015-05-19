@@ -23,13 +23,15 @@ class Api::VehicleSalesController < ApplicationController
 
   def index
     @vehicle_sales = Search.filter(VehicleSale.joins(:vehicle).all.includes(:vehicle, :images).order(params[:sortBy]), params).page(params[:page])
-
+    @pages = @vehicle_sales.total_pages
 
   end
 
   def search
     # fail
     @vehicle_sales = Search.filter(Search.new(search_params).search_vehicle_sales, params)
+    @pages = @vehicle_sales.total_pages
+    
     render :index
   end
 

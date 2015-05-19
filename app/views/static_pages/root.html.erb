@@ -46,3 +46,15 @@ $(HemmingsClone.initialize);
 <script type="text/template" id="missing-image">
   <img src="<%=asset_path("missing.png")%>" alt="" />
 </script>
+
+
+
+<script type="text/template" id="car-makes">
+  <ul>
+    <li>
+      <% Vehicle.makes.each do |make| %>
+        <input type="checkbox" name="make[]" value=<%= make %>> <strong> <%=make %> </strong>
+      <% end %>
+    </li>
+  </ul>
+</script>

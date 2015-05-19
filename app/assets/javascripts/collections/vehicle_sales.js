@@ -40,8 +40,17 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
 
   grab: function() {
     this.fetch({data: this.searchData })
-  }
+  },
 
+  parse: function(response) {
+    console.log(response)
+    this._total_pages = response.total_pages
+    return response.sales;
+  },
+
+  pages: function(){
+    return this._total_pages || 0;
+  },
 
 })
 
@@ -50,6 +59,7 @@ HemmingsClone.Collections.VehicleSaleResults = HemmingsClone.Collections.Vehicle
   url: function() {
     return "api/vehicle_sales/search?" + this.query
   },
+
 
 
 

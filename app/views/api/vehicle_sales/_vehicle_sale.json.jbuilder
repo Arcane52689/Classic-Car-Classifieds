@@ -7,3 +7,4 @@ json.extract! vehicle_sale, :id, :chasis_number, :user_id, :vehicle_condition, :
   else
     json.thumb_url asset_path("missing.png")
   end
+  #

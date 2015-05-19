@@ -2,6 +2,12 @@
   <h1> <%=attr.toUpperCase() %>S </h1>
   <button class="select" id="make">Select </button>
   <button class="reset">Reset</button>
+
+  <% if (this.attr === "make") { %>
+    <%= $("#car-makes").html() %>
+  <% } else { %>
+
+
   <ul class="<%=attr%> options">
 
     <% _.each(list, function(attribute) { %>
@@ -11,4 +17,5 @@
       </li>
     <%  }) %>
   </ul>
+  <% } %>
 <% } %>

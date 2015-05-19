@@ -13,7 +13,10 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   template: JST["static/results"],
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({
+      page: this.collection.searchData.page,
+      pages: this.collection.pages()
+    }));
 
     this.renderResults();
     this.optionsView = new HemmingsClone.Views.SortOptions({
