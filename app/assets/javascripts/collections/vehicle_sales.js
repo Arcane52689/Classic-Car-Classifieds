@@ -2,7 +2,7 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
   url: "api/vehicle_sales",
   model: HemmingsClone.Models.VehicleSale,
   initialize: function(stuff, options) {
-    debugger
+
     this.view = HemmingsClone.Views.VehicleSaleItem;
     this.searchData = {
       sortBy: "price",
@@ -36,6 +36,10 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
       return sale.get(this.searchData.sortBy)
     }
 
+  },
+
+  grab: function() {
+    this.fetch({data: this.searchData })
   }
 
 

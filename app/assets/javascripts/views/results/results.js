@@ -4,6 +4,10 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sort", this.renderResults);
   },
 
+  events: {
+    "click .next": "nextPage"
+  },
+
   className: "results-page group",
   template: JST["static/results"],
 
@@ -30,8 +34,12 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
       view = new this.collection.view({ model: result })
       this.addSubview(".results", view)
     }.bind(this))
-  }
+  },
 
+  nextPage: function() {
+    this.collection.searchData.page++;
+    this.collection.grab();
+  }
 
 
 

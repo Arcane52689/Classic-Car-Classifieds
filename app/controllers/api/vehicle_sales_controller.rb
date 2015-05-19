@@ -22,7 +22,7 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def index
-    @vehicle_sales = VehicleSale.all.includes(:vehicle, :images)
+    @vehicle_sales = VehicleSale.all.includes(:vehicle, :images).order(params[:sortBy]).page(params[:page])
   end
 
   def search
