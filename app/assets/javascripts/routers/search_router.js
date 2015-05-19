@@ -29,11 +29,14 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
 
 
   searchVehicles: function(data) {
-    var results = new HemmingsClone.Collections.VehicleSaleResults();
+    var results = new HemmingsClone.Collections.VehicleSaleResults([], {
+      query: data
+    });
     var view = new HemmingsClone.Views.Results({
       collection: results
     });
-    this.fireQuery("/api/vehicle_sales/search", results, data);
+    // this.fireQuery("/api/vehicle_sales/search", results, data);
+    results.grab();
     this._swapView(view);
   },
 

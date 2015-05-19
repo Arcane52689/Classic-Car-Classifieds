@@ -31,7 +31,7 @@ gem 'faker'
 gem 'paperclip'
 gem 'aws-sdk','< 2.0'
 gem 'figaro'
-
+gem "kaminari"
 group :production do
   gem 'rails_12factor'
 end

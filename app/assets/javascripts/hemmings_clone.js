@@ -23,7 +23,7 @@ window.HemmingsClone = {
       $rootEl: $("#main")
     });
 
-    var SearchRouter = new HemmingsClone.Routers.SearchRouter();
+    this.SearchRouter = new HemmingsClone.Routers.SearchRouter();
 
     HemmingsClone.renderBase();
     HemmingsClone.checkForUser();

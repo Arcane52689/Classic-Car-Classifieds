@@ -1,9 +1,16 @@
 HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
   url: "api/vehicle_sales",
   model: HemmingsClone.Models.VehicleSale,
-  initialize: function() {
+  initialize: function(stuff, options) {
+    debugger
     this.view = HemmingsClone.Views.VehicleSaleItem;
-    this.sortOption = "price"
+    this.searchData = {
+      sortBy: "price",
+      page: 1
+    }
+    if (options) {
+        this.query = options.query
+    }
   },
 
   getOrFetch: function(id) {
@@ -16,17 +23,17 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
   },
 
   comparator: function(sale) {
-    if (this.sortOption == "year") {
+    if (this.searchData.sortBy == "year") {
       return sale.listOf("year").sort()[0];
     }
-    else if (this.sortOption == "make"){
+    else if (this.searchData.sortBy == "make"){
       return sale.listOf("make").sort()[0];
     }
-    else if (this.sortOption == "model") {
+    else if (this.searchData.sortBy == "model") {
       return sale.listOf("model").sort()[0];
     }
     else {
-      return sale.get(this.sortOption)
+      return sale.get(this.searchData.sortBy)
     }
 
   }
@@ -36,10 +43,13 @@ HemmingsClone.Collections.VehicleSales = Backbone.Collection.extend({
 
 
 HemmingsClone.Collections.VehicleSaleResults = HemmingsClone.Collections.VehicleSales.extend({
-  model: HemmingsClone.Models.VehicleSale,
+  url: function() {
+    return "api/vehicle_sales/search?" + this.query
+  },
 
-  initialize: function() {
-    this.view = HemmingsClone.Views.VehicleSaleItem
+  grab: function() {
+    this.fetch({data: this.searchData })
   }
+
 
 })
