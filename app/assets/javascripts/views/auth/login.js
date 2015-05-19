@@ -4,7 +4,8 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
 
   events: {
     "click .close": "close",
-    "submit form": "submit"
+    "submit form": "submit",
+    "click .signup":"signup"
   },
 
   render: function() {
@@ -14,8 +15,16 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
 
 
   close: function() {
+    $("#pop-up").addClass("inactive");
     this.remove();
     // Backbone.history.navigate("");
+  },
+
+  signup: function() {
+    event.preventDefault()
+    
+    this.close()
+    HemmingsClone.PopUps.signUp()
   },
 
   submit: function(event) {

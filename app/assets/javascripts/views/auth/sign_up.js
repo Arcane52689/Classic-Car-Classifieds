@@ -1,7 +1,8 @@
 HemmingsClone.Views.SignUpForm = Backbone.View.extend({
   events: {
     "submit form": "submit",
-    "click .close": "close"
+    "click .close": "close",
+    "click .login": "login"
   },
 
   template: JST["auth/sign_up"],
@@ -29,7 +30,7 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
         success: function() {
           HemmingsClone.currentUser.set("email", email);
           this.close();
-          Backbone.history.navigate("", {trigger: true});
+          // Backbone.history.navigate("", {trigger: true});
         }
       })
     }
@@ -40,6 +41,13 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
 
   close: function(event) {
     this.remove()
-  }
+    $("#pop-up").addClass("inactive")
+  },
+
+  login: function(event) {
+    event.preventDefault()
+    this.close()
+    HemmingsClone.PopUps.login()
+  },
 
 })

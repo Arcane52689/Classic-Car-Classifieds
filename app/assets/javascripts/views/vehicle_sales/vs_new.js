@@ -21,14 +21,16 @@ HemmingsClone.Views.VehicleSaleForm = Backbone.CompositeView.extend({
 
   submit: function(event) {
     event.preventDefault();
-    var $form = $(event.currentTarget);
-    var data = $form.serializeJSON();
-    this.model.save(data, {
-      success: function() {
-        this.collection.add(this.model, {merge: true});
-        Backbone.history.navigate("", {trigger: true});
-      }.bind(this)
-    })
+    if (!HemmingsClone.PopUps.mustLogin()) {
+      var $form = $(event.currentTarget);
+      var data = $form.serializeJSON();
+      this.model.save(data, {
+        success: function() {
+          this.collection.add(this.model, {merge: true});
+          Backbone.history.navigate("", {trigger: true});
+        }.bind(this)
+      })
+    }
   },
 
   addImage: function(event) {

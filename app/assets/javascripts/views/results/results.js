@@ -5,7 +5,8 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .next": "nextPage"
+    "click .next": "nextPage",
+    "click .prev": "prevPage"
   },
 
   className: "results-page group",
@@ -38,6 +39,11 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
 
   nextPage: function() {
     this.collection.searchData.page++;
+    this.collection.grab();
+  },
+
+  prevPage: function() {
+    this.collection.searchData.page--;
     this.collection.grab();
   }
 

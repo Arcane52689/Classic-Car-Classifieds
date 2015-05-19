@@ -6,8 +6,8 @@
 
 <ul class="links group">
   <% if (!user.loggedIn()) { %>
-    <li><a href="#login" class="nav-link"> Login </a></li>
-    <li><a href="#sign_up" class="nav-link"> Sign Up </a> </li>
+    <li><button class="login nav-link">Login</button></li>
+    <li><button class="signup nav-link"> Sign Up </button> </li>
   <% } else { %>
     <li>  <button class="logout nav-link">Logout</button> </li>
   <% } %>

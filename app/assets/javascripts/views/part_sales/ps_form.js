@@ -23,14 +23,17 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
 
   submit: function(event) {
     event.preventDefault();
-    var $form = $(event.currentTarget);
-    var data = $form.serializeJSON();
-    this.model.save(data, {
-      success: function(){
-        this.collection.add(this.model);
-        Backbone.history.navigate("#part_sales", {trigger: true});
-      }.bind(this)
-    })
+    if (!HemmingsClone.PopUps.mustLogin()) {
+
+      var $form = $(event.currentTarget);
+      var data = $form.serializeJSON();
+      this.model.save(data, {
+        success: function(){
+          this.collection.add(this.model);
+          Backbone.history.navigate("#part_sales", {trigger: true});
+        }.bind(this)
+      })
+    }
   },
 
   addImage: function(event) {

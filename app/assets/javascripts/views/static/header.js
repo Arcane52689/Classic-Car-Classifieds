@@ -4,7 +4,9 @@ HemmingsClone.Views.Header = Backbone.View.extend({
   },
 
   events: {
-    "click .logout": "logout"
+    "click .logout": "logout",
+    "click .signup": "signup",
+    "click .login": "login"
   },
 
   tagName: "nav",
@@ -24,6 +26,8 @@ HemmingsClone.Views.Header = Backbone.View.extend({
       type: "DELETE",
     })
     HemmingsClone.currentUser.set("email",undefined);
+  },
 
-  }
+  login: HemmingsClone.PopUps.login,
+  signup: HemmingsClone.PopUps.signUp
 })
