@@ -13,6 +13,16 @@ HemmingsClone.PopUps = {
 
   },
 
+
+  showVehicleSale: function(model) {
+    model.fetch()
+    var view = new HemmingsClone.Views.VehicleSaleShow({
+      model: model
+    })
+    $("#pop-up").removeClass("inactive").html(view.render().$el.addClass("inner-modal"));
+
+  },
+
   mustLogin: function() {
     if (!HemmingsClone.currentUser.loggedIn()) {
       HemmingsClone.PopUps.login();

@@ -5,6 +5,10 @@ HemmingsClone.Views.VehicleSaleShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
   },
 
+  events: {
+    "click .close": "close"
+  },
+
   template: JST["vehicle_sales/show"],
 
   render: function() {
@@ -15,4 +19,10 @@ HemmingsClone.Views.VehicleSaleShow = Backbone.CompositeView.extend({
     this.addSubview(".images-section",this.imagesView)
     return this;
   },
+
+  close: function(event) {
+    event.preventDefault();
+    this.remove()
+    $("#pop-up").addClass("inactive");
+  }
 })

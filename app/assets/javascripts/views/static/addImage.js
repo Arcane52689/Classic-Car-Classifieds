@@ -40,7 +40,7 @@ HemmingsClone.Views.AddImage = Backbone.View.extend({
 
   close: function() {
     this.remove();
-    this.model.images().remove(image);
+    this.model.images().spilice(this.model.images().indexOf(image),1);
 
   }
 })
