@@ -3,6 +3,10 @@ HemmingsClone.Views.PartSaleShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render)
   },
 
+  events: {
+    "click .close": "close"
+  }
+
   template: JST["part_sales/show"],
 
   render: function() {

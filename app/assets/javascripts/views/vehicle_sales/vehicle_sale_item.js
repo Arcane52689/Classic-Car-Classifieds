@@ -1,3 +1,4 @@
+
 HemmingsClone.Views.VehicleSaleItem = Backbone.View.extend({
   tagName: "li",
   className: "item vehicle-sale",
