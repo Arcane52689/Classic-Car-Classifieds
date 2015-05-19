@@ -42,7 +42,7 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def vehicle_sale_params
-    params.require(:vehicle_sale).require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location)
+    params.require(:vehicle_sale).require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location, :price)
   end
 
   def search_params
