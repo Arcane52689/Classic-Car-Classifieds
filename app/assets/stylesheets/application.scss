@@ -151,3 +151,13 @@ a {
   display: block;
   // margin: auto;
 }
+
+
+
+.outer-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: gray;
+  z-index: 10;
+}

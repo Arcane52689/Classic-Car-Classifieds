@@ -1,5 +1,6 @@
 HemmingsClone.Views.LoginForm = Backbone.View.extend({
   template: JST["auth/login"],
+  className: "inner-modal",
 
   events: {
     "click .close": "close",
@@ -14,7 +15,7 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
 
   close: function() {
     this.remove();
-    Backbone.history.navigate("");
+    // Backbone.history.navigate("");
   },
 
   submit: function(event) {

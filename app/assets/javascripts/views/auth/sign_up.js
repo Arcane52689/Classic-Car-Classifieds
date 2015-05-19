@@ -5,6 +5,7 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
   },
 
   template: JST["auth/sign_up"],
+  className: "inner-modal",
 
   render: function() {
     this.$el.html(this.template({ user: this.model }));
