@@ -9,10 +9,7 @@
       <option value="<%=year%>"> <%=year%> </option>
     <% } %>
   </select>
-  <label for="">Make</label>
-  <input type="text" name="vehicle[make]" value="">
-  <label for="">Model</label>
-  <input type="text" name="vehicle[model]" value="">
+  <div id="make-model"></div>
   <br>
 
 
@@ -31,6 +28,10 @@
   <textarea name="part_sale[part_description]" rows="8" cols="40"><%= part_sale.escape("part_description") %></textarea>
   <br>
   <label> Asking Price </label> <input type=number name=part_sale[price]>
+  <br>
+  <ul class="uploaded">
+  </ul>
+  <button class="add-image">Add an Image</button>
   <br>
   <input type="submit" value="Whoops">
 

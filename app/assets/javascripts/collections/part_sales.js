@@ -1,8 +1,17 @@
 HemmingsClone.Collections.PartSales = Backbone.Collection.extend({
   url: "api/part_sales",
   model: HemmingsClone.Models.PartSale,
-  initialize: function() {
+  initialize: function(stuff, options) {
     this.view = HemmingsClone.Views.PartSalesItem
+
+    this.searchData = {
+      sortBy: "price",
+      page: 1
+    }
+
+    if (options) {
+      this.query = options.query
+    }
   },
   getOrFetch: function(id) {
     var model = this.get(id);
@@ -28,6 +37,11 @@ HemmingsClone.Collections.PartSales = Backbone.Collection.extend({
       return sale.get(this.sortOption)
     }
 
+  },
+
+
+  grab: function() {
+    this.fetch({data: this.searchData })
   }
 
 
@@ -36,8 +50,9 @@ HemmingsClone.Collections.PartSales = Backbone.Collection.extend({
 
 HemmingsClone.Collections.PartSaleResults = HemmingsClone.Collections.PartSales.extend({
   model: HemmingsClone.Models.PartSale,
-  initialize: function() {
-    this.view = HemmingsClone.Views.PartSalesItem
-  }
+  url: function() {
+    return "api/part_sales/search?" + this.query
+  },
+
 
 })

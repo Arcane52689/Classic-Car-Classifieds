@@ -3,6 +3,10 @@
 
   <a class="result-title"  href="#part_sales/<%=sale.id%>"> <%= sale.escape("part_type") %> </a>
   <br>
+  <figure class="preview">
+    <img src="<%=sale.thumb%>">
+
+  </figure>
   <label> Price: <%=sale.escape("price") %> </label>
   <label for="">Part Number: #<%= sale.escape("part_number") %></label>
   Fits:

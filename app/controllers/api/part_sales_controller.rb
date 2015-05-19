@@ -21,7 +21,7 @@ class Api::PartSalesController < ApplicationController
   end
 
   def index
-    @part_sales = PartSale.includes(:vehicles, :images).all
+    @part_sales = Search.filter(PartSale.joins(:vehicles).includes(:vehicles, :images).all.order(params[:sortBy]),params).page(params[:page])
   end
 
   def search
@@ -32,7 +32,7 @@ class Api::PartSalesController < ApplicationController
 
 
   def part_sale_params
-    params.require(:part_sale).require(:part_sale).permit(:part_description, :location, :part_type, :part_number)
+    params.require(:part_sale).require(:part_sale).permit(:part_description, :location, :part_type, :part_number, :part_category)
   end
 
   def search_params

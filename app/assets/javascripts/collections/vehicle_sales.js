@@ -51,9 +51,6 @@ HemmingsClone.Collections.VehicleSaleResults = HemmingsClone.Collections.Vehicle
     return "api/vehicle_sales/search?" + this.query
   },
 
-  grab: function() {
-    this.fetch({data: this.searchData })
-  }
 
 
 })
