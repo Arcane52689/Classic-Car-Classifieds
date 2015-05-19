@@ -22,7 +22,7 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
 
   signup: function() {
     event.preventDefault()
-    
+
     this.close()
     HemmingsClone.PopUps.signUp()
   },
@@ -39,7 +39,6 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
     var errorCallback = function() {
       this.render().$el.prepend("Invalid username/password Combo");
     }.bind(this);
-    console.log($form.serialize())
     $.ajax({
       url: "/api/session",
       type: "POST",

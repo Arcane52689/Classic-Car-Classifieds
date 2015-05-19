@@ -24,7 +24,7 @@ HemmingsClone.Views.MakeModelForm = Backbone.View.extend({
       var content = '<option value="' + vehicle.escape("model")+'">'+vehicle.escape("model")+"</option>";
       this.$(".select-model").append(content);
     });
-    console.log(this.collection);
+    
   },
 
 

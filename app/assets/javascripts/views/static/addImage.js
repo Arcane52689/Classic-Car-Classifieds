@@ -13,7 +13,7 @@ HemmingsClone.Views.AddImage = Backbone.View.extend({
   },
 
   fileInputChange: function(event) {
-    console.log(event.currentTarget.files[0]);
+    
 
     var that = this;
     var file = event.currentTarget.files[0];

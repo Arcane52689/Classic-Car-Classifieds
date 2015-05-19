@@ -5,7 +5,7 @@ HemmingsClone.Views.PartSaleShow = Backbone.CompositeView.extend({
 
   events: {
     "click .close": "close"
-  }
+  },
 
   template: JST["part_sales/show"],
 
@@ -16,5 +16,10 @@ HemmingsClone.Views.PartSaleShow = Backbone.CompositeView.extend({
     })
     this.addSubview(".images-section",this.imagesView)
     return this;
+  },
+
+  close: function() {
+    this.remove();
+    $("#pop-up").addClass("inactive");
   }
 })

@@ -72,7 +72,7 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
   },
 
   reSort: function(event) {
-    console.log($(event.currentTarget).val());
+    
     this.collection.searchData.sortBy = $(event.currentTarget).val();
     this.collection.grab();
 
