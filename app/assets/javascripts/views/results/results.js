@@ -41,13 +41,18 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   },
 
   nextPage: function() {
-    this.collection.searchData.page++;
-    this.collection.grab();
+    if (this.collection.searchData.page < this.collection.totalPages ){
+      this.collection.searchData.page++;
+      this.collection.grab();
+    }
+
   },
 
   prevPage: function() {
-    this.collection.searchData.page--;
-    this.collection.grab();
+    if (this.collection.searchData > 1 ) {
+      this.collection.searchData.page--;
+      this.collection.grab();
+    }
   }
 
 

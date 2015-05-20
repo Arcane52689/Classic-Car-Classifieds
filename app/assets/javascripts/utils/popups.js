@@ -37,6 +37,13 @@ HemmingsClone.PopUps = {
       return true
     }
     return false
+  },
+
+  mustAddEmail: function() {
+    if (HemmingsClone.currentUser.get("email") === "invalid") {
+      view = new HemmingsClone.Views.UpdateUser({model: HemmingsClone.currentUser})
+      $("#pop-up").removeClass("inactive").html(view.render().$el.addClass("inner-modal"));
+    }
   }
 
 }

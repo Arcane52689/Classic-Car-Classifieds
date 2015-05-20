@@ -23,12 +23,23 @@ class Api::SessionsController < ApplicationController
 
   def active_user
     if logged_in?
-      render json: {email: current_user.email}, status: 200
+      redirect_to api_user_url(current_user) 
     else
       render json: "nope", status: 404
     end
   end
 
+
+  def omniauth
+    user = User.find_or_create_by_auth_hash(auth_hash)
+    login!(user)
+    redirect_to root_url
+  end
+
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 
 
 end

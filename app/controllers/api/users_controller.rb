@@ -19,6 +19,13 @@ class Api::UsersController < ApplicationController
     @part_sales = @user.part_sales.includes(:images, :vehicles)
   end
 
+  def update
+    if current_user.update(user_params)
+      render :show
+    else
+      render json: current_user.errors.full_messages, status: 422
+    end
+  end
 
   def user_params
     params.require(:user).permit(:email, :password)

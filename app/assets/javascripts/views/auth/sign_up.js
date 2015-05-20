@@ -1,4 +1,4 @@
-HemmingsClone.Views.SignUpForm = Backbone.View.extend({
+HemmingsClone.Views.SignUpForm = Backbone.CompositeView.extend({
   events: {
     "submit form": "submit",
     "click .close": "close",
@@ -10,6 +10,8 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({ user: this.model }));
+    var omniView = new HemmingsClone.Views.OmniView()
+    this.addSubview(".omniauth", omniView)
     return this;
   },
 

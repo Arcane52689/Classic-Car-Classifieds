@@ -1,5 +1,5 @@
 HemmingsClone.Models.User = Backbone.Model.extend({
-  url:"api/users/show",
+  urlRoot:"api/users",
 
   loggedIn: function() {
     if (this.get("email")) {

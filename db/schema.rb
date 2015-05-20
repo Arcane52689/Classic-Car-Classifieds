@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518161114) do
+ActiveRecord::Schema.define(version: 20150520180655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 20150518161114) do
 
   add_index "looking_fors", ["user_id"], name: "index_looking_fors_on_user_id", using: :btree
   add_index "looking_fors", ["vehicle_id"], name: "index_looking_fors_on_vehicle_id", using: :btree
+
+  create_table "omni_logins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "uid",        null: false
+    t.string   "provider",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "omni_logins", ["provider", "uid"], name: "index_omni_logins_on_provider_and_uid", unique: true, using: :btree
+  add_index "omni_logins", ["user_id"], name: "index_omni_logins_on_user_id", using: :btree
 
   create_table "part_sales", force: :cascade do |t|
     t.integer  "user_id"
@@ -120,6 +131,7 @@ ActiveRecord::Schema.define(version: 20150518161114) do
 
   add_foreign_key "looking_fors", "users"
   add_foreign_key "looking_fors", "vehicles"
+  add_foreign_key "omni_logins", "users"
   add_foreign_key "part_sales", "users"
   add_foreign_key "part_taggings", "vehicles"
   add_foreign_key "sessions", "users"

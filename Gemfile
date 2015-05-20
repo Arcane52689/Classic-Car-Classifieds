@@ -32,6 +32,9 @@ gem 'paperclip'
 gem 'aws-sdk','< 2.0'
 gem 'figaro'
 gem "kaminari"
+gem 'omniauth-twitter'
+
+
 group :production do
   gem 'rails_12factor'
 end

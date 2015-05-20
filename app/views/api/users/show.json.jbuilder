@@ -1,3 +1,5 @@
+json.extract! current_user, :email, :id
+
 json.vehicle_sales do
   json.partial! "api/vehicle_sales/vehicle_sale", collection: @vehicle_sales, as: :vehicle_sale
 end
