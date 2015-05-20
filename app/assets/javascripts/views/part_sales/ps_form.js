@@ -3,6 +3,8 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
 
   },
 
+  className: "new-form part-sale",
+
   events: {
     "submit form": "submit",
     "click .add-image": "addImage"
@@ -30,7 +32,20 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
       this.model.save(data, {
         success: function(){
           this.collection.add(this.model);
-          Backbone.history.navigate("#part_sales", {trigger: true});
+          Backbone.history.navigate("", {trigger: true});
+          HemmingsClone.PopUps.showPartSale(this.model);
+        }.bind(this),
+
+        error: function(obj, response) {
+          if (this._errors) {
+            this._errors.remove();
+          }
+          console.log(obj, response.responseText)
+          this._errors = new HemmingsClone.Views.ErrorList({
+            errorList: JSON.parse(response.responseText)
+          })
+
+          this.addSubview(".errors", this._errors);
         }.bind(this)
       })
     }

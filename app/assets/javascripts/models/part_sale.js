@@ -34,7 +34,7 @@ HemmingsClone.Models.PartSale = Backbone.Model.extend({
   toJSON: function() {
     var json = { part_sale: _.clone(this.attributes)};
     json.vehicle= this.get("vehicle")
-    if (this._images.length > 0) {
+    if (this.images().length > 0) {
       json.part_sale.images = this._images
     }
     return json;

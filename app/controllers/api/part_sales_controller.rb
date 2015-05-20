@@ -11,7 +11,7 @@ class Api::PartSalesController < ApplicationController
       render json: @part_sale
     else
       # flash[:errors] = @part_sale.errors.full_messages
-      render json: @part_sale.errors.full_messages
+      render json: @part_sale.errors.full_messages, status: 422
     end
 
   end

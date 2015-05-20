@@ -13,7 +13,7 @@ class Api::VehicleSalesController < ApplicationController
     if @vehicle_sale.save
       render json: @vehicle_sale
     else
-      render json: @vehicle_sale.errors.messages, status: 422
+      render json: @vehicle_sale.errors.full_messages, status: 422
     end
   end
 
@@ -31,7 +31,7 @@ class Api::VehicleSalesController < ApplicationController
     # fail
     @vehicle_sales = Search.filter(Search.new(search_params).search_vehicle_sales, params)
     @pages = @vehicle_sales.total_pages
-    
+
     render :index
   end
 

@@ -2,11 +2,16 @@
 
 <form class="new-vehicle-sale">
 
+  <div class="errors"> </div>
 
   <label for="">Year</label>
   <select class="" name="vehicle[year]">
     <% for (var year = 1900; year <= 2015; year++) { %>
-      <option value="<%=year%>"> <%=year%> </option>
+      <option value="<%=year%>"
+      <% if (year === 1950) { %>
+        selected
+      <%  } %>
+      > <%=year%> </option>
     <% } %>
   </select>
   <div id="make-model"></div>

@@ -31,7 +31,7 @@ HemmingsClone.Views.SignUpForm = Backbone.View.extend({
           HemmingsClone.currentUser.set("email", email);
           this.close();
           // Backbone.history.navigate("", {trigger: true});
-        }
+        }.bind(this)
       })
     }
     else {

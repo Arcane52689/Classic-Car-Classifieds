@@ -95,6 +95,11 @@ a {
 
 }
 
+.root ul > li:hover {
+  cursor:pointer;
+  background: #5cc;
+}
+
 
 .header {
   display: block;
@@ -176,4 +181,42 @@ a {
   margin-left: -400px;
   margin-top: -230px;
   opacity: 1;
+}
+
+
+
+.new-form {
+  width: 600px;
+  margin: auto;
+  background: #ccc;
+  border: 5px solid black;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.new-form h1 {
+  font-size: 36px;
+  padding: 10px;
+  display: block;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.title:hover {
+  cursor: pointer;
+  color: white;
+}
+
+
+.error-list {
+  background: #eee;
+  color: red;
+  
 }
