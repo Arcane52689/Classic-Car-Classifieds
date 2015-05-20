@@ -29,7 +29,7 @@ class Api::VehicleSalesController < ApplicationController
 
   def search
     # fail
-    @vehicle_sales = Search.filter(Search.new(search_params).search_vehicle_sales, params)
+    @vehicle_sales = Search.filter(Search.new(search_params).search_vehicle_sales, params).page(params[:page])
     @pages = @vehicle_sales.total_pages
 
     render :index
