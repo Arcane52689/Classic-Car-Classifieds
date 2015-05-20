@@ -46,6 +46,11 @@ class Api::VehicleSalesController < ApplicationController
     Vehicle.find_or_create(vehicle_params)
   end
 
+  def random_image
+    render json: {image_url: Image.all.where(imageable_type: "VehicleSale").shuffle.first().picture.url }, status: 200
+
+  end
+
   def vehicle_sale_params
     params.require(:vehicle_sale).require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location, :price)
   end

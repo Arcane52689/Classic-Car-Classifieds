@@ -25,7 +25,7 @@ class VehicleSalesController < ApplicationController
   end
 
 
-  
+
 
   def vehicle_params
     params.require(:vehicle).permit(:year, :make, :model)
@@ -39,4 +39,7 @@ class VehicleSalesController < ApplicationController
   def vehicle_sale_params
     params.require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location)
   end
+
+
+
 end

@@ -37,6 +37,7 @@ window.HemmingsClone = {
 
     this.searchBox = new HemmingsClone.Views.SearchBox();
     $("#search").html(this.searchBox.render().$el);
+    this.searchBox.setUpRefresh();
   },
 
   checkForUser: function() {
