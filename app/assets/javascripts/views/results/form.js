@@ -30,7 +30,7 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   reFetch: function(event) {
     event.preventDefault();
     var selected = this.$el.serializeJSON();
-    debugger
+    
     this.collection.searchData[this.attr+"s"] = selected[this.attr];
     this.collection.grab();
     this.callback && this.callback();

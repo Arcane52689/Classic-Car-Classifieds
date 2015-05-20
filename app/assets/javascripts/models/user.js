@@ -10,14 +10,15 @@ HemmingsClone.Models.User = Backbone.Model.extend({
 
   parse: function(resp) {
     if (resp.vehicle_sales) {
-      this.vehicleSales().set(resp.vehicle_sales);
-      delete response.vehicle_sales;
+      this.vehicleSales().set(resp.vehicle_sales, {parse: true});
+      delete resp.vehicle_sales;
     }
     if (resp.part_sales) {
-      this.partSales().set(resp.part_sales);
-      delte response.part_sales;
+      this.partSales().set(resp.part_sales, {parse: true});
+      delete resp.part_sales;
     }
-    return response;
+
+    return resp;
   },
 
 

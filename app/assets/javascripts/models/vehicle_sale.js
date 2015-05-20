@@ -8,6 +8,7 @@ HemmingsClone.Models.VehicleSale = Backbone.Model.extend({
   },
 
   parse: function(response) {
+
     this.vehicle().set(response.vehicle);
 
     this.thumb = response.thumb_url

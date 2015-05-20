@@ -45,9 +45,11 @@ HemmingsClone.Collections.PartSales = Backbone.Collection.extend({
   },
 
   parse: function(response) {
-    console.log(response)
     this._total_pages = response.total_pages
-    return response.sales;
+    if (response.sales) {
+      return response.sales;
+    }
+    return response
   },
 
   pages: function(){

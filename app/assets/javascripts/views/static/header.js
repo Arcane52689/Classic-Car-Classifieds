@@ -6,7 +6,8 @@ HemmingsClone.Views.Header = Backbone.View.extend({
   events: {
     "click .logout": "logout",
     "click .signup": "signup",
-    "click .login": "login"
+    "click .login": "login",
+    "click .my-listings": "showListings"
   },
 
   tagName: "nav",
@@ -29,5 +30,10 @@ HemmingsClone.Views.Header = Backbone.View.extend({
   },
 
   login: HemmingsClone.PopUps.login,
-  signup: HemmingsClone.PopUps.signUp
+  signup: HemmingsClone.PopUps.signUp,
+
+  showListings: function(event) {
+    event.preventDefault();
+    Backbone.history.navigate("my-listings",{trigger: true})
+  }
 })

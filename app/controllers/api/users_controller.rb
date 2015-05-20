@@ -15,6 +15,8 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = current_user
+    @vehicle_sales = @user.vehicle_sales.includes(:images, :vehicle)
+    @part_sales = @user.part_sales.includes(:images, :vehicles)
   end
 
 

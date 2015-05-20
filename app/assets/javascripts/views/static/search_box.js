@@ -55,14 +55,13 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
       url: "api/vehicle_sales/random_image",
       dataType: "json",
       success: function(resp) {
-        this.$("#1").attr("src",resp.image_url);
+        this.$("#0").attr("src",resp.image_url);
       }.bind(this),
       error: function(resp) {
         this.$("#1").attr("src",resp.responseText);
       }.bind(this)
     })
   },
-
 
   setUpRefresh: function() {
     setInterval(this.newImage.bind(this), 60000)
