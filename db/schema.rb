@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521161231) do
+ActiveRecord::Schema.define(version: 20150521191207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150521161231) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "for_part",    default: false
+    t.datetime "last_shown"
   end
 
   add_index "looking_fors", ["user_id"], name: "index_looking_fors_on_user_id", using: :btree

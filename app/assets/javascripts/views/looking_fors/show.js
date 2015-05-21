@@ -1,4 +1,8 @@
 HemmingsClone.Views.LookingForShow = Backbone.CompositeView.extend({
+  initialize: function() {
+    this.listenTo(this.model, "sync", this.render);
+  },
+
   events: {
     "click .close": "close",
     "click .destroy": "destroy"
@@ -12,6 +16,7 @@ HemmingsClone.Views.LookingForShow = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template({model: this.model }))
+    this.addMatches()
     return this;
   },
 
@@ -26,6 +31,16 @@ HemmingsClone.Views.LookingForShow = Backbone.CompositeView.extend({
         this.close()
       }.bind(this)
     })
+  },
+
+  addMatches: function() {
+    var view
+    var viewFn = this.model.matches().view;
+    this.model.matches().each(function(match) {
+
+      view = new viewFn({ model: match, link: true });
+      this.addSubview(".results", view);
+    }.bind(this))
   }
 
 })

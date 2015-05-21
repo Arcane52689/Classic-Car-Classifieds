@@ -1,14 +1,14 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
 
-  has_many :sessions
-  has_many :omni_logins
-  has_many :vehicle_sales
+  has_many :sessions, dependent: :destroy
+  has_many :omni_logins, dependent: :destroy
+  has_many :vehicle_sales, dependent: :destroy
 
 
-  has_many :part_sales
+  has_many :part_sales, dependent: :destroy
 
-  has_many :looking_fors
+  has_many :looking_fors, dependent: :destroy
 
   # validates :email, presence: true
 

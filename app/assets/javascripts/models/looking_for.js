@@ -8,7 +8,7 @@ HemmingsClone.Models.LookingFor = Backbone.Model.extend({
 
     if (response.matches) {
       this.matches().set(response.matches, {parse: true})
-      delete response.matches()
+      delete response.matches
     }
 
     return response
@@ -22,9 +22,9 @@ HemmingsClone.Models.LookingFor = Backbone.Model.extend({
   },
 
   matches: function() {
+
     if (!this._matches) {
-      console.log(this.get("for_part"))
-      if (!this.get("for_part")) {
+      if (this.get("for_part")) {
         this._matches = new HemmingsClone.Collections.PartSales();
       } else {
         this._matches = new HemmingsClone.Collections.VehicleSales();

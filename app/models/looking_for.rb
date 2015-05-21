@@ -2,9 +2,9 @@ class LookingFor < ActiveRecord::Base
   belongs_to :user
   belongs_to :vehicle
 
-  has_many :matches
+  has_many :matches, dependent: :destroy
 
-  after_save :find_matches
+  after_create :find_matches
 
 
 
@@ -39,5 +39,13 @@ class LookingFor < ActiveRecord::Base
 
   def total_matches
     matches.count
+  end
+
+  def new_matches
+    if last_show
+      matches.where("create_at > :time", time: last_shown).count
+    else
+      total_matches
+    end
   end
 end

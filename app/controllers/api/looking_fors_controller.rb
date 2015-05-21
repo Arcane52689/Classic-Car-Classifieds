@@ -13,6 +13,7 @@ class Api::LookingForsController < ApplicationController
 
   def show
     @looking_for = LookingFor.includes(:vehicle).find(params[:id])
+    @looking_for.update(last_shown: Time.now )
   end
 
   def destroy
