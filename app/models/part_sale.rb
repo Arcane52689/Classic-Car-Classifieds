@@ -55,6 +55,9 @@ class PartSale < ActiveRecord::Base
 
   has_many :images, as: :imageable
 
+  has_many :matches, as: :matchable
+
+
 
   validates :part_number, :part_category, :part_type, :part_description, :location, :user_id, presence: true
 

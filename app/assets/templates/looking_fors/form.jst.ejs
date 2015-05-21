@@ -1,10 +1,13 @@
 
 <h1> I'm looking for </h1>
+<label for="">Looking For
+<label for="">Vehicles <input type="radio" selected name="looking_for[for_part]" value="false"></label>
+<label for="">Parts <input type="radio" name="looking_for[for_part]" value="true"></label>
+</label>
+<br>
 <label> Title </label>
 <input type="text" name="looking_for[title]" value="<%=request.escape("title")%>">
-
-
-
+<br>
 <label for="">Year</label>
 <select class="" name="vehicle[year]">
   <% for (var year = 1900; year <= 2015; year++) { %>

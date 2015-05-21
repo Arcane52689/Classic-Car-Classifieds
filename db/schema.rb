@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520180655) do
+ActiveRecord::Schema.define(version: 20150521161231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,14 +35,26 @@ ActiveRecord::Schema.define(version: 20150520180655) do
     t.string   "title"
     t.string   "part_type"
     t.string   "part_number"
-    t.text     "body",        null: false
+    t.text     "body",                        null: false
     t.integer  "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "for_part",    default: false
   end
 
   add_index "looking_fors", ["user_id"], name: "index_looking_fors_on_user_id", using: :btree
   add_index "looking_fors", ["vehicle_id"], name: "index_looking_fors_on_vehicle_id", using: :btree
+
+  create_table "matches", force: :cascade do |t|
+    t.integer  "looking_for_id"
+    t.integer  "matchable_id",   null: false
+    t.string   "matchable_type", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "matches", ["looking_for_id"], name: "index_matches_on_looking_for_id", using: :btree
+  add_index "matches", ["matchable_id"], name: "index_matches_on_matchable_id", using: :btree
 
   create_table "omni_logins", force: :cascade do |t|
     t.integer  "user_id"
@@ -131,6 +143,7 @@ ActiveRecord::Schema.define(version: 20150520180655) do
 
   add_foreign_key "looking_fors", "users"
   add_foreign_key "looking_fors", "vehicles"
+  add_foreign_key "matches", "looking_fors"
   add_foreign_key "omni_logins", "users"
   add_foreign_key "part_sales", "users"
   add_foreign_key "part_taggings", "vehicles"

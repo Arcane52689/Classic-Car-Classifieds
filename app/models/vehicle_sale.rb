@@ -4,6 +4,8 @@ class VehicleSale < ActiveRecord::Base
   belongs_to :vehicle
 
   has_many :images, as: :imageable
+  has_many :matches, as: :matchable
+  
 
   validates :title_status, :vehicle_description, :vehicle_condition, :location, presence: true
 
