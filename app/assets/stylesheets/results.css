@@ -32,6 +32,7 @@
 
 .results {
   margin: auto;
+  overflow: auto;
 }
 
 .item {
@@ -60,4 +61,10 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+
+.show .results {
+  height: 100%;
+  display: block;
 }

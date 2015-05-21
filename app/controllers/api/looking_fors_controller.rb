@@ -3,7 +3,7 @@ class Api::LookingForsController < ApplicationController
   def create
     @looking_for = current_user.looking_fors.new(clean_params)
     @looking_for.vehicle_id = find_vehicle.id
-    byebug
+
     if @looking_for.save
       render json: @looking_for
     else
@@ -14,6 +14,7 @@ class Api::LookingForsController < ApplicationController
   def show
     @looking_for = LookingFor.includes(:vehicle).find(params[:id])
     @looking_for.update(last_shown: Time.now )
+    render :show
   end
 
   def destroy
@@ -34,7 +35,7 @@ class Api::LookingForsController < ApplicationController
 
 
   def looking_for_params
-    params.require(:looking_for).permit(:title, :body, :part_type, :part_number, :location)
+    params.require(:looking_for).permit(:title, :body, :part_type, :part_number, :location, :for_part)
   end
 
   def clean_params

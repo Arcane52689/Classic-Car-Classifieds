@@ -19,9 +19,10 @@ class LookingFor < ActiveRecord::Base
     if part_number
       results = PartSale.where({part_number: part_number } )
     else
-      results = PartTagging.includes(:part_sale).where(vehicle_id: vehicle_id).map(&:part_sale)
+    
+      results = PartSale.joins(:part_taggings).where("part_taggings.vehicle_id = ?", vehicle_id)
       if part_type
-        results = result.where({ part_type: part_type })
+        results = results.where({ part_type: part_type })
       end
     end
     results.each do |sale|
@@ -41,9 +42,9 @@ class LookingFor < ActiveRecord::Base
     matches.count
   end
 
-  def new_matches
-    if last_show
-      matches.where("create_at > :time", time: last_shown).count
+  def recent_matches
+    if last_shown
+      matches.where("created_at > :time", time: last_shown).count
     else
       total_matches
     end

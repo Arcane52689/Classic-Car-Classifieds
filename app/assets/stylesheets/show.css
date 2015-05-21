@@ -32,3 +32,15 @@
   top: 0;
   right: 0;
 }
+
+
+
+.new-matches {
+  background: #050;
+  color: white;
+}
+
+.new-match {
+  background: #595;
+  color: blue;
+}

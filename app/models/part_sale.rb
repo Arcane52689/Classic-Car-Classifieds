@@ -71,7 +71,7 @@ class PartSale < ActiveRecord::Base
 
 
   def match_by_vehicle
-    results = LookingFor.where(for_part: true).where("vehicle_id IN ? AND ( part_type = ? OR part_type IS NULL)", self.vehicles.map(&:id), part_type)
+    results = LookingFor.where(for_part: true).where("vehicle_id IN (?) AND ( (part_type = ?) OR (part_type IS NULL))", self.vehicles.map(&:id), part_type)
     results.each do |result|
       self.matches.create(looking_for_id: result.id)
     end

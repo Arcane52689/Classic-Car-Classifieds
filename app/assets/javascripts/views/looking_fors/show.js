@@ -40,6 +40,9 @@ HemmingsClone.Views.LookingForShow = Backbone.CompositeView.extend({
 
       view = new viewFn({ model: match, link: true });
       this.addSubview(".results", view);
+      if (match.get('created_at') > this.model.get("last_shown") || !this.model.get("last_shown")) {
+        view.$el.addClass("new-match")
+      }
     }.bind(this))
   }
 
