@@ -1,5 +1,5 @@
 HemmingsClone.Models.User = Backbone.Model.extend({
-  urlRoot:"api/users",
+  url:"api/users/1",
 
   loggedIn: function() {
     if (this.get("email")) {
@@ -18,8 +18,9 @@ HemmingsClone.Models.User = Backbone.Model.extend({
       delete resp.part_sales;
     }
 
-    if (response.looking_fors) {
-      this.looking_fors().set(resp.looking_fors, { parse: true })
+    if (resp.looking_fors) {
+      this.lookingFors().set(resp.looking_fors, { parse: true })
+      delete resp.looking_fors;
     }
 
     return resp;

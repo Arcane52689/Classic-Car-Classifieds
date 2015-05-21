@@ -1,7 +1,7 @@
 class Api::LookingForsController < ApplicationController
 
   def create
-    @looking_for = current_user.looking_fors.new(looking_for_params)
+    @looking_for = current_user.looking_fors.new(clean_params)
     @looking_for.vehicle_id = find_vehicle.id
     byebug
     if @looking_for.save
@@ -34,6 +34,16 @@ class Api::LookingForsController < ApplicationController
 
   def looking_for_params
     params.require(:looking_for).permit(:title, :body, :part_type, :part_number, :location)
+  end
+
+  def clean_params
+    cleaned = looking_for_params
+    cleaned.each do |key, value|
+      if value == ""
+        cleaned[key] = nil
+      end
+    end
+    cleaned
   end
 
 end

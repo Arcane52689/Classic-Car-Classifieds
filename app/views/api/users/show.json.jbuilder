@@ -9,5 +9,5 @@ json.part_sales do
 end
 
 json.looking_fors do
-  json.partial! "api/part_sales/looking_for", collection: @looking_fors, as: :looking_for
+  json.partial! "api/looking_fors/looking_for", collection: @looking_fors, as: :looking_for
 end

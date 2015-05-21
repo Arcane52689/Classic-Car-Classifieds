@@ -17,7 +17,9 @@ class Api::UsersController < ApplicationController
     @user = current_user
     @vehicle_sales = @user.vehicle_sales.includes(:images, :vehicle)
     @part_sales = @user.part_sales.includes(:images, :vehicles)
-    @looking_for = @user.part_sales.includes(:vehicle)
+
+    @looking_fors = @user.looking_fors.includes(:vehicle)
+
   end
 
   def update
