@@ -18,10 +18,17 @@ HemmingsClone.Views.UserShow = Backbone.CompositeView.extend({
       var view = new viewFn({model: sale});
       this.addSubview("#vehicle-sales", view);
     }.bind(this));
+
     var viewFn = this.model.partSales().view
     this.model.partSales().each(function(sale) {
       var view = new viewFn({model: sale})
       this.addSubview("#part-sales", view)
+    }.bind(this))
+
+    var viewFn = this.model.lookingFors().view
+    this.model.lookingFors().each(function(sale) {
+      var view = new viewFn({model: sale})
+      this.addSubview("#looking-fors", view)
     }.bind(this))
   }
 })

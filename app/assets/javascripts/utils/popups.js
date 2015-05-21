@@ -31,6 +31,14 @@ HemmingsClone.PopUps = {
     $("#pop-up").removeClass("inactive").html(view.render().$el.addClass("inner-modal"));
   },
 
+  showLookingFor: function(model) {
+    model.fetch()
+    var view = new HemmingsClone.Views.LookingForShow({
+      model: model
+    });
+    $("#pop-up").removeClass("inactive").html(view.render().$el.addClass("inner-modal"));
+  },
+
   mustLogin: function() {
     if (!HemmingsClone.currentUser.loggedIn()) {
       HemmingsClone.PopUps.login();

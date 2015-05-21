@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get "part_sales/search", to: "part_sales#search"
     resources :vehicle_sales, only: [ :create,:index, :show]
     resources :part_sales, only: [:create, :index, :show]
-    resources :looking_fors, only: [:new, :create, :index, :show]
+    resources :looking_fors, only: [:destroy, :create, :index, :show]
     resource :session, only: [:create, :destroy] do
       member do
         get :active_user

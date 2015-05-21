@@ -25,3 +25,10 @@
 .show-info {
   float: left;
 }
+
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

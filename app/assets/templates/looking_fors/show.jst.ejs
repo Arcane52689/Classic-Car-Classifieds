@@ -1,0 +1,30 @@
+
+
+<h1> <%= model.escape("title")  %>
+<br>
+for
+<%= model.vehicle().description() %>
+</h1>
+
+<section class="description">
+  <button class="close"> X </button>
+  <ul>
+    <% if (model.get("part_type")) { %>
+      <li> Part Type: <%= model.escape("part_type") %> </li>
+    <%  } %>
+
+    <% if (model.get("part_number")) { %>
+      <li> Part Number: <%= model.escape("part_number") %> </li>
+    <%  } %>
+
+    <label for="">Description</label>
+    <pre class="body"> <%= model.escape("body") %> </pre>
+
+    <ul class="results matches">
+
+    </ul>
+
+  </ul>
+
+  <button class="destroy"> Stop Looking </button>
+</section>
