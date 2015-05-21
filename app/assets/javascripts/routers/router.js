@@ -6,7 +6,8 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "root",
-    "my-listings":"showListings"
+    "my-listings":"showListings",
+    "looking-for/new": "newRequest"
   },
 
   root: function() {
@@ -19,6 +20,13 @@ HemmingsClone.Routers.Router = Backbone.Router.extend({
     var view = new HemmingsClone.Views.UserShow({
       model: HemmingsClone.currentUser
     })
+    this._swapView(view);
+  },
+
+  newRequest: function() {
+    var view = new HemmingsClone.Views.LookingForForm({
+      model: new HemmingsClone.Models.LookingFor()
+    });
     this._swapView(view);
   },
 

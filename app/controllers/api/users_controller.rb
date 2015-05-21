@@ -17,11 +17,12 @@ class Api::UsersController < ApplicationController
     @user = current_user
     @vehicle_sales = @user.vehicle_sales.includes(:images, :vehicle)
     @part_sales = @user.part_sales.includes(:images, :vehicles)
+    @looking_for = @user.part_sales.includes(:vehicle)
   end
 
   def update
     if current_user.update(user_params)
-      render :show
+      render json: current_user
     else
       render json: current_user.errors.full_messages, status: 422
     end

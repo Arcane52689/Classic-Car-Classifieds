@@ -18,6 +18,10 @@ HemmingsClone.Models.User = Backbone.Model.extend({
       delete resp.part_sales;
     }
 
+    if (response.looking_fors) {
+      this.looking_fors().set(resp.looking_fors, { parse: true })
+    }
+
     return resp;
   },
 
@@ -34,5 +38,12 @@ HemmingsClone.Models.User = Backbone.Model.extend({
       this._partSales = new HemmingsClone.Collections.PartSales();
     }
     return this._partSales
+  },
+
+  lookingFors: function() {
+    if (!this._lookingFors) {
+      this._lookingFors = new HemmingsClone.Collections.LookingFors();
+    }
+    return this._lookingFors;
   }
 })

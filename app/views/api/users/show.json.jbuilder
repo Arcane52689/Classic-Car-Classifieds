@@ -7,3 +7,7 @@ end
 json.part_sales do
   json.partial! "api/part_sales/part_sale", collection: @part_sales, as: :part_sale
 end
+
+json.looking_fors do
+  json.partial! "api/part_sales/looking_for", collection: @looking_fors, as: :looking_for
+end
