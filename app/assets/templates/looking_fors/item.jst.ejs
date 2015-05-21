@@ -4,6 +4,13 @@
 
 
 <section class="description">
+  <label><%= request.get("total_matches") %>
+  <% if (request.get("total_matches") == 1) { %>
+    match
+  <% } else { %>
+    matches
+  <% } %>
+  found! </label>
   <br>
   <%= request.escape("body") %>
 </section>

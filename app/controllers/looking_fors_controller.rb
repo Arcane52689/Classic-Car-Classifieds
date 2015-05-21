@@ -16,7 +16,7 @@ class LookingForsController < ApplicationController
   end
 
   def show
-    @request = LookingFor.includes(:vehicle).find(params[:id])
+    @request = LookingFor.includes(:vehicle, matches: :matchable).find(params[:id])
   end
 
   def index

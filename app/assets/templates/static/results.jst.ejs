@@ -7,7 +7,11 @@ Order By
   <h1 class="results-title">Results </h1>
   <button class="next"> Next Page </button>
 </nav>
+<% if (pages > 0) { %>
 <h3 class="page"> page <%= page %> of <%=pages%> </h3>
+<% } else { %>
+<h3 class="page"> No results found </h3>
+<% } %>
   <ul class="results">
 
   </ul>

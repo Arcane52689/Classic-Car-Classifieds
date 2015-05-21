@@ -61,12 +61,35 @@ class PartSale < ActiveRecord::Base
 
   validates :part_number, :part_category, :part_type, :part_description, :location, :user_id, presence: true
 
+  after_save :find_matches
+
   def create_images(image_list)
     image_list.each do |img|
       self.images.new({picture: img})
     end
   end
 
+
+  def match_by_vehicle
+    results = LookingFor.where(for_part: true).where("vehicle_id IN ? AND ( part_type = ? OR part_type IS NULL)", self.vehicles.map(&:id), part_type)
+    results.each do |result|
+      self.matches.create(looking_for_id: result.id)
+    end
+
+  end
+
+
+  def match_by_part_number
+    results = LookingFor.where(part_number: part_number)
+    results.each do |result|
+      self.matches.create(looking_for_id: result.id)
+    end
+  end
+
+  def find_matches
+    match_by_part_number
+    match_by_vehicle
+  end
 
 
 
