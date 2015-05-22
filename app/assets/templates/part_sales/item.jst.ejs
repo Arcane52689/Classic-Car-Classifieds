@@ -7,9 +7,12 @@
     <img src="<%=sale.thumb%>">
 
   </figure>
-  <section class="desecription">
+  <section class="description">
   <label> Price: <%=sale.escape("price") %> </label>
+  <br>
   <label for="">Part Number: #<%= sale.escape("part_number") %></label>
+  <br>
+  <label> <%= sale.escape("part_type") %> </label>
   Fits:
   <ul class="result-vehicles">
     <% sale.vehicles().each(function(vehicle){ %>
@@ -17,7 +20,7 @@
     <% }) %>
   </ul>
 
-  <label for="">Part_description: <%= sale.escape("part_description") %> </label>
+  <label for="">Description: <%= sale.escape("part_description") %> </label>
   </section>
 
 </article>

@@ -8,7 +8,6 @@ class PartSale < ActiveRecord::Base
     "Carburetion",
     "Climate Control",
     "Cooling System",
-    "Diesel Injection",
     "Drive Belts",
     "Engine Electrical",
     "Engine Mechanical",
@@ -16,7 +15,6 @@ class PartSale < ActiveRecord::Base
     "Exhaust",
     "Fuel Delivery",
     "Fuel Injection",
-    "Manual/Misc",
     "Steering",
     "Suspension",
     "Transmission"
@@ -33,7 +31,7 @@ class PartSale < ActiveRecord::Base
     "Bumper"
   ]
 
-  SEED_HASH= [
+  SEED_HASH= {
     "Body Electrical" => [
       "Window switch",
       "relay",
@@ -72,7 +70,7 @@ class PartSale < ActiveRecord::Base
       %w( shock strut control-arm balljoint bushing),
     "Transmission" =>
       %w( solenoid gear synchro o-ring)
-  ]
+  }
 
 
 

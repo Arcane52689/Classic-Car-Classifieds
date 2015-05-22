@@ -1,14 +1,15 @@
 
 
 .search {
+  display: block;
   position: relative;
-  width: 800px;
+  width: 600px;
+  height: 350px;
   margin: auto;
   color: white;
-  overflow: none;
   margin-bottom: 30px;
   margin-top: 30px;
-  height: 250px;
+  overflow: hidden;
 }
 
 .search h1 {
@@ -80,7 +81,8 @@
 
 
 .search img {
-  height: 100%;
+  height: auto;
+  width: 100%;
   position: absolute;
   z-index: -1;
   transition: left 1s;

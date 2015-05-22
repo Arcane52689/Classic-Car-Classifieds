@@ -7,6 +7,11 @@
   <h1 class="result-title"> <%= part_sale.escape("part_type") %> </h1>
   <br>
   <label for="">Part Number: #<%= part_sale.escape("part_number") %></label>
+  <br>
+  <label> <%= part_sale.escape("part_category") %> : <%= part_sale.escape("part_type") %></label>
+  <br>
+
+
   Fits:
   <ul class="result-vehicles">
     <% part_sale.vehicles().each(function(vehicle){ %>
