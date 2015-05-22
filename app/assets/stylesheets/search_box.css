@@ -83,8 +83,8 @@
 
 
 .search img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   position: absolute;
   z-index: -1;
   transition: left 1s;
