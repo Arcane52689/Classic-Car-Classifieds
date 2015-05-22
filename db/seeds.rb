@@ -25,9 +25,9 @@
 # 5.times do |user|
 #   User.create!({email:Faker::Internet.email, password:"password"})
 # end
-
-User.create({email: "demo@classic-car-classifieds.net", password: "password"})
-
+# 
+# User.create({email: "demo@classic-car-classifieds.net", password: "password"})
+#
 
 # 1000.times do
 #   params = {

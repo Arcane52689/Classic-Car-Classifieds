@@ -1,7 +1,7 @@
 HemmingsClone.Views.PartSalesItem = Backbone.View.extend({
   template: JST["part_sales/item"],
   tagName: "li",
-  className: "item part-sale",
+  className: "item part-sale group",
   events: {
     "click .title":"showModel"
   },

@@ -35,6 +35,9 @@
 
 
 
+/* User Show */
+
+
 .new-matches {
   background: #050;
   color: white;
@@ -43,4 +46,43 @@
 .new-match {
   background: #595;
   color: blue;
+}
+
+
+.listings {
+  background: #aaa;
+  color: white;
+  max-width: 90%;
+  margin: auto;
+}
+
+
+.listing {
+  overflow: auto;
+  float: left;
+  height: 800px;
+  max-width: 30%
+  min-width: 300px;
+  margin: auto;
+  background: rgb(20, 81, 20);
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+
+.listing > h2 {
+  font-size: 36px;
+
+}
+
+
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 25%;
+  height: 100px;
+  width: 200px;
+  z-index: 500;
+  border: 10px; solid black;
 }

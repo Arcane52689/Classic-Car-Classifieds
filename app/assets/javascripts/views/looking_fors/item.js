@@ -1,7 +1,7 @@
 HemmingsClone.Views.LookingForItem = Backbone.View.extend({
   tagName: "article",
 
-  className: "looking-for item",
+  className: "looking-for item group",
 
   template: JST["looking_fors/item"],
 

@@ -2,10 +2,13 @@
 
 .search {
   position: relative;
-  width: 700px;
+  width: 800px;
   margin: auto;
   color: white;
   overflow: none;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  height: 250px;
 }
 
 .search h1 {
@@ -91,4 +94,12 @@
 .search .waiting {
   display: none;
   right: -100%;
+}
+
+.item .preview {
+  float: left;
+}
+
+.item .description {
+  margin-top: 5px;
 }

@@ -1,7 +1,7 @@
 
 HemmingsClone.Views.VehicleSaleItem = Backbone.View.extend({
   tagName: "li",
-  className: "item vehicle-sale",
+  className: "item vehicle-sale group",
 
   template: JST["vehicle_sales/item"],
 
@@ -10,7 +10,7 @@ HemmingsClone.Views.VehicleSaleItem = Backbone.View.extend({
   },
 
   render: function() {
-    
+
     this.$el.html(this.template({ sale: this.model }));
     this.$el.attr("data-id", this.model.id + "");
 

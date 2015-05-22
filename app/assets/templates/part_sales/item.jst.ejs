@@ -7,6 +7,7 @@
     <img src="<%=sale.thumb%>">
 
   </figure>
+  <section class="desecription">
   <label> Price: <%=sale.escape("price") %> </label>
   <label for="">Part Number: #<%= sale.escape("part_number") %></label>
   Fits:
@@ -17,5 +18,6 @@
   </ul>
 
   <label for="">Part_description: <%= sale.escape("part_description") %> </label>
+  </section>
 
 </article>
