@@ -5,6 +5,12 @@
   </section>
 
   <section class="show-info">
+  <% if( vehicle_sale.user()) { %>
+    <label class="contact info"> <%= vehicle_sale.user() %> </label>
+  <% } else  { %>
+    <button class="contact-user">See contact info</button>
+  <% } %>
+
   <h1> <%= vehicle_sale.vehicle().description() %> </h1>
 
     <ul>
@@ -14,5 +20,5 @@
     </ul>
 
   <button class="close"> Back to results </button>
-  
+
   </section>

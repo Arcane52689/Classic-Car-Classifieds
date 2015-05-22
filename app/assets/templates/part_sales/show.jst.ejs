@@ -13,6 +13,11 @@
       <li class="part-result-vehicle"> <%= vehicle.description() %> </li>
     <% }) %>
   </ul>
+  <% if( part_sale.user()) { %>
+    <label class="contact info"> <%= part_sale.user() %> </label>
+  <% } else  { %>
+    <button class="contact-user">See contact info</button>
+  <% } %>
 
   <label for="">Part_description: <%= part_sale.escape("part_description") %> </label>
 

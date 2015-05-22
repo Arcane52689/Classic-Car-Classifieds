@@ -2,7 +2,6 @@ HemmingsClone.Views.OmniView = Backbone.View.extend({
   tagName: 'ul',
   className: 'omni-auth group',
   events: {
-
   },
 
   template: JST["auth/omni_auth"],
@@ -11,6 +10,8 @@ HemmingsClone.Views.OmniView = Backbone.View.extend({
     debugger
     this.$el.html(this.template());
     return this;
-  }
+  },
+
+
 
 })

@@ -45,5 +45,11 @@ HemmingsClone.Models.PartSale = Backbone.Model.extend({
       this._images = []
     }
     return this._images
+  },
+  user: function() {
+    if (!this._user) {
+      this._user = ""
+    }
+    return this._user
   }
 })

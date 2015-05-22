@@ -12,6 +12,11 @@ HemmingsClone.Views.UpdateUser = Backbone.View.extend({
     return this;
   },
 
+  close: function() {
+    this.remove()
+    $("#pop-up").addClass("inactive")
+  },
+
   submit: function(event) {
     event.preventDefault();
     var data = this.$el.serializeJSON();
@@ -21,8 +26,9 @@ HemmingsClone.Views.UpdateUser = Backbone.View.extend({
         this.close();
         Backbone.history.navigate("",{trigger: true})
       }.bind(this),
-      error: function() {
+      error: function(object, errors) {
         this.render()
+        console.log(object, errors)
       }.bind(this)
     })
   }

@@ -43,14 +43,15 @@ User.create({email: "demo@classic-car-classifieds.net", password: "password"})
 # end
 
 1000.times do
+  category = PartSale.categories.shuffle.first
   params = {
     user_id: rand(1..5),
     part_number: SecureRandom.hex(8),
-    part_category: PartSale.categories.shuffle.first,
-    part_type: PartSale.types.shuffle.first,
+    part_category: category,
+    part_type: PartSale.types(category).shuffle.first
     location: Faker::Address.zip,
     price: rand(25..1000),
-    part_description: Faker::Lorem.sentence
+    part_description: ["Mildly used", "Fresh out of box", "brand new", "new", "still in box"]
   }
   p = PartSale.create(params)
   p.part_taggings.create({vehicle_id: Vehicle.random})

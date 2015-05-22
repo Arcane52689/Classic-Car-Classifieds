@@ -30,6 +30,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def email
+    if current_user
+      email = User.find(params[:id]).email
+      render json: {email: email}, status: 200
+    else
+      render json: {email: 'none'}, status: 422
+    end
+  end
+
   def user_params
     params.require(:user).permit(:email, :password)
   end

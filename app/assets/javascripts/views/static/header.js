@@ -1,13 +1,14 @@
 HemmingsClone.Views.Header = Backbone.View.extend({
   initialize: function() {
-    this.listenTo(HemmingsClone.currentUser, "change:email", this.render);
+    this.listenTo(HemmingsClone.currentUser, "sync change:email", this.render);
   },
 
   events: {
     "click .logout": "logout",
     "click .signup": "signup",
     "click .login": "login",
-    "click .my-listings": "showListings"
+    "click .my-listings": "showListings",
+    "click .dummy": "dummyLogin"
   },
 
   tagName: "nav",
@@ -35,5 +36,15 @@ HemmingsClone.Views.Header = Backbone.View.extend({
   showListings: function(event) {
     event.preventDefault();
     Backbone.history.navigate("my-listings",{trigger: true})
+  },
+
+  dummyLogin: function() {
+    $.ajax({
+      url: "api/session/dummy",
+      success: function(response) {
+        HemmingsClone.currentUser.set(response)
+      }
+    })
   }
+
 })

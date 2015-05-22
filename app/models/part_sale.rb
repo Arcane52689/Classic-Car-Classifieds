@@ -33,48 +33,45 @@ class PartSale < ActiveRecord::Base
     "Bumper"
   ]
 
-  SEED_HAHS= [
+  SEED_HASH= [
     "Body Electrical" => [
       "Window switch",
       "relay",
       "ciruit",
-      "wiper-motor"]
-    ,
+      "wiper-motor"
+      ],
     "Body Mechanical" =>
-      %w(bumper wheel tire door door-handle)
-    ,
+      %w(bumper wheel tire door door-handle),
     "Brake" =>
-      %w( brake-pads brake-shoes brake-drums wheel-cylinder caliper)
-    ,
-    "Clutch"
-      %w( clutch-kit master-cylinder slave-cylinder fluid o-ring pedal)
-    ,
+      %w( brake-pads brake-shoes brake-drums wheel-cylinder caliper),
+    "Clutch" =>
+      %w( clutch-kit master-cylinder slave-cylinder fluid o-ring pedal),
     "Carburetion" =>
-      %w( needle carburetor cleaner )
-    ,
+      %w( needle carburetor cleaner ),
     "Climate Control" =>
-      %w( ac-kit )
-    ,
+      %w( ac-kit ),
     "Cooling System" =>
-      %w(radiator hose clamp water-pump drive-belt)
-    ,
+      %w(radiator hose clamp water-pump drive-belt),
     "Drive Belts" =>
-      %w( altenator-belt serpentine-belt tensioner )
-    ,
+      %w( altenator-belt serpentine-belt tensioner ),
     "Engine Electrical" =>
-      %w( alternator generator starter solenoid sensor)
-    ,
+      %w( alternator generator starter solenoid sensor),
     "Engine Mechanical" =>
-      %w( block timing-belt timing-chain)
-    ,
-    "Driveshaft &  Axle",
-    "Exhaust",
-    "Fuel Delivery",
-    "Fuel Injection",
-    "Manual/Misc",
-    "Steering",
-    "Suspension",
-    "Transmission"
+      %w( block timing-belt timing-chain intake-valves exhaust-valves),
+    "Driveshaft &  Axle" =>
+      %w( driveshaft axle),
+    "Exhaust" =>
+      %w( muffler pipe),
+    "Fuel Delivery" =>
+      %w( fuel-pump fuel-line fuel-tank ),
+    "Fuel Injection" =>
+      %w( fuel-injector),
+    "Steering" =>
+      %w( steering-column steering-wheel ),
+    "Suspension" =>
+      %w( shock strut control-arm balljoint bushing),
+    "Transmission" =>
+      %w( solenoid gear synchro o-ring)
   ]
 
 
@@ -85,8 +82,8 @@ class PartSale < ActiveRecord::Base
     PART_CATEGORIES
   end
 
-  def self.types
-    PART_TYPES
+  def self.types(category)
+    SEED_HASH[category]
   end
 
 
@@ -101,9 +98,9 @@ class PartSale < ActiveRecord::Base
     through: :part_taggings,
     source: :vehicle
 
-  has_many :images, as: :imageable
+  has_many :images, as: :imageable, dependent: :destroy
 
-  has_many :matches, as: :matchable
+  has_many :matches, as: :matchable, dependent: :destroy
 
 
 

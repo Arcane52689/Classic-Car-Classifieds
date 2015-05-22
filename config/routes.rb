@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get "vehicle_sales/search", to: "vehicle_sales#search"
+    get "users/:id/email", to: "users#email"
     get "vehicle_sales/random_image", to: "vehicle_sales#random_image"
     get "part_sales/search", to: "part_sales#search"
+    get "session/dummy", to: "sessions#dummy_login"
     resources :vehicle_sales, only: [ :create,:index, :show]
     resources :part_sales, only: [:create, :index, :show]
     resources :looking_fors, only: [:destroy, :create, :index, :show]
