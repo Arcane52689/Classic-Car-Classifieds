@@ -68,3 +68,19 @@ img {
   height: 100%;
   display: block;
 }
+
+
+.results-nav {
+  width: 80%;
+  margin: auto;
+}
+
+.results-nav > button {
+  margin-top: 3px;
+  float:left;
+}
+.results-nav > h3 {
+  float: left;
+  display: block;
+  padding: 10px 187px;
+}

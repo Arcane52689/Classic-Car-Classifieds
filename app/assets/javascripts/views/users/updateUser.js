@@ -20,7 +20,7 @@ HemmingsClone.Views.UpdateUser = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
     var data = this.$el.serializeJSON();
-    debugger
+    
     this.model.save(data, {
       success: function() {
         this.close();

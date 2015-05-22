@@ -7,7 +7,7 @@ HemmingsClone.Views.OmniView = Backbone.View.extend({
   template: JST["auth/omni_auth"],
 
   render:function() {
-    debugger
+
     this.$el.html(this.template());
     return this;
   },

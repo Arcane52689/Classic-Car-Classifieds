@@ -41,7 +41,7 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   },
 
   nextPage: function() {
-    debugger
+
     if (this.collection.searchData.page < this.collection.pages ){
       this.collection.searchData.page++;
       this.collection.grab();

@@ -10,6 +10,8 @@
   margin-bottom: 30px;
   margin-top: 30px;
   overflow: hidden;
+  border: 5px solid white;
+  border-radius: 5px;
 }
 
 .search h1 {
@@ -81,8 +83,8 @@
 
 
 .search img {
-  height: auto;
-  width: 100%;
+  height: 100%;
+  width: auto;
   position: absolute;
   z-index: -1;
   transition: left 1s;

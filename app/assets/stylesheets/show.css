@@ -36,13 +36,19 @@
 
 
 /* User Show */
-.user-show > h1 {
+
+.user-show {
   text-align: center;
+
+}
+
+
+.user-show > h1 {
   font-size: 36px;
 }
 
 .new-matches {
-  background: #050;
+  background: #0a0;
   color: white;
 }
 
@@ -54,21 +60,24 @@
 
 .listings {
   color: white;
-  max-width: 90%;
+  min-width: 500px;
+  max-width: 1200px;
   margin: auto;
+
 }
 
 
 .listing {
+  background: rgb(20, 120, 20);
   overflow: auto;
   float: left;
   height: 800px;
   width: 30%;
-  margin-right: 2%;
-  magrin-bottom: 20px;
-  background: rgb(20, 81, 20);
+  margin-right: 10px;
+  margin-bottom: 20px;
   text-align: center;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 
