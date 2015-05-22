@@ -1,9 +1,0 @@
-
-<h1>Vehicle Sales</h1>
-<ul>
-<% @requests.each do |request| %>
-  <%= render partial: "sale", locals: {request: request} %>
-<% end %>
-</ul>
-
-<%= my_link_to(new_vehicle_sale_url, "Sell your car!") %>
