@@ -3,6 +3,7 @@ HemmingsClone.Views.UserShow = Backbone.CompositeView.extend({
     this.model.fetch()
     this.listenTo(this.model, "sync", this.render)
   },
+  className: "user-show",
 
   template: JST["users/show"],
 

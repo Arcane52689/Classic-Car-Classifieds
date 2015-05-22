@@ -36,7 +36,10 @@
 
 
 /* User Show */
-
+.user-show > h1 {
+  text-align: center;
+  font-size: 36px;
+}
 
 .new-matches {
   background: #050;
@@ -50,7 +53,6 @@
 
 
 .listings {
-  background: #aaa;
   color: white;
   max-width: 90%;
   margin: auto;
