@@ -33,6 +33,54 @@ class PartSale < ActiveRecord::Base
     "Bumper"
   ]
 
+  SEED_HAHS= [
+    "Body Electrical" => [
+      "Window switch",
+      "relay",
+      "ciruit",
+      "wiper-motor"]
+    ,
+    "Body Mechanical" =>
+      %w(bumper wheel tire door door-handle)
+    ,
+    "Brake" =>
+      %w( brake-pads brake-shoes brake-drums wheel-cylinder caliper)
+    ,
+    "Clutch"
+      %w( clutch-kit master-cylinder slave-cylinder fluid o-ring pedal)
+    ,
+    "Carburetion" =>
+      %w( needle carburetor cleaner )
+    ,
+    "Climate Control" =>
+      %w( ac-kit )
+    ,
+    "Cooling System" =>
+      %w(radiator hose clamp water-pump drive-belt)
+    ,
+    "Drive Belts" =>
+      %w( altenator-belt serpentine-belt tensioner )
+    ,
+    "Engine Electrical" =>
+      %w( alternator generator starter solenoid sensor)
+    ,
+    "Engine Mechanical" =>
+      %w( block timing-belt timing-chain)
+    ,
+    "Driveshaft &  Axle",
+    "Exhaust",
+    "Fuel Delivery",
+    "Fuel Injection",
+    "Manual/Misc",
+    "Steering",
+    "Suspension",
+    "Transmission"
+  ]
+
+
+
+
+
   def self.categories
     PART_CATEGORIES
   end

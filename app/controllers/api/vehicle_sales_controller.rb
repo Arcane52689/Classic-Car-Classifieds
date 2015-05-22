@@ -18,7 +18,7 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def show
-    @vehicle_sale = VehicleSale.includes(:vehicle).find(params[:id])
+    @vehicle_sale = VehicleSale.includes(:vehicle, :images).find(params[:id])
   end
 
   def index
