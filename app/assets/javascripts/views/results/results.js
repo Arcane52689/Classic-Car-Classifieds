@@ -1,6 +1,6 @@
 HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   initialize: function() {
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync", this.renderResults);
     this.listenTo(this.collection, "sort", this.renderResults);
   },
 
@@ -13,18 +13,20 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   template: JST["static/results"],
 
   render: function() {
+
     this.$el.html(this.template({
       page: this.collection.searchData.page,
       pages: this.collection.pages()
     }));
 
     this.renderResults();
-    this.optionsView = new HemmingsClone.Views.SortOptions({
-      collection: this.collection,
-      $results: this.$(".results").children()
-      });
-    this.addSubview(".order-by", this.optionsView);
 
+    if (!this.optionsView) {
+      this.renderSortOptions();
+    }
+
+
+    console.log(this.subviews());
     return this;
   },
 
@@ -54,6 +56,15 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
       this.collection.searchData.page--;
       this.collection.grab();
     }
+  },
+
+  renderSortOptions: function() {
+    this.optionsView = new HemmingsClone.Views.SortOptions({
+      collection: this.collection,
+      $results: this.$(".results").children()
+      });
+    this.addSubview(".order-by", this.optionsView);
+    debugger
   }
 
 

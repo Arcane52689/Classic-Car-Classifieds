@@ -1,5 +1,9 @@
 HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   tagName: "form",
+  // className: function() {
+  //   debugger
+  //   return "selectors-for " + this.attr;
+  // },
   events: {
     "click .select": "reFetch",
     "click .reset": "reset"
@@ -22,6 +26,8 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
       list: this.list,
       attr: this.attr
       }))
+    // debugger
+    console.log("rendering form for " + this.attr)
     return this;
   },
 

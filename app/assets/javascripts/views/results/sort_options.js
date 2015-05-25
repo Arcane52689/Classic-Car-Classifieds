@@ -5,7 +5,7 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
     this.model_collection = new HemmingsClone.Collections.Vehicles({
       make: "None"
     });
-    this.listenTo(this.collection, "sync", this.render);
+    // this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.model_collection, "sync", this.renderModels)
   },
 
@@ -25,16 +25,19 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
         collection: this.collection,
         attr: attr,
         list: this.listOf(attr),
-        callback: this.addModels.bind(this)
+        callback: this.addModels.bind(this),
+        className: "make"
       })
-      this.addSubview(".result-options", view)
+
+      this.addSubview("#make-options", view)
     }.bind(this));
+    console.log("rendering sort-options");
     return this;
   },
 
   addModels: function(makes) {
     this.models = [];
-
+    console.log(this);
     _.each(makes, function(make) {
       this.model_collection.setMake(make, function() {
         this.model_collection.each(function(car){
@@ -49,15 +52,18 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
     if (this._modelsView) {
       this._modelsView.remove();
     }
-    debugger
-    this._modelsView = new HemmingsClone.Views.OptionsForm({
+    var view = new HemmingsClone.Views.OptionsForm({
       $results: this.$results,
       collection: this.collection,
       attr: "model",
-      list: this.models
+      list: this.models,
+      className: "form-models"
     })
-    this.addSubview(".result-options",this._modelsView)
 
+    console.log("rendering models")
+    this.addSubview("#model-options",view)
+    debugger
+    this._modelsView = view
   },
 
 

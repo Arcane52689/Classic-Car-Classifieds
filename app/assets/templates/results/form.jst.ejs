@@ -1,21 +1,20 @@
-<% if (list.length > 1) {%>
-  <h1> <%=attr.toUpperCase() %>S </h1>
-  <button class="select" id="make">Select </button>
-  <button class="reset">Reset</button>
 
-  <% if (this.attr === "make") { %>
-    <%= $("#car-makes").html() %>
-  <% } else { %>
+<h1> <%=attr.toUpperCase() %>S </h1>
+<button class="select" id="make">Select </button>
+<button class="reset">Reset</button>
+
+<% if (this.attr === "make") { %>
+  <%= $("#car-makes").html() %>
+<% } else { %>
 
 
-  <ul class="<%=attr%> options">
+<ul class="<%=attr%> options">
 
-    <% _.each(list, function(attribute) { %>
-      <li>
-          <input type="checkbox" name="<%=attr%>[]" value="<%=attribute%>">
-        <strong class="option"> <%= attribute %> </strong>
-      </li>
-    <%  }) %>
-  </ul>
-  <% } %>
+  <% _.each(list, function(attribute) { %>
+    <li>
+        <input type="checkbox" name="<%=attr%>[]" value="<%=attribute%>">
+      <strong class="option"> <%= attribute %> </strong>
+    </li>
+  <%  }) %>
+</ul>
 <% } %>
