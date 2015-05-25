@@ -41,7 +41,7 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
     _.each(makes, function(make) {
       this.model_collection.setMake(make, function() {
         this.model_collection.each(function(car){
-          // debugger
+
           this.models.push(car.escape("model"));
         }.bind(this));
       }.bind(this));
@@ -60,10 +60,9 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
       className: "form-models"
     })
 
-    console.log("rendering models")
-    this.addSubview("#model-options",view)
-    debugger
-    this._modelsView = view
+    console.log("rendering models");
+    this.addSubview("#model-options",view);
+    this._modelsView = view;
   },
 
 

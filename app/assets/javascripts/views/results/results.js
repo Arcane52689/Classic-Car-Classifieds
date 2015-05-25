@@ -64,7 +64,6 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
       $results: this.$(".results").children()
       });
     this.addSubview(".order-by", this.optionsView);
-    debugger
   }
 
 

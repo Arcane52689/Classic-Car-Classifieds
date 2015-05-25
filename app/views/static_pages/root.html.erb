@@ -53,7 +53,7 @@ $(HemmingsClone.initialize);
 
 
 <script type="text/template" id="car-makes">
-  <ul>
+  <ul class="options">
       <% Vehicle.makes.each do |make| %>
     <li class="make">
         <input type="checkbox" name="make[]" value="<%= make %>"> <strong> <%=make %> </strong>

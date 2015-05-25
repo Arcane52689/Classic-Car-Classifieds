@@ -1,9 +1,6 @@
 HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   tagName: "form",
-  // className: function() {
-  //   debugger
-  //   return "selectors-for " + this.attr;
-  // },
+
   events: {
     "click .select": "reFetch",
     "click .reset": "reset"
@@ -26,7 +23,7 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
       list: this.list,
       attr: this.attr
       }))
-    // debugger
+
     console.log("rendering form for " + this.attr)
     return this;
   },
@@ -38,6 +35,7 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
 
     this.collection.searchData[this.attr+"s"] = selected[this.attr];
     this.collection.grab();
+    this.hideOptions();
     this.callback && this.callback(this.$el.serializeJSON()[this.attr]);
   },
 
@@ -45,15 +43,18 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
     event.preventDefault();
     delete this.collection.searchData[this.attr+"s"]
     this.collection.grab()
+    if (this.attr == "make") {
+      $("#model-options").empty();
+    }
     this.render();
 
   },
 
   hideOptions: function() {
+      debugger
     var selected = this.$el.serializeJSON()
     this.$(".options").children().each(function(idx, li) {
       var $input = $(li).find("input")
-
       if (!_.contains(selected[this.attr], $input.val())) {
         $(li).addClass("inactive");
       }
