@@ -1,7 +1,10 @@
 HemmingsClone.Views.Results = Backbone.CompositeView.extend({
-  initialize: function() {
+  initialize: function(options) {
     this.listenTo(this.collection, "sync", this.renderResults);
     this.listenTo(this.collection, "sort", this.renderResults);
+    if (options) {
+      this.isSearch = options.isSearch
+    }
   },
 
 
@@ -43,7 +46,8 @@ HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   renderSortOptions: function() {
     this.optionsView = new HemmingsClone.Views.SortOptions({
       collection: this.collection,
-      $results: this.$(".results").children()
+      $results: this.$(".results").children(),
+      isSearch: this.isSearch
       });
     this.addSubview(".order-by", this.optionsView);
   }

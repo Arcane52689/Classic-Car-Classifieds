@@ -31,7 +31,8 @@ HemmingsClone.Views.PagesView = Backbone.View.extend({
   },
 
   prevPage: function() {
-    if (this.collection.searchData > 1 ) {
+    debugger
+    if (this.collection.searchData.page > 1 ) {
       this.collection.searchData.page--;
       this.collection.grab();
     }

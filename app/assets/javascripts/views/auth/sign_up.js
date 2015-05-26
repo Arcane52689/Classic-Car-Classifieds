@@ -23,8 +23,7 @@ HemmingsClone.Views.SignUpForm = Backbone.CompositeView.extend({
   },
 
   checkEmails: function(event) {
-    event.preventDefault()
-    debugger
+    event.preventDefault();
     if (this.emailsMatch()) {
       this.$(".emails-dont-match").removeClass("inactive").addClass("inactive");
       this.$(".emails-match").removeClass("inactive");

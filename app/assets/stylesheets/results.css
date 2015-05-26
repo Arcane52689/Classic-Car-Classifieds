@@ -84,3 +84,13 @@ img {
   display: block;
   padding: 10px 187px;
 }
+
+.make {
+  height: 40px;
+}
+
+.options > li {
+  width: 50%;
+  float: left;
+  border-bottom: 1px solid black;
+}

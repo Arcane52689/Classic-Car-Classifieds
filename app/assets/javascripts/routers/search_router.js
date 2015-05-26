@@ -33,7 +33,8 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
       query: data
     });
     var view = new HemmingsClone.Views.Results({
-      collection: results
+      collection: results,
+      isSearch: true
     });
     // this.fireQuery("/api/vehicle_sales/search", results, data);
     results.grab();
@@ -45,7 +46,8 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
       query: data
     });
     var view = new HemmingsClone.Views.Results({
-      collection: results
+      collection: results,
+      isSearch: true
     });
     // this.fireQuery("/api/part_sales/search", results, data);
     results.grab();
@@ -61,7 +63,7 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
     }
     this._currentView = view;
     HemmingsClone.Flash.clearMessages();
-    
+
     this.$rootEl.html(view.render().$el);
   }
 })

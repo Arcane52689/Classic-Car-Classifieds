@@ -15,7 +15,6 @@ HemmingsClone.Models.Flasher = Backbone.Model.extend({
   setMessages: function(obj) {
     this._messages = obj;
     console.log(this._messages)
-    debugger
     this.trigger("flash")
 
   },

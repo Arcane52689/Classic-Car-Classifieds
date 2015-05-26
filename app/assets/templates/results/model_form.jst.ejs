@@ -1,0 +1,17 @@
+
+<h1> Models </h1>
+<button class="select" id="make">Select </button>
+<button class="reset">Reset</button>
+
+
+
+
+<ul class="model options">
+
+  <% _.each(list, function(model) { %>
+    <li>
+        <input type="checkbox" name="<%=model%>[]" value="<%=model%>">
+      <strong class="option"> <%= model %> </strong>
+    </li>
+  <%  }) %>
+</ul>

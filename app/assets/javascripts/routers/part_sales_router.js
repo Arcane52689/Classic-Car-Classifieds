@@ -30,7 +30,6 @@ HemmingsClone.Routers.PartSalesRouter = Backbone.Router.extend({
 
 
   ps_new: function() {
-    HemmingsClone.PopUps.mustLogin();
     var view = new HemmingsClone.Views.PartSaleForm({
     model: new HemmingsClone.Models.PartSale(),
       collection: this.part_sales

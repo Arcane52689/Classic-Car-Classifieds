@@ -1,4 +1,4 @@
-HemmingsClone.Views.OptionsForm = Backbone.View.extend({
+HemmingsClone.Views.MakeForm = Backbone.View.extend({
   tagName: "form",
 
   events: {
@@ -7,24 +7,25 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   },
   initialize: function(options) {
     this.$results = options.$results;
-    this.attr = options.attr;
     this.list = options.list;
     this.callback = options.callback;
     this.hidden = [];
-    if (this.list.length <= 4) {
-      this.callback && this.callback(this.$el.serializeJSON()[this.attr])
+    this.isSearch = options.isSearch;
+    if (options.isSearch) {
+      this.remove()
+      this.callback && this.callback(this.$el.serializeJSON()["make"])
     }
   },
 
-  template: JST["results/form"],
+  template: JST["results/make_form"],
 
   render: function() {
     this.$el.html(this.template({
-      list: this.list,
-      attr: this.attr
+      list: this.list
       }))
-
-    console.log("rendering form for " + this.attr)
+    if (this.isSearch) {
+      this.$el.empty();
+    }
     return this;
   },
 
@@ -33,19 +34,17 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
     event.preventDefault();
     var selected = this.$el.serializeJSON();
 
-    this.collection.searchData[this.attr+"s"] = selected[this.attr];
+    this.collection.searchData["makes"] = selected["make"];
     this.collection.grab();
     this.hideOptions();
-    this.callback && this.callback(this.$el.serializeJSON()[this.attr]);
+    this.callback && this.callback(this.$el.serializeJSON()["make"]);
   },
 
   reset: function(event) {
     event.preventDefault();
-    delete this.collection.searchData[this.attr+"s"]
+    delete this.collection.searchData["makes"]
     this.collection.grab()
-    if (this.attr == "make") {
-      $("#model-options").empty();
-    }
+    $("#model-options").empty();
     this.render();
 
   },
@@ -54,7 +53,7 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
     var selected = this.$el.serializeJSON()
     this.$(".options").children().each(function(idx, li) {
       var $input = $(li).find("input")
-      if (!_.contains(selected[this.attr], $input.val())) {
+      if (!_.contains(selected["make"], $input.val())) {
         $(li).addClass("inactive");
       }
     }.bind(this))
