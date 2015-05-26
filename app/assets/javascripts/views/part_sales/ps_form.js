@@ -37,15 +37,7 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
         }.bind(this),
 
         error: function(obj, response) {
-          if (this._errors) {
-            this._errors.remove();
-          }
-          console.log(obj, response.responseText)
-          this._errors = new HemmingsClone.Views.ErrorList({
-            errorList: JSON.parse(response.responseText)
-          })
-
-          this.addSubview(".errors", this._errors);
+          HemmingsClone.Flash.setMessages(response.responseJSON)
         }.bind(this)
       })
     }

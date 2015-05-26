@@ -2,12 +2,12 @@ class Api::LookingForsController < ApplicationController
 
   def create
     @looking_for = current_user.looking_fors.new(clean_params)
-    @looking_for.vehicle_id = find_vehicle.id
+    @looking_for.vehicle_id = find_vehicle_id
 
     if @looking_for.save
       render json: @looking_for
     else
-      render json: @looking_for.errors.full_message, status: 422
+      render {errors: json: @looking_for.errors.full_message}, status: 422
     end
   end
 

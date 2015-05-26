@@ -26,6 +26,8 @@ HemmingsClone.Routers.PopUps = Backbone.Router.extend({
     }
     this.$rootEl.removeClass("inactive")
     this._currentView = view;
+    HemmingsClone.Flash.clearMessages();
+    
     this.$rootEl.html(view.render().$el);
   }
 

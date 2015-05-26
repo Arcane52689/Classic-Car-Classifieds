@@ -7,8 +7,8 @@ class VehicleSale < ActiveRecord::Base
   has_many :matches, as: :matchable
 
 
-  validates :title_status, :vehicle_description, :vehicle_condition, :location, presence: true
-
+  validates :title_status, :vehicle_description, :vehicle_condition, :location, :chasis_number, presence: true
+  validate :valid_vehicle
   after_save :find_matches
 
   def create_images(image_list)
@@ -22,6 +22,13 @@ class VehicleSale < ActiveRecord::Base
     results = LookingFor.where(for_part: false, vehicle_id: vehicle_id)
     results.each do |looking_for|
       self.matches.create(looking_for_id: looking_for.id)
+    end
+  end
+
+  def valid_vehicle
+    unless vehicle_id
+      puts vehicle_id, "Is vehicle_id"
+      errors[:vehicle_id] << "Must select vehicle"
     end
   end
 

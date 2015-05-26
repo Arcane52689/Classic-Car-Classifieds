@@ -7,13 +7,13 @@ class Api::VehicleSalesController < ApplicationController
   def create
 
     @vehicle_sale = current_user.vehicle_sales.new(vehicle_sale_params)
-    @vehicle_sale.vehicle_id = find_vehicle.id
+    @vehicle_sale.vehicle_id = find_vehicle_id
 
     @vehicle_sale.create_images(params[:vehicle_sale][:images]) if params[:vehicle_sale][:images]
     if @vehicle_sale.save
       render json: @vehicle_sale
     else
-      render json: @vehicle_sale.errors.full_messages, status: 422
+      render json: {errors: @vehicle_sale.errors.full_messages}, status: 422
     end
   end
 

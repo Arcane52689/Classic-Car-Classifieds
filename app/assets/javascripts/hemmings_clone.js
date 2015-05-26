@@ -38,6 +38,12 @@ window.HemmingsClone = {
     this.searchBox = new HemmingsClone.Views.SearchBox();
     $("#search").html(this.searchBox.render().$el);
     this.searchBox.setUpRefresh();
+
+    HemmingsClone.Flash = new HemmingsClone.Models.Flasher();
+    this.flashView = new HemmingsClone.Views.Flashes({
+      model: HemmingsClone.Flash
+    });
+    $("#flash").html(this.flashView.render().$el);
   },
 
   checkForUser: function() {

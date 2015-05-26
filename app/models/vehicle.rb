@@ -69,9 +69,10 @@ class Vehicle < ActiveRecord::Base
   end
 
   def self.find_or_create(params)
+    return nil if params[:make] == "None" || params[:model] == "None"
     vehicle = Vehicle.find_by(params)
-    return vehicle if vehicle
-    return Vehicle.create!(params)
+    return vehicle.id if vehicle
+    return Vehicle.create!(params).id
   end
 
   def self.random

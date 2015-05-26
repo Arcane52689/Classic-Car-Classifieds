@@ -18,7 +18,7 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
       data: data,
       dataType: 'json',
       success: function(resp) {
-        
+
         collection.set(resp, {parse: true });
         collection.trigger("sync")
       }
@@ -60,6 +60,8 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
       this._currentView.remove();
     }
     this._currentView = view;
+    HemmingsClone.Flash.clearMessages();
+    
     this.$rootEl.html(view.render().$el);
   }
 })

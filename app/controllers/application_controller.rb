@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def find_vehicle
+  def find_vehicle_id
     Vehicle.find_or_create(vehicle_params)
   end
 

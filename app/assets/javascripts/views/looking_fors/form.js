@@ -34,15 +34,8 @@ HemmingsClone.Views.LookingForForm = Backbone.CompositeView.extend({
       }.bind(this),
 
       error: function(obj, response) {
-        if (this._errors) {
-          this._errors.remove();
-        }
+        HemmingsClone.Flash.setMessages(response.responseJSON)
 
-        this._errors = new HemmingsClone.Views.ErrorList({
-          errorList: JSON.parse(response.responseText)
-        })
-
-        this.addSubview(".errors", this._errors);
       }.bind(this)
 
     })

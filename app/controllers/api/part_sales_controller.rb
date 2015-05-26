@@ -4,14 +4,14 @@ class Api::PartSalesController < ApplicationController
 
   def create
     @part_sale = current_user.part_sales.new(part_sale_params)
-    @part_sale.part_taggings.new({ vehicle_id: find_vehicle.id })
+    @part_sale.part_taggings.new({ vehicle_id: find_vehicle_id }) if find_vehicle_id
     @part_sale.create_images(params[:part_sale][:images]) if params[:part_sale][:images]
 
     if @part_sale.save
       render json: @part_sale
     else
       # flash[:errors] = @part_sale.errors.full_messages
-      render json: @part_sale.errors.full_messages, status: 422
+      render json: {errors: @part_sale.errors.full_messages}, status: 422
     end
 
   end

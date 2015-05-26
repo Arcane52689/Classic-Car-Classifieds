@@ -7,6 +7,8 @@ class LookingFor < ActiveRecord::Base
   after_create :find_matches
 
 
+  validate :valid_vehicle
+
 
   def create_vehicle_sale_matches
     results = VehicleSale.where(vehicle_id: vehicle_id)
@@ -19,7 +21,7 @@ class LookingFor < ActiveRecord::Base
     if part_number
       results = PartSale.where({part_number: part_number } )
     else
-    
+
       results = PartSale.joins(:part_taggings).where("part_taggings.vehicle_id = ?", vehicle_id)
       if part_type
         results = results.where({ part_type: part_type })
@@ -49,4 +51,12 @@ class LookingFor < ActiveRecord::Base
       total_matches
     end
   end
+
+  def valid_vehicle
+    unless vehicle_id
+      puts vehicle_id, "Is vehicle_id"
+      errors[:vehicle_id] << "Must select vehicle"
+    end
+  end
+
 end

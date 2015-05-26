@@ -1,0 +1,13 @@
+
+<% _.each(messages, function(value, key) { %>
+
+  <% if (Array.isArray(value))  { %>
+    <% _.each(value, function(line) { %>
+      <li class="<%=key%>" > <%= line %> </li>
+    <% }) %>
+
+  <% } else { %>
+    <li class="<%=key%>"> <%= value %> </li>
+  <% } %>
+
+<% }) %>
