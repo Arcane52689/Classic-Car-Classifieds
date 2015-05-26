@@ -7,7 +7,7 @@ class Api::LookingForsController < ApplicationController
     if @looking_for.save
       render json: @looking_for
     else
-      render {errors: json: @looking_for.errors.full_message}, status: 422
+      render json: {errors: @looking_for.errors.full_message}, status: 422
     end
   end
 
