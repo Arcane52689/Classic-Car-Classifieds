@@ -1,19 +1,23 @@
 
-<h1>Sign Up</h1>
-<button class="close"> X </button>
 <form class="new-user form" >
+<button class="close"> X </button>
+  <h1>Sign Up</h1>
   <label for="">Email Address</label>
+  <br>
   <input type="text" name="user[email]" value="<%= user.escape("email")%>" id="email">
   <br>
   <label for="">Confirm Email</label>
+  <br>
   <input type="text" name="confirm-email" value="" id="confirm-email">
   <br>
   <label class="emails-match inactive"> Emails Match! </label>
   <label class="emails-dont-match"> Emails Don't Match! </label>
+  <br>
   <label for="">Password</label>
+  <br>
   <input type="password" name="user[password]" value="">
   <br>
-  <input type="submit" value="Create Account">
+  <input type="submit" class="submit" value="Create Account">
   <button class="login"> Login </button>
 
   <nav class="omniauth">

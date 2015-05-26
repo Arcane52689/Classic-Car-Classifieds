@@ -1,4 +1,4 @@
-HemmingsClone.Views.LoginForm = Backbone.View.extend({
+HemmingsClone.Views.LoginForm = Backbone.CompositeView.extend({
   template: JST["auth/login"],
   className: "inner-modal",
 
@@ -10,6 +10,8 @@ HemmingsClone.Views.LoginForm = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+    var omniView = new HemmingsClone.Views.OmniView()
+    this.addSubview(".omniauth", omniView)
     return this;
   },
 
