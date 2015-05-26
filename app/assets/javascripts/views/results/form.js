@@ -51,7 +51,6 @@ HemmingsClone.Views.OptionsForm = Backbone.View.extend({
   },
 
   hideOptions: function() {
-      debugger
     var selected = this.$el.serializeJSON()
     this.$(".options").children().each(function(idx, li) {
       var $input = $(li).find("input")

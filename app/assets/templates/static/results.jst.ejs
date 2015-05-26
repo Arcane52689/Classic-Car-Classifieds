@@ -3,15 +3,7 @@ Order By
 </section>
 <section class="results-content">
   <h1 class="results-title">Results </h1>
-<nav class="results-nav group">
-  <button class="prev">Previous Page</button>
-<% if (pages > 0) { %>
-<h3 class="page"> page <%= page %> of <%=pages%> </h3>
-<% } else { %>
-<h3 class="page"> No results found </h3>
-<% } %>
-  <button class="next"> Next Page </button>
-</nav>
+<div id="pages"></div>
   <ul class="results">
 
   </ul>

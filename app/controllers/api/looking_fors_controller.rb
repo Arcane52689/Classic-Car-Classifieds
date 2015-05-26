@@ -12,7 +12,7 @@ class Api::LookingForsController < ApplicationController
   end
 
   def show
-    @looking_for = LookingFor.includes(:vehicle).find(params[:id])
+    @looking_for = LookingFor.includes(:vehicle, :matches).find(params[:id])
     @looking_for.update(last_shown: Time.now )
     render :show
   end
