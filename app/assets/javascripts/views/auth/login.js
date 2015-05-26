@@ -10,13 +10,16 @@ HemmingsClone.Views.LoginForm = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template());
-    var omniView = new HemmingsClone.Views.OmniView()
-    this.addSubview(".omniauth", omniView)
+    var omniView = new HemmingsClone.Views.OmniView({
+      callback: this.close.bind(this)
+    });
+    this.addSubview(".omniauth", omniView);
     return this;
   },
 
 
   close: function() {
+    event.preventDefault();
     $("#pop-up").addClass("inactive");
     this.remove();
     // Backbone.history.navigate("");
@@ -39,8 +42,9 @@ HemmingsClone.Views.LoginForm = Backbone.CompositeView.extend({
     }.bind(this);
 
     var errorCallback = function() {
-      this.render().$el.prepend("Invalid username/password Combo");
+      this.render().$("form").prepend(' <label class="error">Invalid username/password Combo"</label>');
     }.bind(this);
+
     $.ajax({
       url: "/api/session",
       type: "POST",

@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
   def dummy_login
     user = User.first
     login!(user)
-    redirect_to api_user_url(user)
+    render :show
   end
 
   def create
@@ -13,7 +13,7 @@ class Api::SessionsController < ApplicationController
     )
     if user
       login!(user)
-      head(:no_content)
+      render :show
     else
       render json: "invalid", status: 422
     end
@@ -29,7 +29,7 @@ class Api::SessionsController < ApplicationController
 
   def active_user
     if logged_in?
-      redirect_to api_user_url(current_user)
+      render :show
     else
       render json: "nope", status: 404
     end

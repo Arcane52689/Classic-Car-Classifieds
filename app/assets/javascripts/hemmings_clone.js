@@ -52,8 +52,8 @@ window.HemmingsClone = {
       type: "GET",
       dataType: "json",
       success: function(response) {
-        HemmingsClone.currentUser.set(response)
-        HemmingsClone.PopUps.mustAddEmail()
+        HemmingsClone.currentUser.set(response);
+        HemmingsClone.PopUps.mustAddEmail();
       }
     })
 

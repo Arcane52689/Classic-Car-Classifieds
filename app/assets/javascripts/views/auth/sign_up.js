@@ -11,8 +11,10 @@ HemmingsClone.Views.SignUpForm = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template({ user: this.model }));
-    var omniView = new HemmingsClone.Views.OmniView()
-    this.addSubview(".omniauth", omniView)
+    var omniView = new HemmingsClone.Views.OmniView({
+      callback: this.close.bind(this)
+    });
+    this.addSubview(".omniauth", omniView);
     return this;
   },
 
@@ -48,7 +50,6 @@ HemmingsClone.Views.SignUpForm = Backbone.CompositeView.extend({
         success: function() {
           HemmingsClone.currentUser.set("email", email);
           this.close();
-          // Backbone.history.navigate("", {trigger: true});
         }.bind(this)
       })
     }
@@ -58,14 +59,15 @@ HemmingsClone.Views.SignUpForm = Backbone.CompositeView.extend({
   },
 
   close: function(event) {
-    this.remove()
-    $("#pop-up").addClass("inactive")
+    event.preventDefault();
+    this.remove();
+    $("#pop-up").addClass("inactive");
   },
 
   login: function(event) {
-    event.preventDefault()
-    this.close()
-    HemmingsClone.PopUps.login()
+    event.preventDefault();
+    this.close();
+    HemmingsClone.PopUps.login();
   },
 
 })

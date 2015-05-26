@@ -1,8 +1,12 @@
 
-  <button class="prev">Previous Page</button>
 <% if (pages > 0) { %>
-<h3 class="page"> page <%= page %> of <%=pages%> </h3>
+  <% if (page > 1) { %>
+    <button class="prev">Previous Page</button>
+  <% } %>
+  <h3 class="page"> page <%= page %> of <%=pages%> </h3>
+  <% if (page < pages) { %>
+    <button class="next"> Next Page </button>
+  <% } %>
 <% } else { %>
-<h3 class="page"> No results found </h3>
+  <h3 class="page"> No results found </h3>
 <% } %>
-  <button class="next"> Next Page </button>
