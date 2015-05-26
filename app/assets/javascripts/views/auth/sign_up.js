@@ -2,7 +2,8 @@ HemmingsClone.Views.SignUpForm = Backbone.CompositeView.extend({
   events: {
     "submit form": "submit",
     "click .close": "close",
-    "click .login": "login"
+    "click .login": "login",
+    "change #confirm-email": "checkEmails"
   },
 
   template: JST["auth/sign_up"],
@@ -16,8 +17,23 @@ HemmingsClone.Views.SignUpForm = Backbone.CompositeView.extend({
   },
 
   emailsMatch: function(){
-    return (this.$("#email").val() === this.$("#email-confirm"))
+    return (this.$("#email").val() === this.$("#confirm-email").val())
   },
+
+  checkEmails: function(event) {
+    event.preventDefault()
+    debugger
+    if (this.emailsMatch()) {
+      this.$(".emails-dont-match").removeClass("inactive").addClass("inactive");
+      this.$(".emails-match").removeClass("inactive");
+    }
+    else {
+      this.$(".emails-match").removeClass("inactive").addClass("inactive");
+      this.$(".emails-dont-match").removeClass("inactive");
+    }
+  },
+
+
 
   submit: function(event) {
     event.preventDefault();
