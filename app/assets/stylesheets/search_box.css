@@ -3,12 +3,12 @@
 .search {
   display: block;
   position: relative;
-  width: 600px;
-  height: 350px;
+  width: 590px;
+  height: 340px;
   margin: auto;
   color: white;
   margin-bottom: 30px;
-  margin-top: 30px;
+
   overflow: hidden;
   border: 5px solid white;
   border-radius: 5px;
@@ -106,4 +106,59 @@
 
 .item .description {
   margin-top: 5px;
+}
+
+.overhead {
+  width: 1000px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.over-item {
+  float: left;
+}
+
+.overhead > ul:{
+  margin-top: 30px;
+  width: 140px;
+  text-align: center
+}
+
+.overhead > ul:first-child{
+  margin-right: 30px;
+}
+
+.overhead > ul:last-child {
+  margin-left: 30px;
+}
+
+
+.overhead > ul > li {
+  display: block;
+  width: 140px;
+  height: 110px;
+
+  padding: 10px;
+  border: 5px solid black;
+  margin-bottom: 10px;
+  position: relative;
+
+  overflow: hidden;
+
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.overhead > ul > li img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
 }

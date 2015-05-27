@@ -35,9 +35,9 @@ window.HemmingsClone = {
     this.header = new HemmingsClone.Views.Header();
     $(".header").html(this.header.render().$el);
 
-    this.searchBox = new HemmingsClone.Views.SearchBox();
-    $("#search").html(this.searchBox.render().$el);
-    this.searchBox.setUpRefresh();
+    this.overHead = new HemmingsClone.Views.OverHead();
+    $("#over-head").html(this.overHead.render().$el);
+    // this.searchBox.setUpRefresh();
 
     HemmingsClone.Flash = new HemmingsClone.Models.Flasher();
     this.flashView = new HemmingsClone.Views.Flashes({

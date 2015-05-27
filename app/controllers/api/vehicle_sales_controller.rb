@@ -29,10 +29,10 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def search
-    # fail
-    @vehicle_sales = Search.filter(Search.new(search_params).search_vehicle_sales, params).page(params[:page])
+    search = Search.new(search_params)
+    @vehicle_sales = Search.filter(search.search_vehicle_sales, params).page(params[:page])
     @pages = @vehicle_sales.total_pages
-
+    ebay = search.ebay_search
     render :index
   end
 
@@ -50,6 +50,7 @@ class Api::VehicleSalesController < ApplicationController
     render json: {image_url: Image.all.where(imageable_type: "VehicleSale").shuffle.first().picture.url }, status: 200
 
   end
+
 
   def vehicle_sale_params
     params.require(:vehicle_sale).require(:vehicle_sale).permit(:chasis_number, :vehicle_description, :vehicle_condition, :title_status, :location, :price)

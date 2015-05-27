@@ -60,7 +60,13 @@ button, .submit {
 
 a {
   cursor: pointer;
+  display: block;
+}
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 
