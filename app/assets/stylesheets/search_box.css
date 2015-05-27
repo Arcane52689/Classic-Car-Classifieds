@@ -124,11 +124,11 @@
   text-align: center
 }
 
-.overhead > ul:first-child{
+.overhead:first-child {
   margin-right: 30px;
 }
 
-.overhead > ul:last-child {
+.overhead:last-child {
   margin-left: 30px;
 }
 
