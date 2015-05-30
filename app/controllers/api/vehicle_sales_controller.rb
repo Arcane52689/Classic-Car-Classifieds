@@ -32,7 +32,7 @@ class Api::VehicleSalesController < ApplicationController
     search = Search.new(search_params)
     @vehicle_sales = Search.filter(search.search_vehicle_sales, params).page(params[:page])
     @pages = @vehicle_sales.total_pages
-    ebay = search.ebay_search
+
     render :index
   end
 
