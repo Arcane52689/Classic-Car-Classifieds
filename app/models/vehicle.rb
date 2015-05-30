@@ -2,13 +2,13 @@ class Vehicle < ActiveRecord::Base
 
   CONDITIONS = %w(Excellent Fair Good Mint Project)
   MAKES = [
-    "Mercedes Benz",
     "Alfa Romeo",
     "Aston Martin",
     "Audi",
     "Austin",
     "Austin-Healey",
     "Bentley",
+    "Buick",
     "BMW",
     "Cadillac",
     "Cheverolet",
@@ -23,11 +23,13 @@ class Vehicle < ActiveRecord::Base
     "Honda",
     "Hummer",
     "Jaguar",
+    "Jeep",
     "Lamborghini",
     "Lincoln",
     "Lotus",
     "Maserati",
     "Mazda",
+    "Mercedes Benz",
     "Mercury",
     "MG",
     "Mini",
@@ -75,8 +77,8 @@ class Vehicle < ActiveRecord::Base
     return Vehicle.create!(params).id
   end
 
-  def self.random
-    id = rand(1..80541)
+  def self.random(num)
+    id = rand(1..num)
     return id if Vehicle.exists?(id: id)
     return Vehicle.random_vehicle
   end

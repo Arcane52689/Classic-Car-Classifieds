@@ -71,32 +71,6 @@ class Search
   end
 
 
-  def ebay_search
-    years = (params[:year_start] .. params[:year_end])
-
-    item_ids = []
-
-    keywords = params[:make]
-    keywords += " " + params[:model] if params[:model]
-
-    years.each do |year|
-      finder = Rebay::Finding.new
-      responses = finder.find_items_advanced({:keywords => keywords, categoryID: 1001}).response[ "searchResult"]["item"]
-
-      if responses["searchResult"]
-        responses = responses[ "searchResult"]["item"]
-        responses.each do |item|
-          next if item_ids.include?(item["itemID"])
-          item_ids << item["itemID"]
-          VehicleSale.parse_ebay(item, year) ### Write parser
-        end
-      end
-    end
-
-
-
-    return response
-  end
 
 
 end

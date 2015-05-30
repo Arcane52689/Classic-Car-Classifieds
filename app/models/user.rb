@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   end
 
 
+
   def self.find_or_create_by_auth_hash(auth_hash)
     login = OmniLogin.find_by({
       provider: auth_hash[:provider],
