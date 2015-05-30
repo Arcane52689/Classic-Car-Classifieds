@@ -1,6 +1,41 @@
 
+/* sale show view */
+
+.show {
+  background: white;
+  width: 700px;
+  margin: auto;
+}
 
 
+.show-info  {
+  float:right;
+  margin-top: 50px;
+
+}
+
+.contact-info a {
+  display: inline;
+  color: blue;
+}
+
+.show-info > h1 {
+  font-size: 24px;
+}
+
+.show-info ul {
+  padding: 10px;
+
+}
+
+.show-info ul > li {
+  padding-top: 20px;
+}
+
+.attribute {
+  width: 160px;
+  display: block;
+}
 
 .image-carousel {
   float: left;
@@ -32,6 +67,10 @@
   top: 5%;
   right: 5%;
 }
+
+
+
+
 
 
 

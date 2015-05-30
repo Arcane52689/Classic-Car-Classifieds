@@ -71,21 +71,21 @@ img {
 
 
 .root {
-  background: #8f8;
+  background: #ddd;
   border: 5px solid black;
   border-radius: 15px;
   width: 500px;
   margin: auto;
-  text-alignment: center;
   padding: 10px;
   margin-top: 20px;
 }
 
 .root h1 {
+  text-align: center;
   display: block;
   color: green;
-  width: 400px;
   margin: auto;
+  font-size: 24px;
 }
 
 

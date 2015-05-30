@@ -5,17 +5,28 @@
   </section>
 
   <section class="show-info">
+  <h1> <%= vehicle_sale.vehicle().description() %> </h1>
+
+  <br>
   <% if( vehicle_sale.user()) { %>
-    <label class="contact info"> <%= vehicle_sale.user() %> </label>
+    <label class="contact-info"> <strong>Email:  </strong>
+    <a href="mailto:<%= vehicle_sale.user() %>">
+    <%= vehicle_sale.user() %> </label>
+    </a>
   <% } else  { %>
     <button class="contact-user">See contact info</button>
   <% } %>
 
-  <h1> <%= vehicle_sale.vehicle().description() %> </h1>
 
     <ul>
-      <% _.each(["chasis_number", "vehicle_description","vehicle_condition", "title_status"], function(value) { %>
-        <li> <b> <%= value %>: </b> <%= vehicle_sale.escape(value) %>  </li>
+      <% _.each(["chasis_number","vehicle_condition", "title_status", "vehicle_description"], function(value) { %>
+        <li class="group">
+        <label class="attribute">
+        <b> <%= value %>: </b>
+        </label>
+        <label class="value">
+        <%= vehicle_sale.escape(value) %>  </li>
+        </label>
       <%  }) %>
     </ul>
 
