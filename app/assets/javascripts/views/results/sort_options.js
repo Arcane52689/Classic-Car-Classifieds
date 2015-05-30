@@ -39,7 +39,6 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
 
   addModels: function(makes) {
     this.models = [];
-    debugger
     if (this.isSearch && (this.collection.length > 0)) {
       makes = this.collection.first().listOf("make")
     }
