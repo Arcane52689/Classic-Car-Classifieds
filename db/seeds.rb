@@ -34,6 +34,7 @@ def seed_make(make)
   descriptions = VehicleSale.all.map(&:vehicle_description)
   last_vehicle_id = Vehicle.last.id
   Vehicle.where(make: make).each do |vehicle|
+    next if vehicle.year < 1930
     params = {
         vehicle_id: vehicle.id,
         user_id: users.shuffle.first.id,
