@@ -31,7 +31,7 @@ def seed_make(make)
   path = Rails.root.join("app/assets/images/cars/")
 
   users = User.all
-  descriptions = VehicleSale.all.map(&:vehicle_description)
+  descriptions = VehicleSale.all.map(&:vehicle_description).uniq
 
 
   models = Hash.new { |h,k| h[k] = Hash.new { |h,k| h[k] =[]}}
@@ -85,11 +85,12 @@ end
 # "Austin",
 # "Austin-Healey",
 # "Bentley",
+# "Buick",
+# "BMW"
 
 makes = [
+  "Cadillac"
 
-  "Buick",
-  "BMW"
 
 ]
 
