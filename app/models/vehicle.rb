@@ -12,7 +12,7 @@ class Vehicle < ActiveRecord::Base
     "BMW",
     "Cadillac",
     "Cheverolet",
-    "Chrystler",
+    "Chrysler",
     "Citroen",
     "Datsun",
     "Dodge",
