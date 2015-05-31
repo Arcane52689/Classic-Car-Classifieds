@@ -104,7 +104,7 @@ class PartSale < ActiveRecord::Base
 
   validates :part_number, :part_category, :part_type, :part_description, :location, :user_id, presence: true
 
-  after_save :find_matches
+  # after_save :find_matches
 
   def create_images(image_list)
     image_list.each do |img|

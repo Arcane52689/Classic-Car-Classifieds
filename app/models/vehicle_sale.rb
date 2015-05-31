@@ -9,7 +9,7 @@ class VehicleSale < ActiveRecord::Base
 
   validates :title_status, :vehicle_description, :vehicle_condition, :location, :chasis_number, presence: true
   validate :valid_vehicle
-  after_save :find_matches
+  # after_save :find_matches
 
   def create_images(image_list)
     image_list.each do |img|
