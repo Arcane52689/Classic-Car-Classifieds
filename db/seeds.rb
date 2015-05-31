@@ -60,6 +60,8 @@ def seed_make(make)
   end
 end
 
+seed_make("Mini")
+
 
 
 
