@@ -25,42 +25,54 @@
 # 40.times do |user|
 #   User.create!({email:Faker::Internet.email, password:"password"})
 # end
-
+DECADES = [1930,1940,1950,1960,1970,1980,1990,2000,2010]
 
 def seed_make(make)
   path = Rails.root.join("app/assets/images/cars/")
 
   users = User.all
   descriptions = VehicleSale.all.map(&:vehicle_description)
-  last_vehicle_id = Vehicle.last.id
+
+
+  models = Hash.new { |h,k| h[k] = Hash.new { |h,k| h[k] =[]}}
   Vehicle.where(make: make).each do |vehicle|
-    next if vehicle.year < 1930 || vehicle.year > 2015
-    params = {
-        vehicle_id: vehicle.id,
-        user_id: users.shuffle.first.id,
-        chasis_number: SecureRandom.hex(),
-        title_status: "clean",
-        vehicle_condition: Vehicle.conditions.shuffle.first,
-        vehicle_description: descriptions.shuffle.first,
-        location: Faker::Address.zip
-      }
-    vs = VehicleSale.create!(params)
-      image_path = path.join("#{vs.vehicle.year / 10 * 10}/" "#{rand(1..10)}.jpg")
+    decade = vehicle.year / 10 * 10
+    models[vehicle.model][decade] << vehicle
+  end
 
-    vs.images.create!(picture: File.open(image_path) )
+  models.keys.each do |model|
+    DECADES.each do |decade|
+      models[model][decade].shuffle.take(3).each do |vehicle|
 
-    category = PartSale.categories.shuffle.first
-    params = {
-      user_id: rand(1..5),
-      part_number: SecureRandom.hex(8),
-      part_category: category,
-      part_type: PartSale.types(category).shuffle.first || "none",
-      location: Faker::Address.zip,
-      price: rand(25..1000),
-      part_description: ["Mildly used", "Fresh out of box", "brand new", "new", "still in box"].shuffle.first
-    }
-    ps = PartSale.create(params)
-    ps.part_taggings.create({vehicle_id: vehicle.id})
+
+        params = {
+            vehicle_id: vehicle.id,
+            user_id: users.shuffle.first.id,
+            chasis_number: SecureRandom.hex(),
+            title_status: "clean",
+            vehicle_condition: Vehicle.conditions.shuffle.first,
+            vehicle_description: descriptions.shuffle.first,
+            location: Faker::Address.zip
+          }
+        vs = VehicleSale.create!(params)
+          image_path = path.join("#{decade}/" "#{rand(1..10)}.jpg")
+
+        vs.images.create!(picture: File.open(image_path) )
+
+        category = PartSale.categories.shuffle.first
+        params = {
+          user_id: rand(1..5),
+          part_number: SecureRandom.hex(8),
+          part_category: category,
+          part_type: PartSale.types(category).shuffle.first || "none",
+          location: Faker::Address.zip,
+          price: rand(25..1000),
+          part_description: ["Mildly used", "Fresh out of box", "brand new", "new", "still in box"].shuffle.first
+        }
+        ps = PartSale.create(params)
+        ps.part_taggings.create({vehicle_id: vehicle.id})
+      end
+    end
   end
 end
 
@@ -74,8 +86,6 @@ makes = [
    "Austin",
   "Austin-Healey",
   "Bentley",
-  "Buick",
-  "BMW"
 
 ]
 
