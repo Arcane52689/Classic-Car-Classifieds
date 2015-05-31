@@ -66,11 +66,17 @@ end
 
 # finished makes
 # Mini
+# "Alfa Romeo",
+# "Aston Martin",
+# "Audi"
 
 makes = [
-  "Alfa Romeo",
-"Aston Martin",
-"Audi"
+   "Austin",
+  "Austin-Healey",
+  "Bentley",
+  "Buick",
+  "BMW"
+
 ]
 
 makes.each do |make|

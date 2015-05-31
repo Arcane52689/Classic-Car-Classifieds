@@ -8,3 +8,6 @@ update the readme
 
 #Seeded makes
 + Mini
++  "Alfa Romeo",
++ "Aston Martin",
++ "Audi"
