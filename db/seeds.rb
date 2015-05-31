@@ -34,7 +34,7 @@ def seed_make(make)
   descriptions = VehicleSale.all.map(&:vehicle_description)
   last_vehicle_id = Vehicle.last.id
   Vehicle.where(make: make).each do |vehicle|
-    next if vehicle.year < 1930
+    next if vehicle.year < 1930 || vehicle.year > 2015
     params = {
         vehicle_id: vehicle.id,
         user_id: users.shuffle.first.id,
@@ -64,8 +64,18 @@ def seed_make(make)
   end
 end
 
-seed_make("Mini")
+# finished makes
+# Mini
 
+makes = [
+  "Alfa Romeo",
+"Aston Martin",
+"Audi"
+]
+
+makes.each do |make|
+  seed_make(make)
+end
 
 
 
