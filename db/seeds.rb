@@ -52,7 +52,8 @@ def seed_make(make)
             title_status: "clean",
             vehicle_condition: Vehicle.conditions.shuffle.first,
             vehicle_description: descriptions.shuffle.first,
-            location: Faker::Address.zip
+            location: Faker::Address.zip,
+            price: rand(1000..100000)
           }
         vs = VehicleSale.create!(params)
           image_path = path.join("#{decade}/" "#{rand(1..10)}.jpg")
@@ -81,17 +82,21 @@ end
 # "Alfa Romeo",
 # "Aston Martin",
 # "Audi"
+# "Austin",
+# "Austin-Healey",
+# "Bentley",
 
 makes = [
-   "Austin",
-  "Austin-Healey",
-  "Bentley",
+
+  "Buick",
+  "BMW"
 
 ]
 
 makes.each do |make|
   seed_make(make)
 end
+
 
 
 
