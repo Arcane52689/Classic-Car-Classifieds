@@ -28,6 +28,7 @@
 
 
 def seed_make(make)
+  path = Rails.root.join("app/assets/images/cars/")
 
   users = User.all
   descriptions = VehicleSale.all.map(&:vehicle_description)
@@ -43,6 +44,8 @@ def seed_make(make)
         location: Faker::Address.zip
       }
     vs = VehicleSale.create!(params)
+      image_path = path.join("#{vs.vehicle.year / 10 * 10}/" "#{rand(1..10)}.jpg")
+
     vs.images.create!(picture: File.open(image_path) )
 
     category = PartSale.categories.shuffle.first
@@ -100,7 +103,7 @@ seed_make("Mini")
 #   ps.part_taggings.create({vehicle_id: vehicle.id})
 #
 # #
-#   path = Rails.root.join("app/assets/images/cars/")
+  # path = Rails.root.join("app/assets/images/cars/")
 #
 # 10.times do
 #   params = {

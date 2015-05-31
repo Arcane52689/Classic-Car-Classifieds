@@ -3,3 +3,8 @@ style the site
 style the site
 style the site
 update the readme
+
+
+
+#Seeded makes
++ Mini
