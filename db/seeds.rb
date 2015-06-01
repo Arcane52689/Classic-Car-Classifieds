@@ -99,12 +99,14 @@ end
 # "Harley-Davidson",
 # "Honda",
 # "Hummer"
+# "Jaguar",
+# "Jeep",
+# "Lamborghini"
 
 makes = [
-
-  "Jaguar",
-  "Jeep",
-  "Lamborghini"
+  "Lincoln",
+  "Lotus",
+  "Maserati"
 ]
 
 makes.each do |make|
