@@ -84,6 +84,8 @@
 
 .user-show > h1 {
   font-size: 36px;
+  text-decoration: underline;
+  color: white;
 }
 
 .new-matches {
@@ -99,8 +101,7 @@
 
 .listings {
   color: white;
-  min-width: 500px;
-  max-width: 1200px;
+  max-width: 1250px;
   margin: auto;
 
 }
@@ -108,16 +109,21 @@
 
 .listing {
   background: rgb(20, 120, 20);
-  overflow: auto;
   float: left;
-  height: 800px;
-  width: 30%;
+  width: 600px;
+  max-height: 600px;
   margin-right: 10px;
   margin-bottom: 20px;
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
 }
+
+.listing section {
+  overflow: auto;
+  height: 500px;
+}
+
 
 
 .listing > h2 {

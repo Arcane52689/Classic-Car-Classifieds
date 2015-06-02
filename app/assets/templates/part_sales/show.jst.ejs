@@ -1,4 +1,3 @@
-<article class="sale-item">
 
   <section class="images-section">
 
@@ -11,13 +10,14 @@
   <label> <%= part_sale.escape("part_category") %> : <%= part_sale.escape("part_type") %></label>
   <br>
 
-
+  <section class="fits">
   Fits:
   <ul class="result-vehicles">
     <% part_sale.vehicles().each(function(vehicle){ %>
       <li class="part-result-vehicle"> <%= vehicle.description() %> </li>
     <% }) %>
   </ul>
+  </section>
   <% if( part_sale.user()) { %>
     <label class="contact info"> <%= part_sale.user() %> </label>
   <% } else  { %>
@@ -26,6 +26,7 @@
 
   <label for="">Part_description: <%= part_sale.escape("part_description") %> </label>
 
-  <button class="close"> Back to results </button>
 
-</article>
+  <% if (popup) { %>
+  <button class="close"> Back to results </button>
+  <% } %>

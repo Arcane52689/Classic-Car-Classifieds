@@ -17,7 +17,9 @@ HemmingsClone.PopUps = {
   showVehicleSale: function(model) {
     model.fetch()
     var view = new HemmingsClone.Views.VehicleSaleShow({
-      model: model
+      model: model,
+      popup: true
+
     })
     $("#pop-up").removeClass("inactive").html(view.render().$el.addClass("inner-modal"));
 
@@ -26,7 +28,8 @@ HemmingsClone.PopUps = {
   showPartSale: function(model) {
     model.fetch()
     var view = new HemmingsClone.Views.PartSaleShow({
-      model: model
+      model: model,
+      popup: true
     })
     $("#pop-up").removeClass("inactive").html(view.render().$el.addClass("inner-modal"));
   },

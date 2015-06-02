@@ -37,9 +37,14 @@
 
 .item {
   border: 1px solid black;
-  max-width: 400px;
-  min-height: 100px;
+  min-width: 400px;
+  max-width: 600px;
+  height: 150px;
   margin:auto;
+  margin-bottom: 10px;
+
+  background: #ccc;
+  color: black;
 }
 
 .item a {

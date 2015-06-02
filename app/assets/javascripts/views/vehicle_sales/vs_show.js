@@ -1,20 +1,27 @@
 HemmingsClone.Views.VehicleSaleShow = Backbone.CompositeView.extend({
   className: "show group",
   tagName: "article",
-  initialize: function() {
+  initialize: function(options) {
     this.listenTo(this.model, "sync", this.render)
+    if (options) {
+      this.popup= options.popup
+    }
   },
 
   events: {
     "click .close": "close",
-    "click .contact-user": "fetchUserData"
+    "click .contact-user": "fetchUserData",
+    "click .visit": "visit"
   },
 
   template: JST["vehicle_sales/show"],
 
   render: function() {
 
-    this.$el.html( this.template({vehicle_sale: this.model }));
+    this.$el.html( this.template({
+      vehicle_sale: this.model,
+      popup: this.popup
+      }));
 
     this.imagesView = new HemmingsClone.Views.ImageCarousel({
       list: this.model.images()
@@ -24,7 +31,8 @@ HemmingsClone.Views.VehicleSaleShow = Backbone.CompositeView.extend({
   },
 
   close: function(event) {
-    event.preventDefault();
+
+    event && event.preventDefault();
     this.remove()
     $("#pop-up").addClass("inactive");
   },
@@ -41,6 +49,13 @@ HemmingsClone.Views.VehicleSaleShow = Backbone.CompositeView.extend({
           that.render()
         }
       })
+    }
+  },
+
+  visit: function(event) {
+    if (this.popup) {
+      this.close();
+
     }
   }
 })

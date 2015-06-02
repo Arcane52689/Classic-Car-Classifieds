@@ -1,7 +1,12 @@
 HemmingsClone.Views.PartSaleShow = Backbone.CompositeView.extend({
-  initialize: function() {
+  initialize: function(options) {
     this.listenTo(this.model, "sync", this.render)
+    if (options) {
+      this.popup = options.popup
+    }
   },
+  tagName: "article",
+  className: "show group",
 
   events: {
     "click .close": "close",
@@ -11,7 +16,10 @@ HemmingsClone.Views.PartSaleShow = Backbone.CompositeView.extend({
   template: JST["part_sales/show"],
 
   render: function() {
-    this.$el.html(this.template({ part_sale: this.model }));
+    this.$el.html(this.template({
+       part_sale: this.model,
+       popup: this.popup
+       }));
     this.imagesView = new HemmingsClone.Views.ImageCarousel({
       list: this.model.images()
     })

@@ -6,7 +6,7 @@
 
   <section class="show-info">
   <h1> <%= vehicle_sale.vehicle().description() %> </h1>
-
+  <a class="visit" href="#vehicle_sales/<%=vehicle_sale.get("id")%>">Visit link</a>
   <br>
   <% if( vehicle_sale.user()) { %>
     <label class="contact-info"> <strong>Email:  </strong>
@@ -29,7 +29,8 @@
         </label>
       <%  }) %>
     </ul>
-
+  <% if (popup) { %>
   <button class="close"> Back to results </button>
+  <% } %>
 
   </section>
