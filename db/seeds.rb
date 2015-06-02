@@ -116,12 +116,18 @@ end
 # "Pierce-Arrow",
 # "Plymouth",
 # "Pontiac",
+# "Porsche",
+# "Renault",
+# "Rolls-Royce",
+# "Saab"
 
 makes = [
-  "Porsche",
-  "Renault",
-  "Rolls-Royce",
-  "Saab"
+  "Shelby",
+  "Studebaker",
+  "Triumph",
+  "Toyota",
+  "Volkeswagen",
+  "Volvo"
 ]
 
 makes.each do |make|
