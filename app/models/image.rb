@@ -10,4 +10,12 @@ class Image < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
+
+
+  def self.random
+    last_id = Image.last.id
+    id = rand(1..last_id)
+    return Image.find(id) if Image.exists?(id: id)
+    return Image.random()
+  end
 end

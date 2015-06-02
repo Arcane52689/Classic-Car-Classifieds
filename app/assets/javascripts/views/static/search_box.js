@@ -64,7 +64,7 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
   },
 
   setUpRefresh: function() {
-    setInterval(this.newImage.bind(this), 60000)
+    setInterval(this.newImage.bind(this), 120000)
   }
 
 })

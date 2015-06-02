@@ -47,7 +47,9 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def random_image
-    render json: {image_url: Image.all.where(imageable_type: "VehicleSale").shuffle.first().picture.url }, status: 200
+    last_id = Image.last.id
+
+    render json: {image_url: Image.random.picture.url }, status: 200
 
   end
 

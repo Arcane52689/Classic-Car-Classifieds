@@ -21,7 +21,7 @@ class Search
 
 
   def clean_year(year)
-    if year.to_i > 1935 && year.to_i < 2010
+    if year.to_i > 1935 && year.to_i < 2015
       return year.to_i
     else
       return nil
