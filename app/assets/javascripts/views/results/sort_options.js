@@ -12,7 +12,7 @@ HemmingsClone.Views.SortOptions = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .sort-option": "reSort"
+    "change   .sort-options": "reSort"
   },
 
 

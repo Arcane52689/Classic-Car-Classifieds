@@ -11,7 +11,6 @@
   <br>
   <label for="">Part Number: #<%= sale.escape("part_number") %></label>
   <br>
-  <label> <%= sale.escape("part_type") %> </label>
   Fits:
   <ul class="result-vehicles">
     <% sale.vehicles().each(function(vehicle){ %>
