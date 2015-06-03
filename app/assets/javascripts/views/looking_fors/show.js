@@ -10,7 +10,7 @@ HemmingsClone.Views.LookingForShow = Backbone.CompositeView.extend({
 
   tagName: "article",
 
-  className: "show-view",
+  className: "show group",
 
   template: JST["looking_fors/show"],
 
@@ -28,6 +28,7 @@ HemmingsClone.Views.LookingForShow = Backbone.CompositeView.extend({
   destroy: function() {
     this.model.destroy({
       success: function() {
+        HemmingsClone.currentUser.lookingFors().remove(this.model);
         this.close()
       }.bind(this)
     })

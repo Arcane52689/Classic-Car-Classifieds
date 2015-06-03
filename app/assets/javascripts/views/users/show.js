@@ -1,7 +1,8 @@
 HemmingsClone.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function() {
-    this.model.fetch()
-    this.listenTo(this.model, "sync", this.render)
+    this.model.fetch();
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.lookingFors(),"remove",this.render);
   },
   className: "user-show",
 

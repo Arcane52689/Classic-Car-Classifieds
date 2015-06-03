@@ -3,7 +3,7 @@
 
 .show {
   background: white;
-  width: 700px;
+  width: 800px;
   margin: auto;
 }
 
@@ -23,12 +23,12 @@
   font-size: 24px;
 }
 
-.show-info ul {
+.show-info .sale-info {
   padding: 10px;
 
 }
 
-.show-info ul > li {
+.show-info .sale-info > li {
   padding-top: 20px;
 }
 

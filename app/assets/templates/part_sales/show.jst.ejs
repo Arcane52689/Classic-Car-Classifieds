@@ -2,8 +2,13 @@
   <section class="images-section">
 
   </section>
-
+  <section class="show-info">
   <h1 class="result-title"> <%= part_sale.escape("part_type") %> </h1>
+  <% if( part_sale.user()) { %>
+    <label class="contact info"> <%= part_sale.user() %> </label>
+  <% } else  { %>
+    <button class="contact-user">See contact info</button>
+  <% } %>
   <br>
   <label for="">Part Number: #<%= part_sale.escape("part_number") %></label>
   <br>
@@ -18,11 +23,6 @@
     <% }) %>
   </ul>
   </section>
-  <% if( part_sale.user()) { %>
-    <label class="contact info"> <%= part_sale.user() %> </label>
-  <% } else  { %>
-    <button class="contact-user">See contact info</button>
-  <% } %>
 
   <label for="">Part_description: <%= part_sale.escape("part_description") %> </label>
 
@@ -30,3 +30,4 @@
   <% if (popup) { %>
   <button class="close"> Back to results </button>
   <% } %>
+</section>

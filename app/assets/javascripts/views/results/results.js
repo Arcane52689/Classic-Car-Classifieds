@@ -1,6 +1,6 @@
 HemmingsClone.Views.Results = Backbone.CompositeView.extend({
   initialize: function(options) {
-    this.listenTo(this.collection, "sync", this.renderResults);
+    this.listenTo(this.collection, "sync remove", this.renderResults);
     this.listenTo(this.collection, "sort", this.renderResults);
     if (options) {
       this.isSearch = options.isSearch
