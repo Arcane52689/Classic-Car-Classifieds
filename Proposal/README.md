@@ -5,24 +5,24 @@ https://classic-car-classifieds.herokuapp.com
 
 ## Minimum Viable Product
 Classic Car Classifieds is a  CraigsList clone specifically for automobile enthusiasts, built using Rails for backend and Backbone for front end.  Users will be able to:
-- [ ] Create Accounts
-- [ ] Create Sessions (log in)
-- [ ] Post Sales Requests for Vehicles
-- [ ] Post Sales Requests for Parts
-- [ ] Include uploaded pictures in their requests
-- [ ] Post Looking-For Requests for Vehicles
-- [ ] Post Looking-For Requests for Parts
-- [ ] Search for parts by vehicle
-- [ ] Search for parts by part number
-- [ ] Search for vehicles by Year, Make, and/or model
+- [x] Create Accounts
+- [x] Create Sessions (log in)
+- [x] Post Sales Requests for Vehicles
+- [x] Post Sales Requests for Parts
+- [x] Include uploaded pictures in their requests
+- [x] Post Looking-For Requests for Vehicles
+- [x] Post Looking-For Requests for Parts
+- [x] Search for parts by vehicle
+- [x] Search for parts by part number
+- [x] Search for vehicles by Year, Make, and/or model
 
 
 ## Design Docs
 * [DB schema][schema]
 * [View Wireframes][views]
 
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
+[views]: ./Proposal/docs/views.md
+[schema]: ./Proposal/docs/schema.md
 
 ## Implementation Timeline
 
@@ -44,11 +44,11 @@ Allow users to upload images with their sales requests.
 ### Bonus Features (TBD)
 
 - [ ] Limit search results by location
-- [ ] Limit/Order search results by distance, price, and quality
-- [ ] Let users request notification when a car matching a set of qualities is posted
-- [ ] Let users request notification when a part matching a requested part # has been posted
-- [ ] Pagination/Infinite scroll
+- [x] Limit/Order search results by price, and quality
+- [x] Let users request notification when a car matching a set of qualities is posted
+- [x] Let users request notification when a part matching a requested part # has been posted
+- [x] Pagination
 - [ ] Let users save a list of cars as their "garage"
-- [ ] Let users log in from multiple devices
+- [x] Let users log in from multiple devices
 - [ ] Let users post available services
-- [ ] Search Parts by category and type
+- [x] Search Parts by category and type
