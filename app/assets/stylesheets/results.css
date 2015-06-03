@@ -59,7 +59,8 @@
 
 .preview {
   width: 100px;
-  border: 1px solid #black;
+  border: 1px solid black;
+  overflow: hidden;
 }
 
 img {
