@@ -1,26 +1,26 @@
 #
 #
-# Vehicle.makes.each do |make|
-#   make_file_txt = make.split.join('_').downcase+".txt"
-#   make_file_path = Rails.root.join("lib","assets", "models", make_file_txt)
-#   File.foreach(make_file_path) do |line|
-#     model = line.chomp
-#
-#     (1930..2015).each do |year|
-#       Vehicle.find_or_create({
-#         make: make,
-#         year: year,
-#         model: model
-#         })
-#     end
-#
-#     Vehicle.find_or_create({
-#       make: make,
-#       year: 0,
-#       model: model,
-#     })
-#   end
-# end
+Vehicle.makes.each do |make|
+  make_file_txt = make.split.join('_').downcase+".txt"
+  make_file_path = Rails.root.join("lib","assets", "models", make_file_txt)
+  File.foreach(make_file_path) do |line|
+    model = line.chomp
+
+    (1930..2015).each do |year|
+      Vehicle.find_or_create({
+        make: make,
+        year: year,
+        model: model
+        })
+    end
+
+    Vehicle.find_or_create({
+      make: make,
+      year: 0,
+      model: model,
+    })
+  end
+end
 #
 # 40.times do |user|
 #   User.create!({email:Faker::Internet.email, password:"password"})
@@ -130,9 +130,9 @@ makes = [
   "Volvo"
 ]
 
-makes.each do |make|
-  seed_make(make)
-end
+# makes.each do |make|
+#   seed_make(make)
+# end
 
 
 
