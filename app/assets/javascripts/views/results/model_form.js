@@ -51,7 +51,6 @@ HemmingsClone.Views.ModelForm = Backbone.View.extend({
 
   hideOptions: function() {
     var selected = this.$el.serializeJSON()
-    debugger
     this.$(".options").children().each(function(idx, li) {
       var $input = $(li).find("input")
       if (!selected[$input.val()]) {
