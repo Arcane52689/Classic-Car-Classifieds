@@ -1,26 +1,34 @@
 
-<form class="new-part-sale">
+<form class="">
   <div class="errors"> </div>
-  <label for="">What kind of car is this part for?</label>
-  <br>
 
-  <label for="">Year</label>
-  <select class="" name="vehicle[year]">
-    <% for (var year = 1900; year <= 2015; year++) { %>
-      <option value="<%=year%>"> <%=year%> </option>
-    <% } %>
+
+  <label for="">Vehicle Information</label>
+  <br>
+  <input class="year" type="number" name="vehicle[year]" value="" placeholder="Model Year">
+
   </select>
   <div id="make-model"></div>
   <br>
 
+  <label for="">Part Information</label>
+  <ul class="group part-info">
 
-  <%= $("#part_categories").html() %>
-  <br>
-  <label for="">Part Number</label>
-  <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape("part_number")%>">
-  <br>
-  <label for="">Part Type</label>
-  <input type="text" name="part_sale[part_type]" value="<%= part_sale.escape("part_type")%>">
+    <li>
+      <%= $("#part_categories").html() %>
+    </li>
+
+    <li>
+      <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape("part_number")%>" placeholder="What's the part #?">
+    </li>
+
+    <li>
+      <input type="text" name="part_sale[part_type]" value="<%= part_sale.escape("part_type")%>" placeholder="What kind of part is it?">
+    </li>
+  </ul>
+
+
+
   <br>
   <label for="">Please enter your ZIP code</label>
   <input type="text" name="part_sale[location]" value="<%= part_sale.escape("part_type")%>">
@@ -34,6 +42,6 @@
   </ul>
   <button class="add-image">Add an Image</button>
   <br>
-  <input type="submit" class="submit" value="Whoops">
+  <input type="submit" class="submit" value="Submit">
 
 </form>

@@ -1,0 +1,23 @@
+
+
+
+.request-form {
+  width: 600px;
+  margin: auto;
+  background: rgb(170,200,170);
+
+  .year {
+    width: 100px;
+  }
+
+  .part-info {
+    li {
+      float: left;
+      margin-left: 10px;
+      input {
+        padding: 5px 10px;
+      }
+    }
+  }
+
+}

@@ -3,7 +3,7 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
 
   },
 
-  className: "new-form part-sale",
+  className: "request-form part-sale",
 
   events: {
     "submit form": "submit",
