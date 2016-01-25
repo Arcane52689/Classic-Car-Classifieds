@@ -18,7 +18,7 @@ HemmingsClone.Views.AddImage = Backbone.View.extend({
   },
 
   fileInputChange: function(event) {
-
+    this.$(".preview").removeClass("inactive");
 
     var that = this;
     var file = event.currentTarget.files[0];
@@ -45,7 +45,7 @@ HemmingsClone.Views.AddImage = Backbone.View.extend({
 
   close: function() {
     this.remove();
-    this.model.images().spilice(this.model.images().indexOf(image),1);
+    this.model.images().splice(this.model.images().indexOf(this.image),1);
 
   }
 })
