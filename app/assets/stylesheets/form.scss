@@ -4,12 +4,22 @@
   background: rgb(170,200,170);
   text-align: center;
 
+  .valid {
+    background: rgba(100,200, 100,.8);
+  }
+
+  .invalid {
+    background: rgba(200, 100, 100, .8);
+  }
 
   .form-field {
     float: left;
     margin: 10px;
     border: 5px solid black;
     border-radius: 20px;
+    width: 140px;
+    height: 30px;
+    background: white;
     input {
       padding: 5px;
       width: 130px;
@@ -17,6 +27,16 @@
       border: 0px transparent;
 
     }
+
+    select {
+      width: 130px;
+      background: w;
+      outline: 0;
+      border: 0;
+      font-size: 18px;
+    }
+
+
   }
 
   .form-title {
@@ -44,6 +64,13 @@
     margin: 10px;
   }
 
+  .description {
+    margin: auto;
+    display: block;
+    width: 300px;
+    font-size: 14px;
+  }
+
 }
 
 
@@ -51,6 +78,11 @@
 
 
 .vehicle-form-fields {
+  width: 510px;
+  margin: auto;
+}
+
+.form-fields {
   width: 510px;
   margin: auto;
 }
@@ -135,9 +167,5 @@
 
   }
 
-  .description {
-    margin: auto;
-    display: block;
-    width: 300px;
-  }
+
 }

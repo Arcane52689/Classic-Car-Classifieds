@@ -1,49 +1,64 @@
-<h1> Sell Your Car! </h1>
+<h1 class="form-title"> Sell Your Car! </h1>
 
 <form class="new-vehicle-sale">
 
   <div class="errors"> </div>
 
-  <label for="">Year</label>
-  <select class="" name="vehicle[year]">
-    <% for (var year = 1900; year <= 2015; year++) { %>
-      <option value="<%=year%>"
-      <% if (year === 1950) { %>
-        selected
-      <%  } %>
-      > <%=year%> </option>
-    <% } %>
-  </select>
+
   <div id="make-model"></div>
 
 
-  <price>
+  <section class="extra-info">
+    <ul class="form-fields group">
+      <li class="form-field">
+        <input type="text" name="vehicle_sale[chasis_number]" value="<%= sale.escape('chasis_number') %>" placeholder="Chasis#/VIN">
+      </li>
 
-  <label for="">Chasis Number/VIN</label>
-  <input type="text" name="vehicle_sale[chasis_number]" value="<%= sale.escape("chasis_number") %>">
-  <label for="">Title Status</label>
-  <input type="text" name="vehicle_sale[title_status]" value="Clean">
-  <br>
-  <label for="">Condition</label>
-  <select  name="vehicle_sale[vehicle_condition]">
-    <% _.each(["Excellent", "Fair", "Good", "Mint", "Project"], function(condition){  %>
-    <option
-    value="<%=condition%>"
-    <% if (sale.escape("condition") == condition) { %>
-      selected
-    <% } %>  >
-      <%=condition%> </option>
-    <% }); %>
-  </select>
-  <label> Price</label><input type="text" name="vehicle_sale[price]"><br>
-  <label for="">Zip Code</label><input type="text" name="vehicle_sale[location]" value="<%= sale.escape("location") %>">
-  <br>
-  <label for="">Description</label>
-  <textarea name="vehicle_sale[vehicle_description]" rows="8" cols="40"></textarea>
-  <br>
-  <ul class="uploaded">
-  </ul>
-  <button class="add-image">Add an Image</button>
+      <li class="form-field">
+        <input type="text" name="vehicle_sale[title_status]" placeholder="Title Status">
+      </li>
+
+      <li class="form-field">
+        <select  name="vehicle_sale[vehicle_condition]">
+          <option value="None" selected> Condition? </option>
+          <% _.each(["Excellent", "Fair", "Good", "Mint", "Project"], function(condition){  %>
+            <option
+            value="<%=condition%>"
+            <% if (sale.escape("condition") == condition) { %>
+              selected
+              <% } %>  >
+              <%=condition%> </option>
+              <% }); %>
+            </select>
+      </li>
+
+    </ul>
+
+
+    <textarea class="description" name="vehicle_sale[vehicle_description]" rows="8" cols="40" placeholder="Tell us about the car"></textarea>
+  </section>
+  <section class="additional-info">
+
+  </section>
+
+
+  <section>
+    <ul class="additional-info group">
+      <li class="form-field">
+        <input type="number" name="vehicle_sale[price]" value="" placeholder="price">
+      </li>
+
+      <li class="form-field">
+        <input type="number" name="vehicle_sale[loaction]" value="" placeholder="Zipcode">
+      </li>
+    </ul>
+  </section>
+  <section class="images">
+    <h3 class="subtitle">Images</h3>
+    <ul class="uploaded group">
+    </ul>
+    <button class="add-image">Add an Image</button>
+</section>
   <br>
   <input type="submit" class="submit" name="name" value="BAM!">
 </form>

@@ -1,6 +1,7 @@
 HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.imageCount = 0;
+    this.valid = true;
   },
 
   className: "request-form part-sale",
@@ -36,11 +37,17 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
 
   submit: function(event) {
     event.preventDefault();
+    this.valid = true;
     if (!HemmingsClone.PopUps.mustLogin()) {
-
+      this.checkInputs();
+      this.checkTextAreas();
+      this.checkSelects();
+      if (!this.valid) {
+        return false;
+      }
       var $form = $(event.currentTarget);
       var data = $form.serializeJSON();
-      debugger
+
       this.model.save(data, {
         success: function(){
           this.collection.add(this.model);
@@ -60,6 +67,49 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
     this.imageCount += 1;
     var view = new HemmingsClone.Views.AddImage({model:this.model, name: "image-" + this.imageCount});
     this.addSubview(".uploaded", view);
+  },
+
+  checkInputs: function() {
+    var $input
+    this.$("input").each(function(index, input ){
+      $input = $(input);
+      $input.removeClass("valid").removeClass("invalid");
+      if ($input.val().length === 0) {
+        $input.addClass("invalid");
+        this.valid = false;
+      } else {
+        $input.addClass("valid");
+      }
+    }.bind(this));
+  },
+
+  checkTextAreas: function() {
+    var $textArea
+    this.$("textarea").each(function(index, textarea ){
+      $textarea = $(textarea);
+      $textarea.removeClass("valid").removeClass("invalid");
+      if ($textarea.val().length === 0) {
+        $textarea.addClass("invalid");
+        this.valid = false;
+      } else {
+        $textarea.addClass("valid");
+      }
+    }.bind(this));
+  },
+
+  checkSelects: function() {
+    var $select
+    // debugger
+    this.$("select").each(function(index, select ){
+      $select = $(select);
+      $select.removeClass("valid").removeClass("invalid");
+      if ($select.val() === "None") {
+        $select.addClass("invalid");
+        this.valid = false;
+      } else {
+        $select.addClass("valid");
+      }
+    }.bind(this));
   }
 
 
