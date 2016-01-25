@@ -15,7 +15,7 @@
 </div>
 <script>
 $(HemmingsClone.initialize);
-
+  window.ALL_MAKES = <%= raw Vehicle.makes %>
 </script>
 
 <script type="text/template" id="make-select">
@@ -36,7 +36,7 @@ $(HemmingsClone.initialize);
 
 <script type="text/template"  id="part_categories">
   <select class="select-part" name="part_sale[part_category]">
-    <option value="None"> None </option>
+    <option value="None"> Select a Category </option>
 
       <% PartSale.categories.each do |category| %>
         <option value="<%=category%>" id="<%=category%>">

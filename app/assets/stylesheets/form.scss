@@ -10,7 +10,17 @@
     width: 100px;
   }
 
-  .part-info {
+
+
+}
+
+.part-info {
+  .subtitle {
+    font-size: 24px;
+    text-align: center;
+  }
+  .part-fields {
+
     li {
       float: left;
       margin-left: 10px;
@@ -19,5 +29,4 @@
       }
     }
   }
-
 }

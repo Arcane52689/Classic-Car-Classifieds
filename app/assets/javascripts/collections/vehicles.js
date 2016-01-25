@@ -19,6 +19,14 @@ HemmingsClone.Collections.Vehicles = Backbone.Collection.extend({
 
   url: function() {
     return "api/vehicle_models/"+ this.make;
+  },
+
+  allModels: function() {
+    var result = [];
+    this.each(function(c) {
+      result.push(c.escape("model"));
+    })
+    return result;
   }
 
 })

@@ -10,22 +10,24 @@
   </select>
   <div id="make-model"></div>
   <br>
+  <section class="part-info">
 
-  <label for="">Part Information</label>
-  <ul class="group part-info">
+    <h3 class="subtitle">Part Information</h3>
+    <ul class="group part-fields">
 
-    <li>
-      <%= $("#part_categories").html() %>
-    </li>
+      <li>
+        <%= $("#part_categories").html() %>
+      </li>
 
-    <li>
-      <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape("part_number")%>" placeholder="What's the part #?">
-    </li>
+      <li>
+        <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape("part_number")%>" placeholder="What's the part #?">
+      </li>
 
-    <li>
-      <input type="text" name="part_sale[part_type]" value="<%= part_sale.escape("part_type")%>" placeholder="What kind of part is it?">
-    </li>
-  </ul>
+      <li>
+        <input type="text" name="part_sale[part_type]" value="<%= part_sale.escape("part_type")%>" placeholder="What kind of part is it?">
+      </li>
+    </ul>
+  </section>
 
 
 

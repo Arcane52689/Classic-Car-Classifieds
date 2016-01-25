@@ -14,12 +14,13 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template({part_sale: this.model}));
-    var view = new HemmingsClone.Views.MakeModelForm({
-      collection: new HemmingsClone.Collections.Vehicles({
-        make: "None"
-      })
-    })
-    this.addSubview("#make-model",view)
+    // var view = new HemmingsClone.Views.MakeModelForm({
+    //   collection: new HemmingsClone.Collections.Vehicles({
+    //     make: "None"
+    //   })
+    // })
+    var view = new HemmingsClone.Views.VehicleInfoForm()
+    this.addSubview("#make-model",view);
     return this;
   },
 
@@ -29,6 +30,7 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
 
       var $form = $(event.currentTarget);
       var data = $form.serializeJSON();
+      debugger
       this.model.save(data, {
         success: function(){
           this.collection.add(this.model);
