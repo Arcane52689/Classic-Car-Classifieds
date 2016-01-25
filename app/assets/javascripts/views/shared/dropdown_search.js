@@ -36,14 +36,11 @@ HemmingsClone.Views.DropdownSearch = Backbone.CompositeView.extend({
   updateResults: function() {
     var result = [];
     var match = this.$("input").val().toUpperCase();
-    debugger
     this.list.forEach(function(item) {
       if (item.toUpperCase().indexOf(match) > -1) {
-        // debugger
         result.push(item);
       }
     })
-    // debugger
     this.renderItems(result);
   },
 

@@ -1,19 +1,24 @@
 HemmingsClone.Views.AddImage = Backbone.View.extend({
-
+  initialize: function(options) {
+    this.name = options.name
+  },
   events: {
     "change input": "fileInputChange",
-    "click .close": "close"
+    "click .remove": "close"
   },
-
+  tagName: "li",
+  className: "image-form",
   template: JST["static/add_image"],
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({
+      name: this.name
+    }));
     return this;
   },
 
   fileInputChange: function(event) {
-    
+
 
     var that = this;
     var file = event.currentTarget.files[0];

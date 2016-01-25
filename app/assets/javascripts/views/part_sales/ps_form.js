@@ -1,6 +1,6 @@
 HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
   initialize: function(options) {
-
+    this.imageCount = 0;
   },
 
   className: "request-form part-sale",
@@ -21,7 +21,17 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
     // })
     var view = new HemmingsClone.Views.VehicleInfoForm()
     this.addSubview("#make-model",view);
+    this.renderCategories();
     return this;
+  },
+
+  renderCategories: function() {
+    var view = new HemmingsClone.Views.DropdownSearch({
+      name: "part_sale[part_category]",
+      placeholder: "Part Category",
+      list: window.PART_CATEGORIES
+    });
+    this.addSubview(".part-categories", view);
   },
 
   submit: function(event) {
@@ -47,7 +57,8 @@ HemmingsClone.Views.PartSaleForm = Backbone.CompositeView.extend({
 
   addImage: function(event) {
     event.preventDefault();
-    var view = new HemmingsClone.Views.AddImage({model:this.model})
+    this.imageCount += 1;
+    var view = new HemmingsClone.Views.AddImage({model:this.model, name: "image-" + this.imageCount});
     this.addSubview(".uploaded", view);
   }
 

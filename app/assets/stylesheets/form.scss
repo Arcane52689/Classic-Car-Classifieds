@@ -1,32 +1,118 @@
-
-
-
 .request-form {
   width: 600px;
   margin: auto;
   background: rgb(170,200,170);
 
-  .year {
-    width: 100px;
+
+  .form-field {
+    float: left;
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 20px;
+    input {
+      padding: 5px;
+      width: 130px;
+      border-radius: 20px;
+      border: 0px transparent;
+
+    }
+  }
+
+  .form-title {
+    font-size: 36px;
+    text-decoration: underline;
+    text-align: center;
   }
 
 
 
-}
-
-.part-info {
   .subtitle {
     font-size: 24px;
     text-align: center;
   }
-  .part-fields {
 
-    li {
+}
+
+
+
+
+
+.vehicle-form-fields {
+  width: 510px;
+  margin: auto;
+}
+
+.images {
+  .add-image {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 50%;
+    border: 5px solid black;
+    font-size: 18px;
+    background: green;
+    color: white;
+  }
+
+
+  .uploaded {
+    .image-form {
       float: left;
-      margin-left: 10px;
-      input {
-        padding: 5px 10px;
+      margin: 10px;
+      position: relative;
+
+      width: 150px;
+      figure {
+        width: 100px;
       }
+
+
+      label {
+        padding: 5px;
+        background: white;
+        border: 1px solid black;
+      }
+
+      input {
+        width: 0px;
+        height: 0;
+        border: 0;
+        outline: 0;
+      }
+
+      .close {
+
+      }
+
     }
+  }
+}
+
+
+
+
+
+.additional-info {
+  width: 350px;
+  margin: auto;
+}
+
+
+.part-info {
+
+
+  .part-fields {
+    width: 510px;
+    margin: auto;
+
+  }
+
+  .description {
+    margin: auto;
+    display: block;
+    width: 300px;
   }
 }

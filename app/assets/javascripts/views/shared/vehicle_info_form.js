@@ -31,13 +31,14 @@ HemmingsClone.Views.VehicleInfoForm = Backbone.CompositeView.extend({
   },
 
   renderModels: function() {
+    this.$(".model-select").removeClass("inactive");
     this.modelView && this.modelView.remove();
     this.modelView = new HemmingsClone.Views.DropdownSearch({
       name: "vehicle[model]",
       placeholder: "Model",
       list: this.collection.allModels(),
       selectCallback: this.selectModel.bind(this)
-    })
+    });
     this.addSubview(".model-select", this.modelView);
   }
 

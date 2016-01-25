@@ -1,49 +1,51 @@
 
 <form class="">
+
+  <h1 class="form-title"> Sell Your Part </h1>
   <div class="errors"> </div>
 
 
-  <label for="">Vehicle Information</label>
-  <br>
-  <input class="year" type="number" name="vehicle[year]" value="" placeholder="Model Year">
-
-  </select>
   <div id="make-model"></div>
-  <br>
   <section class="part-info">
 
     <h3 class="subtitle">Part Information</h3>
     <ul class="group part-fields">
 
-      <li>
-        <%= $("#part_categories").html() %>
+      <li class="part-categories form-field">
+
       </li>
 
-      <li>
-        <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape("part_number")%>" placeholder="What's the part #?">
+      <li class="form-field">
+        <input type="text" name="part_sale[part_number]" value="<%= part_sale.escape('part_number')%>" placeholder="What's the part #?">
       </li>
 
-      <li>
-        <input type="text" name="part_sale[part_type]" value="<%= part_sale.escape("part_type")%>" placeholder="What kind of part is it?">
+      <li class="form-field">
+        <input type="text" name="part_sale[part_type]" value="<%= part_sale.escape('part_type')%>" placeholder="What kind of part is it?">
+      </li>
+    </ul>
+
+    <textarea class="description" name="part_sale[part_description]" rows="8" cols="40" placeholder="What should we know about this part?"><%= part_sale.escape("part_description") %></textarea>
+  </section>
+
+  <section class="additional-info">
+    <h3 class="subtitle">Additional Info</h3>
+    <ul class="field-inputs group">
+      <li class="form-field">
+        <input type="text" name="part_sale[location]" value="<%= part_sale.escape('location')%>" placeholder="Your Zipcode">
+      </li>
+
+      <li class="form-field">
+        <input type=number name=part_sale[price] placeholder="Asking Price?">
       </li>
     </ul>
   </section>
+  <section class="images">
+    <h3 class="subtitle">Images</h3>
+    <ul class="uploaded group">
+    </ul>
+    <button class="add-image">Add an Image</button>
+  </section>
 
-
-
-  <br>
-  <label for="">Please enter your ZIP code</label>
-  <input type="text" name="part_sale[location]" value="<%= part_sale.escape("part_type")%>">
-  <br>
-  <label>Part Description</label>
-  <textarea name="part_sale[part_description]" rows="8" cols="40"><%= part_sale.escape("part_description") %></textarea>
-  <br>
-  <label> Asking Price </label> <input type=number name=part_sale[price]>
-  <br>
-  <ul class="uploaded">
-  </ul>
-  <button class="add-image">Add an Image</button>
-  <br>
   <input type="submit" class="submit" value="Submit">
 
 </form>

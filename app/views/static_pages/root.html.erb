@@ -14,8 +14,9 @@
 
 </div>
 <script>
-$(HemmingsClone.initialize);
+  $(HemmingsClone.initialize);
   window.ALL_MAKES = <%= raw Vehicle.makes %>
+  window.PART_CATEGORIES = <%= raw PartSale.categories %>
 </script>
 
 <script type="text/template" id="make-select">
