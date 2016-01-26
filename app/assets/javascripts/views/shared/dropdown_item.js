@@ -3,7 +3,7 @@ HemmingsClone.Views.DropdownItem = Backbone.View.extend({
     this.item = options.item;
   },
   tagName: "li",
-  class: "dropdown-item",
+  className: "dropdown-item",
 
   template: JST['shared/dropdown_item'],
 

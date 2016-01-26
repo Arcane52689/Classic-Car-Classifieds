@@ -143,29 +143,39 @@
         left:90%;
         bottom:90%;
       }
-
     }
   }
 }
-
-
-
-
 
 .additional-info {
   width: 350px;
   margin: auto;
 }
 
-
 .part-info {
-
-
   .part-fields {
     width: 510px;
     margin: auto;
+  }
+}
 
+
+.dropdown-search-box {
+  position: relative;
+  .dropdown-select {
+    background: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    position: absolute;
+    z-index: 1;
+    left:50%;
+    margin-left: -65px;
   }
 
+  .dropdown-item {
+    width: 100px;
+    padding: 5px 10px;;
+    border-bottom: 1px solid black;
+  }
 
 }

@@ -30,8 +30,14 @@ HemmingsClone.Views.Header = Backbone.View.extend({
     HemmingsClone.currentUser.set("email",undefined);
   },
 
-  login: HemmingsClone.PopUps.login,
-  signup: HemmingsClone.PopUps.signUp,
+  login: function(event) {
+    event.preventDefault();
+    HemmingsClone.PopUps.login();
+  },
+  signup: function(event) {
+    event.preventDefault();
+    HemmingsClone.PopUps.signUp();
+  },
 
   showListings: function(event) {
     event.preventDefault();
@@ -39,6 +45,7 @@ HemmingsClone.Views.Header = Backbone.View.extend({
   },
 
   dummyLogin: function() {
+    event.preventDefault();
     $.ajax({
       url: "api/session/dummy",
       success: function(response) {

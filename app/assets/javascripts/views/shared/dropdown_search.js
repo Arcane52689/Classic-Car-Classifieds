@@ -6,6 +6,8 @@ HemmingsClone.Views.DropdownSearch = Backbone.CompositeView.extend({
     this.selectCallback = options.selectCallback;
   },
 
+  className: "dropdown-search-box",
+
   events: {
     "keyup input": "updateResults",
     "click li": "select"

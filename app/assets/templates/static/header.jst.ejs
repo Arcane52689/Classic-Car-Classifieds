@@ -1,17 +1,41 @@
 <a class="logo" href="#"> Classic Car Classifieds </a>
 
-<% if (user.loggedIn()) { %>
-  <label class="hello"> Hello, <%= user.escape("email") %> </label>
-<% } %>
 
-<ul class="links group">
-  <% if (!user.loggedIn()) { %>
-    <li><button class="login nav-link">Login</button></li>
-    <li><button class="signup nav-link"> Sign Up </button> </li>
-    <li><button class="dummy nav-link"> Demo </button></li>
-  <% } else { %>
-    <li>  <button class="logout nav-link">Logout</button> </li>
-    <li> <button class="my-listings nav-link">My Listings </li>
-  <% } %>
+
+
+<ul class="header-links group">
+  <li class="dropdown-container header-item">
+    <% if (!user.loggedIn()) { %>
+      Login
+      <ul class="dropdown-menu inactive">
+        <li class=""><a href="#" class="login">Already a member? Sign in!</a></li>
+        <li class=""><a href="#" class="signup">Want to join? Sign up!</a></li>
+        <li class=""><a href="#" class="dummy">Try it with our Demo Account</a></li>
+      </ul>
+    <% } else { %>
+      <a href="#" class="my-listings"> My Listings </a>
+    <% } %>
+  </li>
+
+  <li class="dropdown-container header-item">
+    Cars
+    <ul class="dropdown-menu inactive">
+      <li class=""><a href="#vehicle_sales/new">Sell your car</a></li>
+      <li class=""><a href="#vehicle_sales">Find a car</a></li>
+
+    </ul>
+  </li>
+
+  <li class="dropdown-container header-item">
+    Parts
+    <ul class="dropdown-menu inactive">
+      <li><a href="#part_sales/new">Sell your parts </a></li>
+      <li><a href="#part_sales">Find a part </a></li>
+    </ul>
+  </li>
+
+  <li class="header-item">
+    <a href="#" class="logout">Logout </a>
+  </li>
 
 </ul>
