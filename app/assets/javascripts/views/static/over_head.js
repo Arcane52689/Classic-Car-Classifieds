@@ -8,7 +8,7 @@ HemmingsClone.Views.OverHead = Backbone.CompositeView.extend({
   className: "overhead group",
 
   events: {
-    "click li": "visit"
+    "click .link": "visit"
   },
 
 

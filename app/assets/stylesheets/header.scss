@@ -11,20 +11,17 @@
     height: 100%;
   }
 
-  .logo:hover{
-    background: white;
-    color: blue;
-  }
 
   .header-links {
     font-weight: bold;
     font-size: 24px;
     color: white;
     float: right;
+    // margin-top: 12px;
 
     .header-item {
       float: left;
-      padding: 5px 10px;
+      padding: 15px 10px;
     }
 
   }
@@ -60,43 +57,3 @@
 .dropdown-container:hover .dropdown-menu {
   display:block;
 }
-
-
-
-
-// .header .links ul {
-//   float: right;
-//   padding-right: 20px;
-//   padding-top: 17px;
-// }
-// .header .links ul li {
-//   float: left;
-//   border-left: 1px solid white;
-//   color: white;
-// }
-// .header .links ul li:hover {
-//   background: white;
-//   color: blue;
-// }
-//
-// .header .links ul li:last-child {
-//   border-right: 1px solid white;
-// }
-//
-// .header .links ul li a {
-//   display: block;
-//   padding: 20px;
-//
-// }
-//
-//
-// .header .hello {
-//   color: white;
-//   font-size: 24px;
-//   text-alignment: center;
-//   float: left;
-//   margin-left: 50px;
-//   margin-top: 15px;
-//   display: block;
-//   // margin: auto;
-// }

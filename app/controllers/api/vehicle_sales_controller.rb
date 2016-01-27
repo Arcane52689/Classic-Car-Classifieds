@@ -11,7 +11,7 @@ class Api::VehicleSalesController < ApplicationController
 
     @vehicle_sale.create_images(params[:vehicle_sale][:images]) if params[:vehicle_sale][:images]
     if @vehicle_sale.save
-      render json: @vehicle_sale
+      render json: @vehicle_sale, status: 200
     else
       render json: {errors: @vehicle_sale.errors.full_messages}, status: 422
     end
@@ -29,8 +29,8 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def search
-    search = Search.new(search_params)
-    @vehicle_sales = Search.filter(search.search_vehicle_sales.order(params[:sortBy]), params).page(params[:page])
+    # search = Search.new(search_params)
+    @vehicle_sales = Search.filter(Search.vehicle_sales(params).order(params[:sortBy]), params).page(params[:page])
     @pages = @vehicle_sales.total_pages
 
     render :index
