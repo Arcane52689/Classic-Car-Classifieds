@@ -31,7 +31,7 @@ class Search
   end
 
   def clean_year(year)
-    if year.to_i > 1935 && year.to_i < 2015
+    if year.to_i > 1980 && year.to_i < 2050
       return year.to_i
     else
       return nil
@@ -41,11 +41,20 @@ class Search
   def clean_params
     self.params[:year_start] = clean_year(self.params[:year_start]) || 1890
     self.params[:year_end] = clean_year(self.params[:year_end]) || 2050
-    self.params[:make] = nil if self.params[:make] == "None"
-    self.params[:model] = nil if self.params[:model] == "None"
-    self.params[:part_category] = nil if self.params[:part_category] == "None"
-    self.params[:part_type] = nil if self.params[:part_type] == ""
-    self.params[:part_number] = nil if self.params[:part_number] == ""
+    [:make, :model, :part_category, :part_type, :part_number].each do |key|
+      assign_to_nil_if_none(key)
+    end
+
+
+    # self.params[:make] = nil if self.params[:make] == "None"
+    # self.params[:model] = nil if self.params[:model] == "None"
+    # self.params[:part_category] = nil if self.params[:part_category] == "None"
+    # self.params[:part_type] = nil if self.params[:part_type] == ""
+    # self.params[:part_number] = nil if self.params[:part_number] == ""
+  end
+
+  def assign_to_nil_if_none(key)
+    self.params[key] = nil if self.params[key] == "None" || self.params[key] == ""
   end
 
 
