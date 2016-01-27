@@ -34,7 +34,7 @@ class Api::PartSalesController < ApplicationController
 
 
   def part_sale_params
-    params.require(:part_sale).require(:part_sale).permit(:part_description, :location, :part_type, :part_number, :part_category)
+    params.require(:part_sale).require(:part_sale).permit(:part_description, :location, :part_type, :part_number, :part_category, :price)
   end
 
   def search_params
