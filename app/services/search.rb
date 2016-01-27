@@ -21,6 +21,9 @@ class Search
     Search.new(params).search_vehicle_sales
   end
 
+  def self.part_sales(params)
+    Search.new(params).search_part_sales
+  end
 
 
   def initialize(params)

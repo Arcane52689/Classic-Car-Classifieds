@@ -27,7 +27,7 @@ class Api::PartSalesController < ApplicationController
   end
 
   def search
-    @part_sales = Search.filter(Search.new(search_params).search_part_sales, params).page(params[:page])
+    @part_sales = Search.filter(Search.part_sales(search_params), params).page(params[:page])
     @pages = @part_sales.total_pages
     render :index
   end
