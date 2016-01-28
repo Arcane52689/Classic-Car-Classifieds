@@ -29,6 +29,7 @@ HemmingsClone.Routers.SearchRouter = Backbone.Router.extend({
 
 
   searchVehicles: function(data) {
+    debugger
     var results = new HemmingsClone.Collections.VehicleSaleResults([], {
       query: data
     });

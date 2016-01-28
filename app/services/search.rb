@@ -31,7 +31,7 @@ class Search
   end
 
   def clean_year(year)
-    if year.to_i > 1980 && year.to_i < 2050
+    if year.to_i > 1900 && year.to_i < 2050
       return year.to_i
     else
       return nil
@@ -45,12 +45,6 @@ class Search
       assign_to_nil_if_none(key)
     end
 
-
-    # self.params[:make] = nil if self.params[:make] == "None"
-    # self.params[:model] = nil if self.params[:model] == "None"
-    # self.params[:part_category] = nil if self.params[:part_category] == "None"
-    # self.params[:part_type] = nil if self.params[:part_type] == ""
-    # self.params[:part_number] = nil if self.params[:part_number] == ""
   end
 
   def assign_to_nil_if_none(key)
@@ -80,7 +74,6 @@ class Search
 
     if self.params[:make]
       results = results.where("vehicles.make=?",self.params[:make])
-
     end
 
     if self.params[:model]

@@ -30,7 +30,7 @@ class Api::VehicleSalesController < ApplicationController
 
   def search
     # search = Search.new(search_params)
-    @vehicle_sales = Search.filter(Search.vehicle_sales(params).order(params[:sortBy]), params).page(params[:page])
+    @vehicle_sales = Search.filter(Search.vehicle_sales(search_params).order(params[:sortBy]), params).page(params[:page])
     @pages = @vehicle_sales.total_pages
 
     render :index
