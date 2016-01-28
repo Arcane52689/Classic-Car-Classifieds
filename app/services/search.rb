@@ -48,7 +48,6 @@ class Search
   end
 
   def assign_to_nil_if_none(key)
-    # byebug
     self.params[key] = nil if self.params[key] == "None" || self.params[key] == ""
   end
 
@@ -57,7 +56,6 @@ class Search
   def search_vehicle_sales
     self.clean_params
     results = VehicleSale.joins(:vehicle).where("vehicles.year BETWEEN ? AND ?", self.params[:year_start], self.params[:year_end]).includes(:vehicle)
-    byebug
     if self.params[:make]
       results = results.where("vehicles.make = ?", self.params[:make])
     end
