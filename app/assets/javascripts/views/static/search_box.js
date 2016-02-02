@@ -7,7 +7,8 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
 
   events: {
     "submit form": "search",
-    "click .search-option": "select"
+    "click .search-option": "select",
+    "click .title": "toggleSearch"
   },
 
   template: JST["static/search"],
@@ -80,6 +81,18 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
 
   setUpRefresh: function() {
     // setInterval(this.newImage.bind(this), 120000)
+  },
+
+  toggleSearch: function(event) {
+    event.preventDefault();
+    this.$el.one("transitionend", function() {
+      this.$("form").toggleClass("inactive");
+    }.bind(this));
+    this.$el.toggleClass("minified");
+  },
+
+  minify: function() {
+
   }
 
 })
