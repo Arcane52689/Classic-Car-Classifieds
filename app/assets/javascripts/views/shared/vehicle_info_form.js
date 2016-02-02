@@ -1,7 +1,8 @@
 HemmingsClone.Views.VehicleInfoForm = Backbone.CompositeView.extend({
-  initialize: function() {
+  initialize: function(options) {
+    options = options || {};
     this.makes = window.ALL_MAKES
-
+    this.isSearch = options.isSearch || false;
     this.makeView = new HemmingsClone.Views.DropdownSearch({
       name: "vehicle[make]",
       placeholder: "Manufacturer",
@@ -17,7 +18,7 @@ HemmingsClone.Views.VehicleInfoForm = Backbone.CompositeView.extend({
   template: JST["shared/vehicle_info_form"],
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({ isSearch: this.isSearch}));
     this.addSubview(".make-select", this.makeView);
     return this;
   },

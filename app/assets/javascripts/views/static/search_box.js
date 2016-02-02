@@ -1,6 +1,6 @@
 HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
   initialize: function(options) {
-    this.newImage()
+    // this.newImage()
   },
   tagName: "section",
   className: "search",
@@ -14,11 +14,10 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
 
   render: function() {
     this.$el.html(this.template({}));
-    var view = new HemmingsClone.Views.MakeModelForm({
-      collection: new HemmingsClone.Collections.Vehicles({
-        make: "None"
-      })
-    });
+    var view = new HemmingsClone.Views.VehicleInfoForm({
+      isSearch: true
+    })
+
     this.addSubview("#make-and-model", view)
     return this;
   },
@@ -64,7 +63,7 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
   },
 
   setUpRefresh: function() {
-    setInterval(this.newImage.bind(this), 120000)
+    // setInterval(this.newImage.bind(this), 120000)
   }
 
 })
