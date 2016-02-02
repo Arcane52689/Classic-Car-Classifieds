@@ -19,6 +19,7 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
     })
 
     this.addSubview("#make-and-model", view)
+
     return this;
   },
 

@@ -1,108 +1,57 @@
-
-
 .search {
-  display: block;
-  position: relative;
-  width: 590px;
-  height: 340px;
-  margin: auto;
-  color: white;
-  margin-bottom: 30px;
-
-  overflow: hidden;
-  border: 5px solid white;
-  border-radius: 5px;
-}
-
-.search h1 {
   text-align: center;
-  font-size: 24px;
-}
+  border: 5px solid black;
+  border-radius: 20px;
+  width: 400px;
+  padding: 20px;
+  background: rgb(100,200,100);
 
-.search-options {
-  width: 204px;
-  margin: auto;
+  .search-options {
 
-}
+    padding: 10px;
+    width: 230px;
+    margin: auto;
 
+    .selected {
+      background: white;
 
-.search-option {
-  float: left;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px;
-  width: 60px;
-  margin: 10px;
-  text-align: center;
-  cursor: pointer;
-  text-shadow: 2px 2px 2px #444;
+    }
 
-}
-
-.search-option:hover {
-  background: rgba(255,255,255,.5);
-  color: black;
-  cursor: pointer;
-}
-
-.search .selected {
-  background: rgba(255,255,255,.5);
-  color: black;
-  cursor: pointer;
-  text-shadow: none;
-
-}
-
-.search form {
-  text-align: center;
-}
-
-.search form label {
-  text-shadow: 1px 1px 2px black;
-}
-
-.search form input {
-  margin: 10px 5px;
-  background: rgba(255,255,255,.5);
-  color: black;
+    .search-option {
+      float: left;
+      border: 1px solid black;
+      margin-right: 10px;
+      width: 80px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
 
 
-}
+  .form-field {
+    border: 5px solid black;
+    border-radius: 20px;
+    width: 140px;
+    height: 30px;
+    background: white;
+    float: left;
+    margin: 10px 22px;
 
-.search .year input {
-  width: 50px;
-}
+    input {
+      padding: 5px;
+      width: 130px;
+      border-radius: 20px;
+      border: 0px transparent;
 
-
-
-.search form .submit {
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 10px;
-  background: rgba(255,255,255,.4);
-  font-weight: bold;
-  font-size: 14px;
+    }
+  }
 
 }
 
 
-.search img {
-  height: auto;
-  width: 100%;
-  position: absolute;
-  z-index: -1;
-  transition: left 1s;
-}
 
-
-.search .left {
-  left: -100%;
-}
-
-.search .waiting {
-  display: none;
-  right: -100%;
-}
 
 .item .preview {
   float: left;

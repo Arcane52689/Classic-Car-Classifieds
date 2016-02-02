@@ -2,14 +2,23 @@
 
 <ul class="vehicle-form-fields group">
     <% if (isSearch) { %>
-      <li class="form-field">
-        <input type="number" name="vehicle[year_start]" value="" placeholder="From?">
-        <input type="number" name="vehicle[year_end]" value="" placeholder="To?">
+      <li class="">
+        <ul class="years">
+          <li class="form-field">
+            <input class="year" type="number" name="vehicle[year_start]" value="" placeholder="From?">
+          </li>
+
+          <li class="form-field">
+            <input  class="year" type="number" name="vehicle[year_end]" value="" placeholder="To?">
+          </li>
+        </ul>
+
+
 
 
     <% } else { %>
       <li class="form-field">
-        <input type="number" name="vehicle[year]" value="" placeholder="Model Year">
+        <input class="year" type="number" name="vehicle[year]" value="" placeholder="Model Year">
       </li>
     <% } %>
 
