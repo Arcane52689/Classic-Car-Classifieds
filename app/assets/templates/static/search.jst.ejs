@@ -15,16 +15,24 @@
   <label class="year">Year End:
   <input type="text" name="vehicle[year_end]" value="">
   </label> -->
-  <div id="make-and-model"></div>
+  <div class="vehicle-info" id="make-and-model"></div>
 
   <br>
   <div class="inactive" id="part-search">
-    <%= $("#part_categories").html() %>
 
-    <label for="">Part # :</label>
-    <input type="text" name="part_sale[part_number]" value="">
-    <label>Part Type:</label>
-    <input type="text" name="part_sale[part_type]" value="">
+    <ul class="parts-info">
+      <li class="form-field part-categories">
+
+      </li>
+      <li class="form-field">
+        <input type="text" name="part_sale[part_number]" placeholder="Part #" value="">
+      </li>
+      <li class="form-field">
+
+        <input type="text" name="part_sale[part_type]" placeholder="What part is it?" value="">
+      </li>
+
+    </ul>
   </div>
 
 

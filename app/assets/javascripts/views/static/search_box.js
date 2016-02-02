@@ -18,9 +18,24 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
       isSearch: true
     })
 
-    this.addSubview("#make-and-model", view)
+    this.addSubview("#make-and-model", view);
+    this.renderCategories();
 
+    this.turnOffAutoComplete();
     return this;
+  },
+
+  turnOffAutoComplete: function() {
+    this.$("input").attr("autocomplete", "off");
+  },
+
+  renderCategories: function() {
+    var view = new HemmingsClone.Views.DropdownSearch({
+      name: "part_sale[part_category]",
+      placeholder: "Part Category",
+      list: window.PART_CATEGORIES
+    });
+    this.addSubview(".part-categories", view);
   },
 
   search: function(event) {
