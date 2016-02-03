@@ -12,10 +12,21 @@ class Image < ActiveRecord::Base
 
 
 
-  def self.random
+  def self.random_id
     last_id = Image.last.id
     id = rand(1..last_id)
-    return Image.find(id) if Image.exists?(id: id)
+    return id if Image.exists?(id: id)
     return Image.random()
   end
+
+  def self.random_pictures(count)
+    ids = [];
+    while ids.length < count
+      id = self.random_id
+      ids << id unless ids.include?(id)
+    end
+    Image.where("id in (?)",ids).map { |image| image.picture.url }.shuffle
+  end
+
+
 end

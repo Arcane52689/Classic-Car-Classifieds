@@ -60,6 +60,20 @@ window.HemmingsClone = {
   }
 };
 
+HemmingsClone.newImage = function() {
+  $.ajax({
+    url: "api/vehicle_sales/random_image",
+    dataType: "json",
+    success: function(resp) {
+      debugger
+      $("body").css("background-image", "url(" + resp.image_url + ")")
+    }.bind(this),
+    error: function(resp) {
+      this.$("#1").attr("src",resp.responseText);
+    }.bind(this)
+  })
+}
+
 // $(document).ready(function(){
 //   HemmingsClone.initialize();
 

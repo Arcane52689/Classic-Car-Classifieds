@@ -85,14 +85,32 @@ HemmingsClone.Views.SearchBox = Backbone.CompositeView.extend({
 
   toggleSearch: function(event) {
     event.preventDefault();
+    if (this.transitioning) {
+      return
+    }
+    this.transitioning = true;
+    if (this.$el.is('.minified')) {
+      this.unMinify();
+    } else {
+      this.minify();
+    }
+
+  },
+
+  minify: function() {
     this.$el.one("transitionend", function() {
       this.$("form").toggleClass("inactive");
+      this.transitioning = false;
     }.bind(this));
     this.$el.toggleClass("minified");
   },
 
-  minify: function() {
-
+  unMinify: function() {
+    this.$("form").toggleClass("inactive");
+    this.$el.one("transitionend", function() {
+      this.transitioning = false;
+    }.bind(this));
+    this.$el.toggleClass("minified");
   }
 
 })

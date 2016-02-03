@@ -27,7 +27,7 @@ HemmingsClone.Views.VehicleInfoForm = Backbone.CompositeView.extend({
     this.collection.setMake(make);
   },
 
-  
+
 
   renderModels: function() {
     if (!this.$(".vehicle-form-fields").is(".large")) {
@@ -39,8 +39,7 @@ HemmingsClone.Views.VehicleInfoForm = Backbone.CompositeView.extend({
       this.modelView = new HemmingsClone.Views.DropdownSearch({
         name: "vehicle[model]",
         placeholder: "Model",
-        list: this.collection.allModels(),
-        selectCallback: this.selectModel.bind(this)
+        list: this.collection.allModels()
       });
       this.addSubview(".model-select", this.modelView);
     }

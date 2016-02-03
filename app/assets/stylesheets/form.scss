@@ -77,9 +77,15 @@
 
 
 
-.vehicle-form-fields {
-  width: 510px;
+
+.vehicle-form-fields{
+  width: 400px;
   margin: auto;
+  transition: width 1s;
+}
+
+.vehicle-form-fields.large {
+  width: 510px
 }
 
 .form-fields {

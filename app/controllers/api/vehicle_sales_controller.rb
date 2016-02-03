@@ -47,9 +47,9 @@ class Api::VehicleSalesController < ApplicationController
   end
 
   def random_image
-    last_id = Image.last.id
-
-    render json: {image_url: Image.random.picture.url }, status: 200
+    count = params[:count].to_i
+    images = Image.random_pictures(count)
+    render json: {image_urls: images }, status: 200
 
   end
 

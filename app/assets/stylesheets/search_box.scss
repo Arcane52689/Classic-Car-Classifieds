@@ -3,19 +3,25 @@
   width: 100px;
   height: 30px;
 }
-
+.search-container {
+  margin: auto;
+  width: 800px;
+}
 
 .search {
   text-align: center;
-  border: 5px solid black;
+  border: 5px solid #666;
   border-radius: 20px;
-  width: 800px;
+  width: 700px;
+  height: 300px;
   margin: auto;
-  height: 350px;
+  margin-bottom: 20px;
   padding: 20px;
   background: rgb(100,200,100);
   overflow: hidden;
-  transition: height 2s, width 2s;
+  transition: height 1s, width 1s;
+  position: relative;
+  top: 20px;
 
   .search-options {
 
@@ -78,65 +84,38 @@
     }
   }
 
+  .submit {
+    border: 5px solid black;
+    border-radius: 20px;
+    font-weight: 700;
+    width: 125px;
+    font-size: 18px;
+    background: white;
+  }
+
 }
 
 
 
 
-.item .preview {
-  float: left;
-}
-
-.item .description {
-  margin-top: 5px;
-}
 
 .overhead {
-  width: 1000px;
+  background-repeat: no-repeat;
   margin: auto;
-  margin-top: 30px;
-}
-
-.over-item {
-  float: left;
-}
+  background-size: contain;
+  // height: 600px;
 
 
-.overhead > ul:first-child {
-  margin-right: 30px;
-}
-
-.overhead > ul:last-child {
-  margin-left: 30px;
-}
-
-
-.overhead > ul > li {
-  display: block;
-  width: 140px;
-  height: 110px;
-
-  padding: 10px;
-  border: 5px solid black;
-  margin-bottom: 10px;
-  position: relative;
-
-  overflow: hidden;
-
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-}
-
-
-.overhead > ul > li img {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
+  .images-banner {
+    width: 1000px;
+    margin: auto;
+    li {
+      width: 250px;
+      float: left;
+      height: 200px;
+      img {
+        height: 100%;
+      }
+    }
+  }
 }

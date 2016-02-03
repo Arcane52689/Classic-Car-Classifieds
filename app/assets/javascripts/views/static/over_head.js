@@ -1,14 +1,15 @@
 HemmingsClone.Views.OverHead = Backbone.CompositeView.extend({
   initialize: function() {
-
+    this.newImages();
+    setTimeout(this.newImages.bind(this), 30000);
   },
 
-  tagName: "nav",
+  tagName: "div",
 
   className: "overhead group",
 
   events: {
-    "click .link": "visit"
+    // "click .link": "visit"
   },
 
 
@@ -28,6 +29,25 @@ HemmingsClone.Views.OverHead = Backbone.CompositeView.extend({
     var $li = $(event.currentTarget);
     var link = $li.find("a").attr("href");
     Backbone.history.navigate(link, { trigger: true });
+  },
+
+  newImages: function() {
+    $.ajax({
+      url: "api/vehicle_sales/random_image",
+      data: {
+        count: 4
+      },
+      dataType: "json",
+      success: function(resp) {
+        for (var i = 1; i < 5; i++) {
+          this.$("#" + i).attr("src", resp.image_urls[i - 1]);
+
+        }
+      }.bind(this),
+      error: function(resp) {
+        // this.$("#1").attr("src",resp.responseText);
+      }.bind(this)
+    })
   }
 
 })
